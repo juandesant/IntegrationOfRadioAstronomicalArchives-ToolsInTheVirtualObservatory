@@ -1,7 +1,3 @@
-# folders to be ignored
-cim_schema_2.20.0-PDFs/*
-deprecated/*
-
 # Auxiliary LaTeX extensions to be ignored
 *.aux
 *.log
@@ -16,27 +12,3 @@ deprecated/*
 *.synctex.gz
 *.tmp
 *.toc
-
-# Scripts to be ignored
-dell.*Mac
-mac.*Dell
-
-# some Bib/LaTeX files to be ignored
-abstract.tex
-movoir.old.tex
-pruebaListTable.tex
-radams-modificado.tex
-radams_classic.tex
-scratchpad.tex
-snippets.tex
-thesis_backup.bib
-
-# presentation file
-VOLinks.key
-
-# remove webhistory files
-*.webhistory
-
-# Ignore AA class (not used)
-aastex.cls
-
