@@ -1,0 +1,54 @@
+I Introduction: Astronomy and the Virtual Observatory
+	Introduction
+		Technical development of astronomy  
+		Astronomy data today  
+		Astronomical archives  
+		Thesis context  
+	The Virtual Observatory
+		VO architecture and philosophy  
+		The International Virtual Observatory Alliance  
+		VO data formats  
+II Bringing radio astronomy data into the Virtual Observatory
+	Data modelling in the VO
+		Semantics in VO data models  
+		Typical operations on astronomical datasets  
+		The IVOA Observation Model  
+		The IVOA Characterisation Data Model for Observations  
+	RADAMS, a complete data model for radio astronomical observations
+		Overview  
+		Proposal of new IVOA data models  
+	Conclusions
+III Accessing radio astronomy data in the Virtual Observatory
+	Using existing VO tools for radio data
+		List of VO tools compatible with radio data  
+	The Programmatic Interface of the Virtual Observatory
+		Introduction  
+	Bringing legacy tools into the VO
+		Different approaches to update legacy applications  
+		An example: massa  
+		Another example: GIPSY  
+		Conclusions  
+IV Specific results and thesis contributions
+	Radio astronomical archives
+	Software tools
+	Publications
+V Appendices
+	Introduction to XML
+		Data markup  
+		XML markup  
+		XML validation  
+		XML semantics  
+		XML Schema  
+	VOTable format definition
+		VOTable DTD  
+		VOTable XML Schema Definition  
+		VOTable structure 
+	VO protocols
+		Simple ConeSearch  
+		Simple Image Access Protocol  
+		Simple Spectral Access Protocol  
+	Description of the FITS file format
+		Units and Dimensional Analysis  
+	PLASTIC messages
+	PLASTIC to SAMP messages conversion guide
+	Overview of the DSS-63 and IRAM 30m antennas

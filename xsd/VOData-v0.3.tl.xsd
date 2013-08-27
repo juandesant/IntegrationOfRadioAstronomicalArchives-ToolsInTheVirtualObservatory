@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Tony Linde (University of Leicester) -->
+<xs:schema targetNamespace="http://www.ivoa.net/xml/prop/VODataService/v0.2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vr="http://www.ivoa.net/xml/prop/VOResource/v0.8.2" xmlns:vs="http://www.ivoa.net/xml/prop/VODataService/v0.2" xmlns:vm="http://www.ivoa.net/xml/prop/VOMetadata" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.2">
+	<xs:annotation>
+		<xs:appinfo>
+			<vm:SchemaName>VODataService</vm:SchemaName>
+			<vm:schemaPrefix>xs</vm:schemaPrefix>
+			<vm:targetPrefix>vs</vm:targetPrefix>
+		</xs:appinfo>
+		<xs:documentation>
+        An extension to the core resource metadata (VOResource) for 
+      	describing data collections and services.
+      </xs:documentation>
+		<xs:documentation>
+      	Diff 0.2-0.1: Service and subelements moved to VOResource core
+      </xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://www.ivoa.net/xml/prop/VOResource/v0.8.2" schemaLocation="VOResource-v0.8.3tl.xsd"/>
+	<xs:element name="DataCollection" type="vs:DataCollectionType" substitutionGroup="vr:Resource">
+		<xs:annotation>
+			<xs:documentation>
+	   A logical grouping of data which, in general, is composed of one 
+	   or more accessible datasets.
+	 </xs:documentation>
+			<xs:documentation>
+	   (A dataset is a collection of digitally-encoded data with a that 
+	   is normally accessible as a single unit, e.g. a file.)
+	 </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="DataCollectionType">
+		<xs:complexContent>
+			<xs:extension base="vr:ResourceType">
+				<xs:sequence>
+					<xs:element ref="vs:Coverage" minOccurs="0"/>
+					<xs:element ref="vs:Resolution" minOccurs="0"/>
+					<xs:element ref="vs:Access" minOccurs="0"/>
+					<xs:element ref="vs:UCD" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="vs:Table" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Coverage" type="vs:CoverageType">
+		<xs:annotation>
+			<xs:documentation>
+	   Extent of the content of the resource over space, time, and 
+	   frequency.
+	 </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="CoverageType">
+		<xs:sequence>
+			<xs:element ref="vs:Spatial" minOccurs="0"/>
+			<xs:element ref="vs:Spectral" minOccurs="0"/>
+			<xs:element ref="vs:Temporal" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Spatial" type="xs:anyType">
+		<xs:annotation>
+			<xs:documentation>the spatial coverage of a resource</xs:documentation>
+			<xs:documentation>Note: type not yet defined</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Temporal" type="xs:anyType">
+		<xs:annotation>
+			<xs:documentation>the temporal coverage of a resource</xs:documentation>
+			<xs:documentation>Note: type not yet defined</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Spectral" type="xs:anyType">
+		<xs:annotation>
+			<xs:documentation>the spectral coverage of a resource</xs:documentation>
+			<xs:documentation>Note: type not yet defined</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Resolution" type="xs:anyType">
+		<xs:annotation>
+			<xs:documentation>the resolution of the resource contents</xs:documentation>
+			<xs:documentation>Note: type not yet defined</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ServiceRef" type="vr:ResourceReferenceType"/>
+	<xs:element name="Access" type="vs:AccessType">
+		<xs:annotation>
+			<xs:documentation>
+	   a description about how a data collection may be accessed
+	 </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="AccessType">
+		<xs:sequence>
+			<xs:element ref="vs:Format" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="vs:Rights" minOccurs="0"/>
+			<xs:element ref="vs:ServiceRef" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+	      A reference to a service that accesses this data collection.
+	    </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Format" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>
+	   The physical or digital manifestation of the information supported
+	   by a resource.
+	 </xs:documentation>
+			<xs:documentation>
+	   MIME types should be used for network-retrievable, digital data.
+	   Non-MIME type values are used for media that cannot be retrieved
+	   over the network--e.g. CDROM, poster, slides, video cassette, 
+	   etc.  
+	 </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Rights" type="vs:RightsType">
+		<xs:annotation>
+			<xs:appinfo>
+				<vm:dcterm>Rights</vm:dcterm>
+			</xs:appinfo>
+			<xs:documentation>
+	   Information about rights held in and over the resource.
+	 </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:simpleType name="RightsType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="public">
+				<xs:annotation>
+					<xs:documentation>
+		     unrestricted, public access is allowed
+	          </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="public">
+				<xs:annotation>
+					<xs:documentation>
+		     unrestricted, public access is allowed without 
+		     authentication.
+	          </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="secure">
+				<xs:annotation>
+					<xs:documentation>
+		     authenticated, public access is allowed.
+	          </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="proprietary">
+				<xs:annotation>
+					<xs:documentation>
+		     only proprietary access is allowed with authentication.
+	          </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="ColumnDataType" type="xs:string"/>
+	<xs:element name="ColumnUnit" type="xs:string"/>
+	<xs:element name="UCD" type="xs:string"/>
+	<xs:element name="ColumnName" type="xs:string"/>
+	<xs:complexType name="ColumnType">
+		<xs:sequence>
+			<xs:element ref="vs:ColumnName"/>
+			<xs:element ref="vs:UCD" minOccurs="0"/>
+			<xs:element ref="vs:ColumnDataType" minOccurs="0"/>
+			<xs:element ref="vs:ColumnUnit" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Column" type="vs:ColumnType"/>
+	<xs:element name="Table" type="vs:TableType"/>
+	<xs:complexType name="TableType">
+		<xs:sequence>
+			<xs:element ref="vr:Name"/>
+			<xs:element ref="vs:UCD" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="vs:Column" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+

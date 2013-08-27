@@ -1,0 +1,649 @@
+% phpMyAdmin LaTeX Dump
+% version 2.11.7.1
+% http://www.phpmyadmin.net
+%
+% Servidor: localhost
+% Tiempo de generación: 25-03-2009 a las 22:24:51
+% Versión del servidor: 5.0.41
+% Versión de PHP: 5.2.6
+% 
+% Base de datos: 'dss63'
+% 
+
+%
+% Estructura: antennaconfig
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{antennaconfig}} \label{tab:antennaconfig-structure} \\
+ \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{antennaconfig} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+Antennas\_id & int(11) & Yes &  \\ \addlinespace 
+Scans\_id & int(11) & Yes & NULL \\ \addlinespace 
+Subscans\_id & int(11) & Yes & NULL \\ \addlinespace 
+azimuth & double & Yes & NULL \\ \addlinespace 
+elevation & double & Yes & NULL \\ \addlinespace 
+Tsys & double & Yes & NULL \\ \addlinespace 
+comments & longtext & Yes &  \\ 
+ \end{longtable}
+
+%
+% Estructura: antennas
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{antennas}} \label{tab:antennas-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{antennas} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+name & varchar(255) & Yes &  \\ \addlinespace 
+longitude & double & Yes & NULL \\ \addlinespace 
+latitude & double & Yes & NULL \\ 
+\end{longtable}
+
+%
+% Estructura: backends
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{backends}} \label{tab:backends-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{backends} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+BackendsNames\_id & int(11) & Yes &  \\ \addlinespace 
+Receivers\_id & int(11) & Yes &  \\ \addlinespace 
+resolution & double & Yes & NULL \\ \addlinespace 
+bandwidth & double & Yes & NULL \\ \addlinespace 
+spb\_temp & double & Yes & NULL \\ \addlinespace 
+spb\_pwr & double & Yes & NULL \\ 
+  \end{longtable}
+
+%
+% Estructura: backendsnames
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{backendsnames}} \label{tab:backendsnames-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{backendsnames} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+name & varchar(255) & Yes &  \\ \addlinespace 
+description & longtext & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: calibrationsettings
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{calibrationsettings}} \label{tab:calibrationsettings-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{calibrationsettings} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+Scans\_id & int(11) & Yes &  \\ \addlinespace 
+Receivers\_id & int(11) & Yes &  \\ 
+  \end{longtable}
+
+
+%
+% Estructura: expfiles
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{expfiles}} \label{tab:expfiles-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{expfiles} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+logFiles\_id & int(11) & Yes &  \\ \addlinespace 
+\textbf{filename} & varchar(255) & Yes &  \\ \addlinespace 
+year & smallint(6) & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: flux
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{flux}} \label{tab:flux-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{flux} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+Scans\_id & int(11) & Yes &  \\ \addlinespace 
+FluxUnits\_id & int(11) & Yes &  \\ \addlinespace 
+Flux\_max & double & Yes & NULL \\ \addlinespace 
+Flux\_min & double & Yes & NULL \\ \addlinespace 
+Flux\_integrated & double & Yes & NULL \\ 
+  \end{longtable}
+
+%
+% Estructura: fluxunits
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{fluxunits}} \label{tab:fluxunits-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{fluxunits} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+name & varchar(255) & Yes &  \\ \addlinespace 
+description & longtext & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: focussettings
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{focussettings}} \label{tab:focussettings-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{focussettings} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+Scans\_id & int(11) & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: frequencyswitching
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{frequencyswitching}} \label{tab:frequencyswitching-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{frequencyswitching} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+SwitchingValues\_id & int(11) & Yes &  \\ \addlinespace 
+Receivers\_id & int(11) & Yes &  \\ \addlinespace 
+frequencyThrow & double & Yes & NULL \\ 
+  \end{longtable}
+
+%
+% Estructura: logfiles
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{logfiles}} \label{tab:logfiles-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{logfiles} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+\textbf{filename} & varchar(255) & Yes &  \\ \addlinespace 
+year & smallint(6) & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: logs
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{logs}} \label{tab:logs-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{logs} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+\textbf{timeStamp} & datetime & Yes &  \\ \addlinespace 
+T\_lna & double & Yes & NULL \\ \addlinespace 
+T\_fo\_assumed & double & Yes & NULL \\ \addlinespace 
+ND\_coupling\_correction & double & Yes & NULL \\ \addlinespace 
+T\_ambient\_load & double & Yes & NULL \\ \addlinespace 
+Azimuth & double & Yes & NULL \\ \addlinespace 
+Elevation & double & Yes & NULL \\ \addlinespace 
+Frequency & double & Yes & NULL \\ 
+  \end{longtable}
+
+%
+% Estructura: logsexp
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{logsexp}} \label{tab:logsexp-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{logsexp} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+\textbf{timeStamp} & datetime & Yes &  \\ \addlinespace 
+gain & double & Yes & NULL \\ \addlinespace 
+linear\_corr & double & Yes & NULL \\ \addlinespace 
+quadratic\_corr & double & Yes & NULL \\ \addlinespace 
+T\_noise\_diode & double & Yes & NULL \\ \addlinespace 
+non\_linearity & double & Yes & NULL \\ 
+  \end{longtable}
+
+%
+% Estructura: logst
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{logst}} \label{tab:logst-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{logst} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+SourceLogs\_id & int(11) & Yes &  \\ \addlinespace 
+LogsExp\_id & int(11) & Yes &  \\ \addlinespace 
+powermeter & double & Yes & NULL \\ \addlinespace 
+T\_linear & double & Yes & NULL \\ \addlinespace 
+T\_corrected & double & Yes & NULL \\ 
+  \end{longtable}
+
+%
+% Estructura: observingmodes
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{observingmodes}} \label{tab:observingmodes-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{observingmodes} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+name & varchar(255) & Yes &  \\ \addlinespace 
+description & longtext & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: onoffsettings
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{onoffsettings}} \label{tab:onoffsettings-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{onoffsettings} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+Scans\_id & int(11) & Yes &  \\ \addlinespace 
+SystemNames\_id & int(11) & Yes &  \\ \addlinespace 
+xOffset & double & Yes & NULL \\ \addlinespace 
+yOffset & double & Yes & NULL \\ 
+  \end{longtable}
+
+%
+% Estructura: otfmapsettings
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{otfmapsettings}} \label{tab:otfmapsettings-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{otfmapsettings} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+xStart & double & Yes & NULL \\ \addlinespace 
+yStart & double & Yes & NULL \\ \addlinespace 
+xEnd & double & Yes & NULL \\ \addlinespace 
+yEnd & double & Yes & NULL \\ \addlinespace 
+xStep & double & Yes & NULL \\ \addlinespace 
+yStep & double & Yes & NULL \\ \addlinespace 
+speedStart & double & Yes & NULL \\ \addlinespace 
+speedEnd & double & Yes & NULL \\ \addlinespace 
+timePerOtf & double & Yes & NULL \\ 
+  \end{longtable}
+
+%
+% Estructura: otfoffsets
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{otfoffsets}} \label{tab:otfoffsets-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{otfoffsets} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+Scans\_id & int(11) & Yes &  \\ \addlinespace 
+OTFMapSettings\_id & int(11) & Yes &  \\ \addlinespace 
+SystemNames\_id & int(11) & Yes &  \\ \addlinespace 
+xOffset & double & Yes & NULL \\ \addlinespace 
+yOffset & double & Yes & NULL \\ 
+  \end{longtable}
+
+%
+% Estructura: pointingsettings
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{pointingsettings}} \label{tab:pointingsettings-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{pointingsettings} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+Scans\_id & int(11) & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: projects
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{projects}} \label{tab:projects-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{projects} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+PI\_id & int(11) & Yes & NULL \\ \addlinespace 
+\textbf{title} & varchar(255) & Yes &  \\ \addlinespace 
+priority & smallint(6) & Yes & NULL \\ \addlinespace 
+allocatedTime & double & Yes & NULL \\ \addlinespace 
+usedTime & double & Yes & NULL \\ \addlinespace 
+comments & longtext & Yes &  \\ \addlinespace 
+description & longtext & Yes &  \\ \addlinespace 
+is\_public & tinyint(1) & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: rawfiles
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{rawfiles}} \label{tab:rawfiles-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{rawfiles} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+logFiles\_id & int(11) & Yes &  \\ \addlinespace 
+\textbf{filename} & varchar(255) & Yes &  \\ \addlinespace 
+year & smallint(6) & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: receivers
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{receivers}} \label{tab:receivers-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{receivers} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+ReceiversNames\_id & int(11) & Yes &  \\ \addlinespace 
+Scans\_id & int(11) & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: receiverscfg
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{receiverscfg}} \label{tab:receiverscfg-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{receiverscfg} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+Receivers\_id & int(11) & Yes &  \\ \addlinespace 
+linename & varchar(255) & Yes &  \\ \addlinespace 
+frequency & double & Yes & NULL \\ \addlinespace 
+polarization & varchar(255) & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: receiversnames
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{receiversnames}} \label{tab:receiversnames-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{receiversnames} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+name & varchar(255) & Yes &  \\ \addlinespace 
+description & longtext & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: reducedfiles
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{reducedfiles}} \label{tab:reducedfiles-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{reducedfiles} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+logFiles\_id & int(11) & Yes &  \\ \addlinespace 
+\textbf{filename} & varchar(255) & Yes &  \\ \addlinespace 
+year & smallint(6) & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: scans
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{scans}} \label{tab:scans-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{scans} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+\textbf{scanID} & varchar(255) & Yes &  \\ \addlinespace 
+Projects\_id & int(11) & Yes &  \\ \addlinespace 
+Users\_id & int(11) & Yes & NULL \\ \addlinespace 
+Sources\_id & int(11) & Yes &  \\ \addlinespace 
+ObservingModes\_id & int(11) & Yes & NULL \\ \addlinespace 
+ScansQuality\_id & int(11) & Yes &  \\ \addlinespace 
+nSubscans & smallint(6) & Yes & NULL \\ \addlinespace 
+startTime & datetime & Yes & NULL \\ \addlinespace 
+endTime & datetime & Yes & NULL \\ \addlinespace 
+observedTime & smallint(6) & Yes & NULL \\ \addlinespace 
+dateObservation & date & Yes & NULL \\ \addlinespace 
+dateReduction & date & Yes & NULL \\ \addlinespace 
+LST & time & Yes & NULL \\ \addlinespace 
+UT & time & Yes & NULL \\ \addlinespace 
+comments & longtext & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: scansquality
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{scansquality}} \label{tab:scansquality-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{scansquality} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+name & varchar(255) & Yes &  \\ \addlinespace 
+description & longtext & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: softwareversions
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{softwareversions}} \label{tab:softwareversions-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{softwareversions} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+software & varchar(255) & Yes &  \\ \addlinespace 
+version & varchar(255) & Yes &  \\ \addlinespace 
+date & date & Yes & NULL \\ \addlinespace 
+description & longtext & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: softwareversions_used_in_scans
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{softwareversions\_used\_in\_scans}} \label{tab:softwareversions_used_in_scans-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{softwareversions\_used\_in\_scans} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+\textbf{scans\_id} & int(11) & Yes &  \\ \addlinespace 
+\textbf{softwareversions\_id} & int(11) & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: sourcelogs
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{sourcelogs}} \label{tab:sourcelogs-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{sourcelogs} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+name & varchar(255) & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: sources
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{sources}} \label{tab:sources-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{sources} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+object & varchar(255) & Yes &  \\ \addlinespace 
+name & varchar(255) & Yes &  \\ \addlinespace 
+ra & double & Yes & NULL \\ \addlinespace 
+dec & double & Yes & NULL \\ \addlinespace 
+epoch & varchar(20) & Yes &  \\ \addlinespace 
+deltav & double & Yes & NULL \\ \addlinespace 
+velo\_lsr & double & Yes & NULL \\ \addlinespace 
+comments & longtext & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: subscans
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{subscans}} \label{tab:subscans-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{subscans} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+\textbf{subscanID} & varchar(255) & Yes &  \\ \addlinespace 
+Scans\_id & int(11) & Yes &  \\ \addlinespace 
+dateObservation & date & Yes & NULL \\ \addlinespace 
+startTime & datetime & Yes & NULL \\ \addlinespace 
+endTime & datetime & Yes & NULL \\ \addlinespace 
+exposure & double & Yes & NULL \\ \addlinespace 
+is\_source & tinyint(1) & Yes & NULL \\ \addlinespace 
+is\_reference & tinyint(1) & Yes & NULL \\ 
+  \end{longtable}
+
+%
+% Estructura: switchingmodes
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{switchingmodes}} \label{tab:switchingmodes-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{switchingmodes} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+name & varchar(255) & Yes &  \\ \addlinespace 
+description & longtext & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: switchingvalues
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{switchingvalues}} \label{tab:switchingvalues-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{switchingvalues} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+SwitchingModes\_id & int(11) & Yes &  \\ \addlinespace 
+Scans\_id & int(11) & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: systemnames
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{systemnames}} \label{tab:systemnames-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{systemnames} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+name & varchar(255) & Yes &  \\ \addlinespace 
+description & longtext & Yes &  \\ 
+  \end{longtable}
+
+%
+% Estructura: weatherstation
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{weatherstation}} \label{tab:weatherstation-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{weatherstation} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+\textbf{timeStamp} & datetime & Yes &  \\ \addlinespace 
+electricalField & double & Yes & NULL \\ \addlinespace 
+windVel & double & Yes & NULL \\ \addlinespace 
+windVelMax & double & Yes & NULL \\ \addlinespace 
+windDir & double & Yes & NULL \\ \addlinespace 
+humidity & double & Yes & NULL \\ \addlinespace 
+pressure & double & Yes & NULL \\ \addlinespace 
+temperature & double & Yes & NULL \\ 
+  \end{longtable}
+
+%
+% Estructura: weathertau
+%
+ \begin{longtable}{lcccl}
+ 
+ \caption{Structure of table \texttt{weathertau}} \label{tab:weathertau-structure} \\
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule
+\endfirsthead
+ \caption*{Structure of table \texttt{weathertau} (continued)} \\ 
+ \addlinespace \textbf{Field} & \textbf{Type} & \textbf{Null} & \textbf{Default}  \\ \midrule \endhead \endfoot 
+\textbf{\textit{id}} & int(11) & Yes & NULL \\ \addlinespace 
+\textbf{timeStamp} & datetime & Yes &  \\ \addlinespace 
+tau & double & Yes & NULL \\ \addlinespace 
+sigma & double & Yes & NULL \\ \addlinespace 
+fit & double & Yes & NULL \\ 
+  \end{longtable}

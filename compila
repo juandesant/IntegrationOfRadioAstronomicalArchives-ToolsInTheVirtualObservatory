@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+alias
+. ~/.bash_profile
+alias
+pdflatex  -interaction nonstopmode -file-line-error tesis # Needed to get the .aux files for bibtex
+bibtex tesis   # Needed to get the .bbl files for bibliography
+
+# Correct the problem of ~ and N in bbl files
+mv tesis.bbl tesis_in.bbl
+sed s/~N/~{}N/ tesis_in.bbl > tesis.bbl
+
+if [ "$1" != "single" ]
+then
+	pdflatex  -interaction nonstopmode -file-line-error tesis # needed to incorporate bibliography
+	pdflatex  -interaction nonstopmode -file-line-error tesis # needed to get bibliographic references right
+	pdflatex  -interaction nonstopmode -file-line-error tesis # needed to get hyperref back-references right
+fi
+
+# Show thesis 'facebook friendly' numeric summary, and open PDF
+if [ "$1" != "twitter" ]
+	then
+		echo "Finished!"
+		facebook
+	else
+		echo Twitting\!
+		mensajeTwitter="Automatic thesis report: `palabras` words in LaTeX, in `paginas` pages, with `figuras` figures, `tablas` tables, and `listados` listings."
+		twit $mensajeTwitter
+fi
+open tesis.pdf # open the PDF in the current PDF viewer

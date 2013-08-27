@@ -1,0 +1,581 @@
+% chapter vo_protocols (fold)
+\chapter{VO protocols}
+\label{cha:vo_protocols}
+
+In this appendix we present a quick guide to the usage of the different
+available IVOA proposed Virtual Observatory protocols, with the aim of
+making easier to understand the official standard documents. It can be
+used as a fast reference of what is needed both for clients and servers
+compliant with these protocols.
+
+	\section{Simple ConeSearch} % (fold)
+	\label{sec:simple_conesearch}
+
+	\subsection{Query syntax} % (fold)
+	\label{sub:query_syntax_scs}
+	
+	
+	ConeSearch v1.0 query with all parameters. Mandatory 
+	parameters in black. \textcolor{red}{Optional parameters in 
+	red} (light grey in black and white).
+
+	\begin{adjustwidth}{\parindent}{0 cm}
+		\texttt{endPointURL?RA=rightAscension\&\\
+				DEC=declination\&\\
+				SR=searchRadius\&\\
+				\textcolor{red}{VERB=verbosity}}
+	\end{adjustwidth}
+
+	% subsection simple_query_syntax (end)
+	
+	\subsection{Parameter description} % (fold)
+	\label{sub:parameter_description_scs}
+	
+	\begin{description}
+		\item[\texttt{endPointURL}] represent the Uniform Resource 
+		Locator of a deployed ConeSearch web service. 
+		Usually of the form:
+		
+		\texttt{http://host.com/path/to/service}
+
+		\item[\texttt{rightAscension}] codifies the Right Ascension 
+		of the region of interest. It has to be provided in decimal 
+		degrees, in the ICRS coordinate system.
+
+		\item[\texttt{declination}] codifies the Declination of the 
+		region of interest. It has to be provided in decimal 
+		degrees, in the ICRS coordinate system.
+
+		\item[\texttt{searchRadius}] is given in decimal degrees.
+
+		\item[\textcolor{red}{\texttt{verbosity}}] specifies reply
+        verbosity; \texttt{verbosity} can be one of \texttt{1},
+        \texttt{2} or~\texttt{3}. \texttt{1} provides the least verbose
+        reply, and \texttt{3} the most verbose.
+	\end{description}
+	
+	% subsection parameter_description (end)
+		
+	\subsection{Service reply} % (fold)
+	\label{sub:service_reply_scs}
+	
+	A ConeSearch service reply consist of a VOTABLE, with complies with 
+	the following :
+
+	\begin{itemize}
+		\item The VOTABLE response contains just one RESOURCE, which 
+		contains just one TABLE.
+
+		\item Table fields:
+		\begin{itemize}
+			\item Exactly ONE field has \ucd{"ID\_MAIN"}, 
+			with the \texttt{string} data type, which provides an 
+			unique ID for each table row/record.
+
+			\item Exactly ONE field has 
+			\ucd{"POS\_EQ\_RA\_MAIN"},
+			with data type \texttt{double}, representing the Right 
+			Ascension of the observed source in the ICRS coordinate 
+			system.
+
+			\item Exactly ONE field has 
+			\ucd{"POS\_EQ\_DEC\_MAIN"}, with data type 
+			\texttt{double}, representing the Declination of the 
+			observed source in the ICRS coordinate system.
+
+			\item An additional \xmlopen{FIELD} or \xmltag{PARAM} 
+			with \ucd{"OBS\_ANG-SIZE"} can be used to 
+			specify a per-record (\xmlopen{FIELD}) or per-table 
+			(\xmlopen{PARAM}) positional error on source positions, 
+			or angular size for resolved observations.
+
+			\item The rest of the returned fields depend on the 
+			catalog,but all \xmlopen{FIELD} or \xmltags{PARAM} 
+			should specify description, data type, and UCD.
+		\end{itemize}
+	\end{itemize}
+	
+	% subsection service_reply (end)
+	
+	% section sec:simple_conesearch (end)
+	\section{Simple Image Access Protocol} % (fold)
+	\label{sec:siap}
+
+	\subsection{Query syntax} % (fold)
+	\label{sub:query_syntax_siap}
+	
+	Mandatory query parameters listed in black. Optional parameters
+	listed in \textcolor{blue}{blue}. Not all services implement all 
+	optional parameters, except for \texttt{FORMAT=formatType}. Use 
+	\texttt{metadata} as \texttt{formatType} to retrieve supported 
+	parameters.
+	
+	\begin{adjustwidth}{\parindent}{0 cm}
+		\texttt{endPointURL?POS=RA,DEC\&\\
+				SIZE=searchRadius\&\\
+				\textcolor{red}{FORMAT=formatType\&}\\
+				\textcolor{red}{INTERSECT=intersectionMechanism\&}\\
+				\textcolor{red}{NAXIS=axisSizeVector\&}\\
+				\textcolor{red}{CFRAME=coordFrame\&}\\
+				\textcolor{red}{EQUINOX=equinoxSpec\&}\\
+				\textcolor{red}{CRPIX=refPixCoordVector\&}\\
+				\textcolor{red}{CRVAL=refPixValueVector\&}\\
+				\textcolor{red}{CDELT=pixScaleVector\&}\\
+				\textcolor{red}{ROTANG=rotationAngle\&}\\
+				\textcolor{red}{PROJ=projectionKind\&}\\
+				\textcolor{red}{VERB=verbosity}}
+	\end{adjustwidth}
+			
+	% subsection query_syntax_siap (end)
+	
+	\subsection{Parameter description} % (fold)
+	\label{sub:parameter_description_siap}
+	\begin{description}
+		\item[\texttt{endPointURL}] represents the Uniform Resource 
+		Locator of a deployed SIAP web service. 
+		Usually of the form:
+		
+		\texttt{http://host.com/path/to/service}
+
+		\item[\texttt{RA,DEC}] is a pair of \texttt{double} 
+		quantities, separated by a \comma, 
+		representing Right Ascension and Declination 
+		in decimal degrees. No official consideration of coordinate 
+		system, but \texttt{ICRS} can be assumed.
+
+		\item[\texttt{searchRadius}] is either a \texttt{double}
+        quantity, or a pair of \texttt{double} quantities separated
+        by a \comma. If a pair of values is specified, the first is
+        assumed to be an RA \texttt{width}, and the second a DEC
+        \texttt{width}. The region thus defined has constant RA and
+        DEC edges. The combination of \texttt{POS} and \texttt{SIZE}
+        will be called \emph{region of interest} (ROI) in the
+        following.
+	
+		\item[\textcolor{red}{\texttt{formatType}}] is a \texttt{string} 
+		representation of the MIME media type of files being asked 
+		for to the service. It will be one of:
+		
+		\begin{itemize}
+			\item \texttt{image/fits}
+			\item \texttt{image/png}
+			\item \texttt{image/jpeg}
+			\item \texttt{text/html}
+			\item \texttt{fits} (equivalent to \texttt{image/fits})
+			\item \texttt{graphic} (equivalent to 
+								    \texttt{image/png; image/jpeg})
+			\item \texttt{all} (default value)
+		\end{itemize}
+		
+		Additionally, if \texttt{formatType} is 
+		\texttt{metadata}, the service will reply with a 
+		VOTABLE with all supported input parameters.
+		
+		\item[\textcolor{red}{\texttt{intersectionMechanism}}] specifies
+        how to evaluate the intersection of candidate images with the
+        ROI specified. It has to be ONE of the following:
+		
+		\begin{description}
+			\item[\texttt{COVERS}:] returned images completely 
+			includes (covers) the entire ROI.
+			
+			\item[\texttt{ENCLOSED}:] returned images are completely 
+			covered (enclosed) by the ROI. Uses the same mechanism 
+			of \texttt{COVERS}, reversing the role of ROI and test 
+			image.
+			
+			\item[\texttt{CENTER}:] returned images include at least 
+			the center of the ROI. This is an special case of 
+			\texttt{OVERLAPS}.
+			
+			\item[\texttt{OVERLAPS}:] returned images have some 
+			common points with the specified ROI. \texttt{OVERLAPS}
+			should return at least all images returned by 
+			\texttt{CENTER}.
+		\end{description}
+		
+		\item[\textcolor{red}{\texttt{axisSizeVector}}] is the size of
+        the output image in pixels. This is a vector-valued quantity,
+        expressed as \texttt{NAXIS}\texttt{=}\texttt{<width>,<height>}.
+		
+		\item[\textcolor{red}{\texttt{coordFrame}}] is a \texttt{string}
+        specifying a coordinate system reference frame. It is one of:
+		
+		\begin{itemize}
+			\item \texttt{ICRS} (default)
+			\item \texttt{FK5}
+			\item \texttt{FK4}
+			\item \texttt{ECL}
+			\item \texttt{GAL}
+			\item \texttt{SGAL}
+		\end{itemize}
+		
+		\item[\textcolor{red}{\texttt{equinoxSpec}}] is the epoch of the
+        mean equator and equinox for the coordinate system reference
+        frame specified by \texttt{coordFrame}. It is not required for
+        \texttt{ICRS}, and defaults to \texttt{B1950} for \texttt{FK4},
+        and to \texttt{J2000} otherwise.
+		
+		\item[\textcolor{red}{\texttt{refPixCoordVector}}] provides the
+        coordinates of the reference pixel, in pixel coordinates of the
+        output image. This is a vector-valued quantity of the same size
+        as \texttt{axisSizeVector}.
+		
+		\item[\textcolor{red}{\texttt{refPixValueVector}}] is a vector
+        of the world coordinates relative to \texttt{coordFrame} at the
+        \texttt{refPixCoordVector}. Defaults to the ROI center
+        coordinates, transformed to the output coordinate system
+        reference if other than \texttt{ICRS}.
+		
+		\item[\textcolor{red}{\texttt{pixScaleVector}}] provides the
+        scale of the output image in decimal degrees per pixel. A
+        negative value implies an axis flip. Since the default image
+        orientation is N up and E to the left, the default sign of
+        \texttt{pixScaleVector} is [-1,1]. Can be given as comma
+        separated vector, or as a single value; if only one value is
+        given, it applies to both image axes.
+		
+		\item[\textcolor{red}{\texttt{rotationAngle}}] specifies the
+        rotation angle for the output image in degrees relative to
+        \texttt{coordFrame} (an image which is unrotated in one
+        reference frame may be rotated in another). Rotation of the WCS
+        declination or latitude axis with respect to the second axis of
+        the image, measured in the counterclockwise direction (following
+        FITS WCS convention, which in turn is based on the old AIPS
+        convention). Defaults to 0 (no rotation).
+		
+		\item[\textcolor{red}{\texttt{projectionKind}}] specifies the
+        celestial projection of the output image; is one of
+        \texttt{TAN}, \texttt{SIN}, \texttt{ARC}, et cetera. Defaults to
+        \texttt{TAN}.
+		
+		\item[\textcolor{red}{\texttt{verbosity}}] is an
+        \texttt{integer} value, ranging from \texttt{0} to \texttt{3}
+        that specifies reply verbosity (how much additional meta data
+        are provided).
+		
+	\end{description}
+	
+	% subsection parameter_description (end)
+	\begin{description}
+
+
+
+		\item[Optional parameters:] query with all mandatory and 
+		optional parameters in version 1:
+
+
+		Remember that parameters not supported by the service 
+		will be discarded. Call the service with 
+		\texttt{FORMAT}\texttt{=}\texttt{metadata} to retrieve 
+		supported parameters (see below).
+
+% 		\begin{description}
+% 
+% 		\end{description}
+
+		\item[SIAP v2 extensions:] query with mandatory and extended 
+		parameters:
+		
+		\texttt{endPointURL?POS=RA,DEC\&\\
+				SIZE=searchRadius\&\\
+				REQUEST=requestKind\&\\
+				TIME=timeSpec\&\\
+				ANGRP=angularResolution\&\\
+				PUBDID=pubID\&\\
+				CREATORDID=creatorID\&\\
+				COLLECTION=collectionID\&\\
+				TOP=topNumResults\&\\
+				MAXREC=maxRecords\&\\
+				MTIME=incorporationTime\&\\
+				COMPRESS=compressionFlag\&\\
+				RUNID=jobRunID\&\\
+				REDSHIFT=redShiftRange\&\\
+				TARGETNAME=targetName}
+		
+		See SSAP for explanations on 
+		\texttt{TIME}, \texttt{PUBDID}, \texttt{CREATORDID}, 
+		\texttt{COLLECTION}, \texttt{TOP}, \texttt{MAXREC}, 
+		\texttt{MTIME}, \texttt{COMPRESS}, \texttt{RUNID}, 
+		\texttt{REDSHIFT} and \texttt{TARGETNAME}.
+		
+		\begin{description}
+			\item[\texttt{requestKind}] specifies the kind of image 
+			services being required: cut-out, mosaicing, atlas 
+			archive, pointed archive. A service can support all or 
+			some (at least one) of these request kinds.
+			
+			\item[\texttt{angularResolution}] specifies the angular 
+			resolving power of the image, for interpolated images.
+		\end{description}
+		
+		
+		\item[SIAP multidimensional extensions:] for SIAP to be 
+		extended to support multidimensional data sets, keywords 
+		\texttt{NAXIS}, \texttt{CRPIX}, \texttt{CRVAL} and 
+		\texttt{CDELT} should be enhanced to specify $N$ dimensions 
+		(typically, $N \in \{3,4\}$); first two should always be RA and 
+		DEC, with either time, frequency wavelength or velocity as 
+		the third dimension, and polarisation as a fourth axis, if 
+		present.
+		
+		\item[Service reply:] a SIAP service reply consist of a 
+		VOTABLE, with complies with the following :
+
+		\begin{itemize}
+			\item \todoinlinesuspended{Finish list of restrictions to
+			                  SIAP reply.}
+		\end{itemize}
+		
+	\end{description}
+	
+	% section siap (end)
+	\section{Simple Spectral Access Protocol} % (fold)
+	\label{sec:ssap}
+	
+	\subsection{Query syntax} % (fold)
+	\label{sub:query_syntax}
+
+	Parameters all SSAP compliant services need to implement are in 
+	black. Parameters whose implementation is optional, but 
+	recommended, appear in \textcolor{blue}{blue}, and parameters 
+	whose implementation is completely optional appear in 
+	\textcolor{red}{red}.
+
+	\begin{adjustwidth}{\parindent}{0 cm}
+		\noindent\texttt{endPointURL?POS=RA,DEC\&\\
+				SIZE=searchRadius\&\\
+				BAND=freqRange\&\\
+				TIME=timeRange\&\\
+				FORMAT=formatType\&\\
+				\textcolor{blue}{SPECRP=specResol\&}\\
+				\textcolor{blue}{SPATRES=spatialResol\&}\\
+				\textcolor{blue}{PUBDID=pubID\&}\\
+				\textcolor{blue}{CREATORDID=creatorID\&}\\
+				\textcolor{blue}{COLLECTION=collectionID\&}\\
+				\textcolor{blue}{TOP=topNumResults\&}\\
+				\textcolor{blue}{MAXREC=maxRecords\&}\\
+				\textcolor{blue}{MTIME=modificationTime\&}\\
+				\textcolor{blue}{COMPRESS=compressionFlag\&}\\
+				\textcolor{blue}{RUNID=jobRunID\&}\\
+				\textcolor{red}{APERTURE=apertAngle\&}\\
+				\textcolor{red}{TIMERES=timeResol\&}\\
+				\textcolor{red}{SNR=signal2noise\&}\\
+				\textcolor{red}{REDSHIFT=redShiftRange\&}\\
+				\textcolor{red}{VARAMPL=amplitudeVariability\&}\\
+				\textcolor{red}{TARGETNAME=targetName\&}\\
+				\textcolor{red}{TARGETCLASS=targetClass\&}\\
+				\textcolor{red}{FLUXCALIB=fluxCalibKind\&}\\
+				\textcolor{red}{WAVECALIB=waveCalibKind}}
+	\end{adjustwidth}
+	
+	None of the service mandatory parameters is needed \emph{per se} 
+	in a particular query: the following are legal, minimal SSAP 
+	queries:
+	
+	\begin{adjustwidth}{\parindent}{0 cm}
+		\noindent\texttt{endPointURL?POS=RA,DEC\&\\
+				SIZE=searchRadius}
+	\end{adjustwidth}
+	
+	\begin{adjustwidth}{\parindent}{0 cm}
+		\noindent\texttt{endPointURL?TIME=timeRange\&\\
+				BAND=freqRange}		
+	\end{adjustwidth}
+	
+	% subsection query_syntax (end)
+	
+	\subsection{Parameter description} % (fold)
+	\label{sub:parameter_description_ssap}
+
+	The following is a description of the different SSAP parameters.
+	In SSAP, parameters can be qualified by juxtaposing
+	additional qualifiers, separated by a \semicolon. Appropriate 
+	qualifiers will be pointed out as needed.
+
+	\begin{description}
+		\item 
+		
+		\item[\texttt{endPointURL}] represents the Uniform Resource 
+		Locator of a deployed SIAP web service. 
+		Usually of the form:
+		
+		\texttt{http://host.com/path/to/service}
+
+		\item[\texttt{RA,DEC}] is a pair of \texttt{double} 
+		quantities, separated by a \comma, 
+		representing Right Ascension and Declination 
+		in decimal degrees, in the ICRS coordinate system unless 
+		otherwise specified.
+		
+		\texttt{POS=RA,DEC} can be substituted by 
+		\texttt{GALACTICPOS=GalLat,GalLong}. Not all services need 
+		to support \texttt{GALACTICPOS}.
+		
+		\item[\texttt{searchRadius}] is either a \texttt{double} 
+		quantity, or a pair of \texttt{double} quantities separated 
+		by a \comma. If a pair of values is specified, 
+		the first is assumed to be an RA \texttt{width}, and the 
+		second a DEC \texttt{width}. The region thus defined has 
+		constant RA and DEC edges. The combination of \texttt{POS} 
+		and \texttt{SIZE} will be called \emph{region of interest}
+		(ROI) in the following.
+		
+		\item[\texttt{freqRange}] specifies a frequency range the 
+		query should be restricted to, expressed as low/high 
+		wavelengths in meters: \ttequals{BAND}{2.7E-7/0.13}. A 
+		\texttt{source} qualifier can be used to specify that
+		the frequencies are being specified at the source LSR:
+		\ttequals{BAND}{0.001/0.01;source} 
+
+		\item[\texttt{timeRange}] restricts the query to a given 
+		date, specified as an ISO 8601 [1] date-time string (e.g., 
+		\texttt{TIME=1998-05-21}), or a date-time range in UTC: 
+		\texttt{TIME=1998-05-21/1999}). Qualifiers can be used to 
+		specify Local Sidereal Time or other time zones:
+		
+		\texttt{TIME=2003-04-01T02:00:00/2003-04-01T06:00:00;LST}.
+	
+		\item[\texttt{formatType}] is a \texttt{string} 
+		representation of the MIME media type of files being asked 
+		for to the service. It will be one of:
+		
+		\begin{itemize}
+			\item \texttt{application/fits}
+			\item \texttt{compliant} (\texttt{votable} or 
+									  \texttt{xml})
+			\item \texttt{native} (native format of the archive)
+			\item \texttt{graphic} (PNG, JPEG or EPS)
+			\item \texttt{votable} (compare with XML)
+			\item \texttt{fits} (equivalent to 
+								 \texttt{application/fits})
+			\item \texttt{xml} (SED XML serialisation)
+			\item \texttt{all} (default value)
+		\end{itemize}
+		
+		Additionally, if \texttt{formatType} is 
+		\texttt{metadata}, the service will reply with a 
+		VOTABLE with all supported input parameters.
+		
+		\texttt{formatType} can be qualified by the conventions 
+		used for spectral reduction, such as 
+		\texttt{convention=STScI-STIS}.
+		
+		\item[\texttt{specResol}] is a \texttt{double} specifying 
+		spectral resolving power, $\frac{\lambda}{\Delta\lambda}$; 
+		\texttt{specResol} is a dimensionless quantity.
+		
+		\item[\texttt{spatialResol}] is a \texttt{double} specifying 
+		the minimum spatial resolution, in decimal degrees, 
+		corresponding to signal PSF.
+		
+		\item[\texttt{pubID}] is a \texttt{string} holding the 
+		NASA ADS publication ID.
+		
+		\item[\texttt{creatorID}] is a \texttt{string} specifying 
+		the IVORN for the data set creator.
+		
+		\item[\texttt{collectionID}] is a \texttt{string} specifying 
+		an IVORN for a particular collection, or a short-name: for 
+		instance, the short-name \texttt{HST Spectra}, or its IVORN:
+		\texttt{ivo://mast.stsci/ssap/hst}.
+		
+		\item[\texttt{topNumResults}] is an \texttt{integer}
+        specifying the maximum number of results to be returned by
+        the query, but requesting them sorted by an \emph{heuristic
+        score} defined by the service. That score is built to be
+        higher for better matching records. In any case, the same
+        query should always return the same \texttt{topNumResults}
+        records. Default value is up to the service, but should be
+        small enough to deliver fast responses.
+		
+		\item[\texttt{maxRecords}] is an \texttt{integer} 
+		specifying the maximum number of results to be returned by 
+		the query. The same query might return different records 
+		depending on service implementation. Default value is up 
+		to the service, but should be small enough to deliver fast 
+		responses.
+		
+		\item[\texttt{modificationTime}] is similar to 
+		\texttt{timeRange} in syntax, but refers to record 
+		creation or modification date-time.
+		
+		\item[\texttt{compressionFlag}] is a \texttt{string} 
+		containing either \texttt{true} or \texttt{false}. If 
+		\texttt{compressionFlag} is \texttt{true}, returned 
+		data might be compressed. Default is \texttt{false}.
+		
+		\item[\texttt{jobRunID}] is a \texttt{string} with 
+		contains a client side request ID, so that records from 
+		different services, called with the same jobRunID, can 
+		be easily \texttt{aggregated}.
+		
+		\item[\texttt{apertAngle}] is a \texttt{double} used to
+		specify a synthetic aperture angle in decimal degrees in
+		order to extract spectra from data cubes, event lists or 
+		other fundamental data. For extraction services, this 
+		parameter is mandatory, and the service should provide a
+		sensible default.
+		
+		\item[\texttt{timeResol}] is a \texttt{double} specifying
+        minimum time resolution in seconds (typically, the bounds of
+        the exposure time coverage).
+		
+		\item[\texttt{signal2noise}] is a dimensionless
+        \texttt{double} specifying the Signal to Noise ratio, as a
+        number of times noise RMS.
+					
+		\item[\texttt{redShiftRange}] is a \texttt{string} encoding
+        a \texttt{double} or a range of \texttt{double}s, which
+        specifies a particular dimensionless redshift or range,
+        calculated using the optical convention $z =
+        \frac{\Delta\lambda}{\lambda}$: \texttt{REDSHIFT=1.3/3.0}
+        means $z \in [1.3,3.0]$, \texttt{REDSHIFT=1.3/} means $z \in
+        [1.3,+\infty)$, while querying with \texttt{REDSHIFT=/3.0}
+        means $z \in [0,3.0]$. Negative values can be used to
+        indicate \emph{blueshifts}.
+
+		\item[\texttt{amplitudeVariability}] is dimensionless 
+		\texttt{double} in the range [0.0,1.0] indicating amplitude 
+		variations from the maximum.
+		
+		\item[\texttt{targetName}] is a \texttt{string} providing 
+		the name of target that will need to be resolved by SIMBAD,
+		NED, o similar services. To be used instead of coordinates.
+		
+		\item[\texttt{targetClass}] is a \texttt{string} providing
+        comma delimited list of types of astronomical objects to be
+        searched for. Valid types form controlled vocabulary coming 
+		from Simbad [3]. Eventually types should come from the IVOA 
+		Thesaurus.
+		
+		\item[\texttt{fluxCalibKind}] is a \texttt{string} encoding 
+		a boolean value (\texttt{true} or \texttt{false})
+		indicating whether we require returned data fluxes to be 
+		calibrated. No distinction is made between absolute or 
+		relative flux calibration.
+		
+		\item[\texttt{waveCalibKind}] is a \texttt{string} encoding 
+		a boolean value (\texttt{true} or \texttt{false})
+		indicating whether we require returned data wavelengths to 
+		be calibrated. No distinction is made between absolute or 
+		relative wavelength calibration.
+	\end{description}
+	
+	
+	% subsection parameter_description (end)
+	
+	\subsection{Service reply} % (fold)
+	\label{sub:service_reply_ssap}
+	SSAP services reply with a VOTABLE, with complies with the 
+	following:
+
+	\begin{itemize}
+		\item VOTABLE condition
+	\end{itemize}
+	
+	% subsection service_reply (end)
+	
+	% section ssap (end)
+
+% chapter vo_protocols (end)

@@ -1,0 +1,165 @@
+%2345678901234567890123456789012345678901234567890123456789012345678901
+% drafting a long document:
+%\documentclass[11pt,a4paper,openright,draft]{memoir} 
+% for a long document
+\documentclass[11pt,a4paper,openright]{memoir}
+% for a short document
+%\documentclass[12pt,a4paper,article]{memoir}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage{caption}
+\usepackage{subfig}
+\usepackage{graphicx}
+% See the ``Memoir customise'' template for some common customisations
+% Don't forget to read the Memoir manual: memman.pdf
+% \usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage[square,comma,numbers]{natbib}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{rotating}
+%\usepackage{bigstrut}
+\usepackage{listings}
+%\usepackage{lipsum} % Random Loren Ipsum text
+\usepackage{longtable}
+\usepackage[spanish,english]{babel} % Order affects used layout
+\usepackage{pxfonts}
+
+%\includeonly{mycommands,radamscurationpackpolicy}
+%\includeonly{mycommands,radamsimplementations}
+\include{mycommands}
+
+% To build the glossary
+% \makeglossary
+%\include{glossary}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+	
+	%\setpnumwidth{3.55em} \setrmarg{4.55em}
+	%\cftsetindents{section}{1.5em}{4.0em}
+	\cftsetindents{figure}{0em}{3em}
+	
+	
+
+	\selectlanguage{spanish}
+	\frontmatter
+% %	\chapterstyle{madsen}
+% %	\chapterstyle{bianchi}
+% %	\chapterstyle{hangnum}
+% %	\chapterstyle{veelo}
+	\include{frontmatter}
+% 
+% 	%%% Start using a very slight parskip to give flexibility
+ 	\setlength{\parskip}{1\lineskip plus 1\lineskip minus 1\lineskip} 
+ 	\include{agradecimientos}
+
+	\include{resumen}
+	\selectlanguage{english}
+	
+	\mainmatter % Starts chapter numbering, and arabic numbering
+% %	\chapterstyle{madsen}
+% %	\chapterstyle{bianchi}
+% %	\chapterstyle{hangnum}
+% %	\chapterstyle{veelo}
+	
+	% part intro_vo (fold)
+	\part{Introduction: Astronomy and the Virtual Observatory}
+	\label{prt:intro_vo}
+	
+	\include{introduction} % \todo{end introduction}
+	\include{introvo}
+	
+	% \include{voapi} 
+	
+	% part intro_vo (end)
+	
+	% part VO data models (fold)
+	\part[Radio astronomical archives in the VO]
+	{Radio astronomical archives in the VO}
+	\label{partRadioDataModelling}
+	
+	% \include{radioastronomicalobs}
+	\include{introradiodatamodelling}
+	\include{vodatamodelling}
+	\include{radams}
+	\include{radamscharobs}
+	\include{radamscurationpackpolicy}
+	\include{vodataprovenance}
+	\include{radamsdataprovenance}
+	% \include{radiotadatamodellingconclusions}
+	
+	% part VO data models (end)
+	
+	% part accessingRadioVOdata (fold)
+	\part{Bringing legacy tools to the VO}
+	\label{prt:legacyTools}
+	
+	\include{legacytools}
+	\include{movoir}
+	%\include{movoirdetails}
+	
+	% part prt:legacyTools (end)
+	
+	\part{Thesis applications} % (fold)
+	\label{prt:thesis_applications}
+	
+	\include{radamsimplementations}
+	\include{movoirapplication}
+	
+	% part thesis_applications (end)
+	
+	\include{conclusions_futurework}
+	
+	\selectlanguage{spanish}
+	
+	\include{conclusiones_trabajofuturo}
+	
+	\selectlanguage{english}
+	
+	\begin{appendices}
+		
+		\part{Appendices} 
+		\label{prt:appendices}
+		
+		\include{ivoa}
+		\include{introxml}
+		\include{votableformat} % Appendix on the VOTable file format
+		\include{ivoaprotocols}
+		%\include{ivoamodels}
+		%\include{fitsformat} % Appendix on the FITS file format
+		%\include{antennasoverview}
+		
+		%\chapter{PLASTIC messages} % (fold)
+		%\label{cha:plastic_messages}
+        %
+		%% chapter plastic_messages (end)
+		%
+		%\chapter{PLASTIC to SAMP messages conversion guide} % (fold)
+		%\label{cha:plastic_to_samp_messages_conversion_guide}
+        %
+		%% chapter plastic_to_samp_messages_conversion_guide (end)
+		
+		
+	%	\chapter{Source code listings} % (fold)
+	%	\label{cha:source_code_listings}
+    %
+	%	% chapter source_code_listings (end)
+		
+	\end{appendices} % 
+	
+	
+	\selectlanguage{spanish}
+	\bibliographystyle{ieeetr}
+	\bibliography{thesis}
+	
+%	\printglossary
+	
+	% Space for the colophon
+%	\backmatter
+	
+\end{document}

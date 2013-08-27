@@ -1,0 +1,35 @@
+/* Use  with prince --no-author-style --style=ivoawikiprince.css */
+/*               http://www.princexml.com/doc/6.0/               */
+
+@page { size: A4 ;
+	    margin-left:   3cm;
+	    margin-right:  2cm;
+	    margin-top:    3cm;
+	    margin-bottom: 2cm;}
+
+body {font-family: Palatino, Georgia, Times, serif;
+	  font-size: 14px;}
+div#headerbox {display:     none ! important;}
+div#menubox   {display:     none ! important;}
+div#widgetbox {display:     none ! important;
+	           float:       none ! important;
+			   width:       0px  ! important;
+			   margin-left: 0px  ! important;
+			   margin-right:0px  ! important;}
+div#boringbox {display:     none ! important;}
+div.hbar      {display:     none ! important;}
+div#widgetbox div.widget    {border:      none ! important;
+	           margin: 0px 0px 0px 0px ! important;
+	          }
+
+div.#contentbox {display: inline;
+	border:     none ! important;
+				 margin-left: 0px ! important;
+				 margin-right:0px ! important;}
+
+
+ul > li > ul  {list-style-type: none;}
+
+ul > li > ul > li:before {content: '»';}
+
+ul > li > ul > li > ul > li:before {content: '-';}

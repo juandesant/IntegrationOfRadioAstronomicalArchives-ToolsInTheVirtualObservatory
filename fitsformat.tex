@@ -1,0 +1,51 @@
+\chapter{Description of the FITS file format} % (fold)
+\label{cha:description_of_the_fits_file_format}
+
+The FITS file format was created in 1979 to address the need for
+astronomical information interchange between radio astronomical sites
+(initially, the National Radio Astronomy Observatory for the Very Large
+Array, the Netherlands Foundation for Radio Astronomy for the Westerbork
+Synthesis Radio Telescope, later joined by the Kitt Peak Observatory).
+The format was initially published in 1981~\cite{1981A&AS...44..363W}.
+
+After the first definition, the IAU decided to make the FITS a IAU
+standard, and appointed a committee for taking care of the development,
+upgrade, and maintenance of the specification (the FITS Working Group of
+Commission 5: Documentation and Astronomical Data). Some extensions have
+been proposed to the standard regarding the specification of World
+Coordinate Systems, Spectral Coordinates, Binary tables, and variable
+distortion in coordinates~\cite{2002A&A...395.1061G,
+2004ASPC..314..551C, 2006A&A...446..747G}, and the FITS Working Group
+has finally delivered the version 3.0 of the FITS standard, containing
+all said extensions~\cite{FITS-Working-Group:2008ty}.
+
+So that most FITS concept become clear in order to make a comparison
+with the XML VOTable, we provide a brief summary of the FITS file format
+in this appendix.
+
+\section{Units and Dimensional Analysis} % (fold)
+\label{sec:units}
+
+A quantity without an unit (and possibly a multiplicative scale prefix,
+such as milli-, micro-, nano-, kilo-, mega-, et cetera) has no physical
+meaning, and cannot be compared with any other similar quantity, making
+impossible automatic discovery of comparable datasets. Even adimensional
+quantities, such as similar quantity ratios, can only be identified if
+units are specified for dimensional quantities.
+
+The FITS standard recommends specifying units for all valued header
+keywords, plus all table fields.
+
+There is a basic, IAU-recommended, unit profile, which specifies basic
+\emph{Système International} (SI) units for length, mass, time, angle,
+plane angle, solid angle, temperature, electric current, luminous
+intensity and amount of substance, plus additional astrophysical
+units for plane angle, time, energy, mass, luminosity, length, event
+counts, flux density, magnetic field, area, and several miscellaneous
+units.
+
+
+
+% section units (end)
+
+% chapter description_of_the_fits_file_format (end)

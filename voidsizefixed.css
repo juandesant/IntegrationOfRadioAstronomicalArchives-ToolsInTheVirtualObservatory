@@ -1,0 +1,243 @@
+body, td {
+margin: 0px;
+font-family: verdana, helvetica, sans-serif;
+font-size: 14px;
+}
+
+h1 {
+font-family: georgia, palatino, "Times New Roman", times, serif;
+font-weight: bold;
+font-size: 22px;
+}
+
+h2 {
+font-size: 18px;
+}
+
+h3 {
+font-family: georgia, palatino, "Times New Roman", times, serif;
+font-size: 16px;
+}
+h4 {
+font-family: georgia, palatino, "Times New Roman", times, serif;
+font-size:15px;font-weight:bold;
+}
+h5 {
+font-family: georgia, palatino, "Times New Roman", times, serif;
+font-size:15px;font-weight:bold;font-style:italic;
+}
+
+p {
+line-height: 17px;
+}
+strong { font-weight: bold; font-size: 14px;}
+em { font-weight: normal; font-style: italic; font-size: 14px;}
+
+ul {
+list-style-image: url("../img/bulletgray.gif");
+margin-top: 2px;
+}
+
+li {
+font-size: 14px;
+margin-bottom: 8px;
+margin-left: -15px;
+padding: 0px;
+}
+
+a {
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+pre {
+padding: 5px;
+font-size: 14px;
+}
+code {
+font-size: 14px;
+}
+
+form {
+margin: 0px;
+}
+
+.small {
+font-size: 10px;
+}
+
+
+/* Start header on every page */
+#headerbox {
+margin: 0px;
+height: 30px;
+}
+#headerbox h1 {
+float:left;
+font-size: 18px;
+font-weight: bold;
+padding: 3px;
+margin-top: 0px;
+margin-left: 10px;
+}
+#headerbox .pagename
+{
+font-family: georgia, palatino, "Times New Roman", times, serif;
+font-size: 12px;
+font-weight: bold;
+text-align:right;
+margin-right: 10px;
+padding-top: 4px;
+}
+
+
+#headerbox p { display:inline; }
+.revbar {
+margin-left: 222px;font-size:12px;
+}
+
+
+#menubox, #menubox2 {
+margin: 0px;
+height: 30px;
+padding-top: 4px;
+}
+#menubox a, #menubox2 a {
+font-family: verdana, sans-serif;
+font-size: 10px;
+text-decoration: none;
+margin-left: 12px;
+}
+#menubox a.user, #menubox2 a.user {
+font-family: verdana, sans-serif;
+font-size: 10px;
+text-decoration: none;
+margin-left: 12px;
+}
+
+
+
+#searchbox {
+float: right;
+margin-right: 12px;
+font-family: verdana, sans-serif;
+font-size: 10px;
+}
+#searchbox input {
+font-family: verdana, sans-serif;
+height:18px;
+font-size: 10px;
+}
+#searchbox form {
+display: inline;
+margin: 0px;
+padding: 0px;
+}
+
+#helpbox {
+font-family: verdana, sans-serif;
+font-size: 9px;
+padding-left: 18px;
+padding-right: 18px;
+padding-top: 6px;
+height: 20px;
+}
+
+/* End header on every page */
+
+div.hbar {
+height: 2px;
+}
+
+#widgetbox {
+float: left;
+width: 169px;/*202*/
+margin: 0px;
+}
+
+#contentbox {
+margin-right:15px;
+margin-left:180px;/*213*/
+padding: 0px;
+}
+
+#contentbox.print {
+margin-right:15px;
+margin-left:103px;
+}
+
+
+.widget {
+padding: 5px;
+margin: 30px 5px 15px 10px;
+}
+
+
+.widget .boxtitle {
+position: relative;
+display: inline;
+top: -12px;
+font-family: verdana, helvetica, sans-serif;
+font-size: 10px;
+font-weight: normal;
+padding: 1px 2px;
+margin: 0px;
+margin-left: 5px;
+margin-bottom: -12px;
+text-transform: uppercase;
+}
+
+
+td.tablecol0 {
+margin-bottom: 4px;
+}
+td.tablecol1 {
+margin-bottom: 4px;
+}
+
+td.tablecol0 p {
+padding-top: 4px;
+padding-bottom: 4px;
+}
+td.tablecol1 p {
+padding-top: 4px;
+padding-bottom: 4px;
+}
+.tableheader p {
+padding-top: 4px;
+padding-bottom: 4px;
+}
+div.tableheader {
+font-family: verdana, sans-serif;
+}
+/* The copyright, privacy, etc box */
+#boringbox {
+clear: left;
+margin: 0px;
+margin-bottom: 10px;
+font-family: verdana, sans-serif;
+font-size: 7pt;
+padding: 3px;
+text-align: center;
+}
+
+.hide {position:absolute; width:1px;visibility:hidden; height:1px;}
+LI.uncheck { list-style: url(unchecked.jpg) }
+LI.check { list-style: url(checked.jpg) }
+LI.pcheck { list-style: url(partchecked.jpg) }
+
+blockquote,.blockquote
+{
+	margin-left:20px; width:80%;
+	border-left:1px;border-right:0px;border-color:black;border-style:solid;
+	border-top:0px;border-bottom:0px;
+	padding-left:10px;
+}
+
+.twikiNewLink a sup {
+  background-color: #FFFFFF;
+}
+

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE xmlns:sdm="http://www.ivoa.net/xml/SpectralDataModel/v1.0" xmlns="http://www.ivoa.net/xml/VOTable/v1.1">
+  <DEFINITIONS>
+    <COOSYS system="eq_FK5" epoch="2000.0" equinox="2000.0"/>
+  </DEFINITIONS>
+  <RESOURCE>
+    <INFO value="OK" name="QUERY_STATUS"/>
+    <TABLE>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Target.Name" ID="Target Name" name="Target Name">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="" ucd="src.redshift" datatype="double" utype="sdm:SSA.Derived.Redshift" ID="Derived Redshift" name="Derived Redshift">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="deg" ucd="pos.eq" datatype="double" utype="sdm:SSA.Coverage.Location.Spatial" ID="POS" name="POS">
+        <DESCRIPTION>RA DEC(J2000)</DESCRIPTION>
+      </FIELD>
+      <FIELD unit="year" ucd="" datatype="double" utype="sdm:SSA.Coverage.Location.Time" ID="Coverage Location Time" name="Coverage Location Time">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="m" ucd="" datatype="double" utype="sdm:SSA.Coverage.Location.Spectral" ID="Coverage Location Spectral" name="Coverage Location Spectral">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="m" ucd="" datatype="double" utype="sdm:SSA.Coverage.Bounds.Spectral" ID="Coverage Bounds Spectral" name="Coverage Bounds Spectral">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="" ucd="" datatype="float" utype="sdm:SSA.Coverage.Fill.Spectral" ID="Coverage Fill Spectral" name="Coverage Fill Spectral">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="deg" ucd="" datatype="double" utype="sdm:SSA.Coverage.Bounds.Spatial" ID="Coverage Bounds Spatial" name="Coverage Bounds Spatial">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="year" ucd="" datatype="double" utype="sdm:SSA.Coverage.Bounds.Time" ID="Coverage Bounds Time" name="Coverage Bounds Time">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="" ucd="" datatype="int" utype="sdm:SSA.Dataset.SSA.NSamples" ID="Dataset Number of Samples" name="Dataset Number of Samples">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="deg" ucd="" datatype="double" utype="sdm:SSA.Dataset.SSA.Aperture" ID="Aperture" name="Aperture">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Instrument.Name" ID="Instrument Name" name="Instrument Name">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="s" ucd="" datatype="int" utype="sdm:SSA.Instrument.Exposure" ID="Exposure Time" name="Exposure Time">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Target.Class" ID="Target Class" name="Target Class">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Target.SpectralClass" ID="Target Spectral Class" name="Target Spectral Class">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Curation.Collection" ID="Curation Collection" name="Curation Collection">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Curation.CreatorID" ID="Curation CreatorID" name="Curation CreatorID">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Accuracy.Spectral.Calibrated" ID="Spectral Calibrated" name="Spectral Calibrated">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="m" ucd="" datatype="double" utype="sdm:SSA.Accuracy.Spectral.SysErr" ID="Spectral Systematic Error" name="Spectral Systematic Error">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="m" ucd="" datatype="double" utype="sdm:SSA.Accuracy.Spectral.StatErr" ID="Spectral Statistical Error" name="Spectral Statistical Error">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="m" ucd="" datatype="double" utype="sdm:SSA.Accuracy.Spectral.Resolution" ID="Spectral Resolution" name="Spectral Resolution">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Accuracy.Flux.Calibrated" ID="Flux Calibrated" name="Flux Calibrated">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="erg cm**(-2) s**(-1) Angstrom**(-1)" ucd="" datatype="double" utype="sdm:SSA.Accuracy.Flux.SysErr" ID="Flux Systematic Error" name="Flux Systematic Error">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="erg cm**(-2) s**(-1) Angstrom**(-1)" ucd="" datatype="double" utype="sdm:SSA.Accuracy.Flux.StatErr" ID="Flux Statistical Error" name="Flux Statistical Error">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Frame.Sky.Type" ID="Frame Sky Type" name="Frame Sky Type">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Frame.Sky.Equinox" ID="Frame Sky Equinox" name="Frame Sky Equinox">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Dataset.Type" ID="Dataset Type" name="Dataset Type">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Dataset.DataModel" ID="Dataset Data Model" name="Dataset Data Model">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Dataset.CreationType" ID="Dataset Creation Type" name="Dataset Creation Type">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="" datatype="char" utype="sdm:SSA.Dataset.Derivation" ID="Dataset Derivation" name="Dataset Derivation">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD arraysize="*" unit="" ucd="VOX:Image_Title" datatype="char" utype="sdm:SSA.Dataset.Title" ID="Dataset Title" name="Dataset Title">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD unit="%" ucd="" datatype="float" utype="sdm:SSA.Query.Score" ID="Query Score" name="Query Score">
+        <DESCRIPTION/>
+      </FIELD>
+      <FIELD ucd="DATA_LINK" arraysize="*" utype="sdm:SSA.Access.Reference" datatype="char" ID="accessReference" name="Access Reference"/>
+      <FIELD arraysize="*" ucd="" utype="sdm:SSA.Access.Format" datatype="char" ID="accessFormat" name="Access Format"/>
+      <FIELD arraysize="*" utype="sdm:SSA.Access.Encoding" datatype="char" ID="encoding" name="Encoding"/>
+      <FIELD arraysize="*" utype="sdm:SSA.Query.LName" datatype="char" ID="logicalName" name="Logical Name"/>
+      <FIELD arraysize="*" ucd="VOX:Spectrum_Format" utype="" datatype="char" ID="FORMAT" name="Spectrum Format"/>
+      <DATA>
+        <TABLEDATA/>
+      </DATA>
+    </TABLE>
+  </RESOURCE>
+</VOTABLE>

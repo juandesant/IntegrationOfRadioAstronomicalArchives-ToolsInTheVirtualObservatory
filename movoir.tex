@@ -1,0 +1,1787 @@
+% chapter movoir (fold)
+\chapter[MOVOIR: MOdular VO InteRface]
+		[The MOVOIR]
+		{MOVOIR:
+         MOdular Virtual Observatory InteRface, and VO APIs}
+\label{cha:movoir}
+
+	\attributedquote{
+		\dictionarydef
+		{modular}
+		{adjective}
+		{
+			\begin{itemize}
+				\item employing or involving a module or modules
+				as the basis of design or construction.
+				\invisiblenote{: \emph{modular housing units}.} 
+			\end{itemize}
+		}
+		\dictionarydef
+		{module}
+		{noun}
+		{
+			\begin{itemize}
+				\item each of a set of standardized parts or 
+				independent units that can be used to 
+				construct a more complex structure.
+				
+				\item \textsf{Computing} any of a number of distinct
+				but interrelated units from which a 
+				program may be built up or into which a complex 
+				activity may be analyzed.
+			\end{itemize}
+		}
+		\dictionarydef
+		{interface}
+		{noun}
+		{
+			%\begin{enumerate}
+			%	\item
+				\begin{itemize}
+					\item a point where two systems, subjects,
+					organizations, etc., meet and interact.
+					\invisiblenote{:
+					\emph{the interface between accountancy
+					and the law}.}
+					
+					\invisiblenote
+					{\item \textsf{chiefly Physics} a surface
+					forming a common boundary between two portions
+					of matter or space, e.g., between two
+					immiscible liquids:
+					\emph{the surface tension of a liquid at 
+					its air/liquid interface}.} 
+			%	\end{itemize}
+				
+			%	\item 
+			%	\begin{itemize}
+					\invisiblenote{
+					\item a device or program
+					enabling a user to communicate with a computer.}
+					
+					\item \textsf{Computing}
+					a device or program for connecting two
+					items of hardware or software so that 
+					they can be operated jointly or communicate
+					with each other.
+				\end{itemize} 
+			%\end{enumerate}
+		}
+	}
+	{The New American English Dictionary, \emph{2nd Edition}}
+	
+	\invisiblenote{
+	The MOVOIR (acronym for MOdular Virtual Observatory InteRface)
+	}
+	
+	In the previous chapter we have seen that by creating
+	applications which support VO messaging, using the SAMP
+	messaging protocol, the application can be completely
+	VO-enabled as long as there are outside modules performing
+	certain functions.
+	
+	 In this chapter, we will show a set of such modules, which we
+	call MOVOIR (as acronym for MOdular Virtual Observatory
+	InteRface). We will see which are the messages used by already
+	existing applications, and how can we create our own messages
+	for supporting an interface to the VO, but also the messages
+	defined by the existing applications can be rethought so that
+	the support special services, defining that way a plug-in API
+	for the VO.
+	
+	 An additional remark: in this, and the following chapters,
+	the meaning of the words “MUST”, “MUST NOT”,
+	“REQUIRED”, “SHALL”, “SHALL  NOT”, “SHOULD”, “SHOULD NOT”,
+	“RECOMMENDED”, “MAY”, and “OPTIONAL”, when they appear in
+	capital letters, are to be interpreted as described by
+	Internet Engineering Task Force (IETF)
+	RFC~2119\urlnote{http://www.ietf.org/rfc/rfc2119.txt}~\cite{
+	rfc2119}.
+	
+	\section{SAMP Messages and MTypes} % (fold)
+	\label{sec:samp_messages_mtypes}
+		
+		SAMP is a hub-based messaging system which supports many
+		different mechanisms for messaging: message broadcasting,
+		point-to-point messaging, and a publish/subscribe scheme
+		where messages are sent to all interested applications,
+		which have declared such interest when registering with
+		the hub.
+		
+		All of these operations are performed by sending MTypes,
+		which are messages with particular codes, so that they
+		have an associated meaning. In the SAMP standard profile,
+		they correspond to XML-RPC calls to the hub to the
+		corresponding \method{call}, \method{callAndWait}, or
+		\method{notify} methods, provided as XML-RPC services by
+		the hub. In those calls, there is a message parameter
+		which correspond to a map (in the sense of a set of
+		key-value pairs, where the keys are strings) with the
+		following keys:
+		
+		\begin{description}
+			\item[\sampmtype] A \stringtype{} which
+			defines the meaning and parameters of the message.
+			All messages sent with the same \sampmtype{}
+			need to provide the same mandatory parameters, with
+			the same data types, with the same expected behaviour.
+			
+			\item[\sampparams] A \maptype{} of
+			the parameters needed for the correct interpretation
+			of a message with the specified \sampmtype.
+			As mentioned above, when an MType is defined, their
+			mandatory parameters have to be defined, too.
+			Keys are \stringtype{}s representing the parameter
+			name, and the data type of the value depends on the
+			actual definition of the MType, but has to be one of
+			the supported data types.
+		\end{description}
+		
+		\begin{table}[t]
+		\begin{minipage}{\linewidth}
+			\caption[SAMP data types]
+			{SAMP Data Types. The corresponding Backus-Naur Form
+			(BNF)
+			for each data type can be found on section 3.3 of the
+			\emph{SAMP IVOA Recommendation}~\cite{2009samp.ivoav0904T}.
+			Data range for \sampint{} or \sampfloat{} types depends
+			on the encoding and decoding applications.}
+			\label{tabSAMPdataTypes}
+		\begin{center}
+		\begin{smalltabular}{rp{0.5\textwidth}}
+			\textbf{Data type} & \textbf{Description} \\ \midrule
+		
+			\stringtype{} & alphanumeric data.\\ \addlinespace
+			
+			\listtype{} & ordered array of data
+			items of the same type.\\ \addlinespace
+			
+			\sampint{} & a \stringtype{} containing a
+			representation of an integer number.\\ \addlinespace
+			
+			\sampfloat{} & a \stringtype{} containing a
+			representation of a floating point number.\\
+			\addlinespace
+			
+			\sampbool{} & a \stringtype{} containing either
+			\datatype{0} or \datatype{1}, for false or true logical
+			values, respectively.\\ \addlinespace
+			
+			\maptype{} & an unordered associative
+			array of key-value pairs, in which each key is a
+			\stringtype, and each value is given in one of
+			the supported data types above.\\ \addlinespace
+		\end{smalltabular}
+		\end{center}
+		\end{minipage}
+		\end{table}
+		
+		When a message of a given type returns values, they are
+		returned as map with the following keys:
+		
+		\begin{description}
+			\item[\sampstatus] This is a REQUIRED key.
+			Its value is a \stringtype{} summarising the result
+			of the processing. It may take one of the following
+			predefined values:
+			
+			\begin{description}
+				\item[\sampok] Signals total
+				success. In this case, the \sampresult{} key
+				SHOULD be present, and the \samperror{} key
+				SHOULD NOT appear.
+				
+				\item[\sampwarning] Partial success. Both
+				\sampresult{} and \samperror{} keys
+				SHOULD be present.
+				
+				\item[\samperror] Processing of the
+				message failed. The \samperror{} key MUST
+				be present, and the \sampresult{} MUST NOT
+				appear.
+			\end{description}
+			
+			\item[\sampresult] This key is REQUIRED in case
+			of full (\sampstatus\ equal to \sampok) or partial
+			(\sampstatus\ equal to \sampwarning) success. The
+			value is a map containing the values for the
+			named return values, which are determined by the
+			value of \sampmtype{} (the MType). Even for MTypes
+			which return no value, the key must be present,
+			with its value set to empty.
+			
+			\item[\samperror] This key is REQUIRED in case
+			of full (\sampstatus\ equal to \samperror) or
+			partial (\sampstatus\ equal to \sampwarning) error.
+			The value for this key is a map with the following
+			keys:
+			
+			\begin{description}
+				\item[\mapkey{samp.errortxt}] This key is
+				REQUIRED in this map. Its value is short
+				\stringtype{} describing the problem, to be
+				presented to the user.
+				
+				
+				\item[\mapkey{samp.usertxt}] This key is
+				optional, and its value is a free-form
+				\stringtype, with additional text the
+				called application wishes to append to the error.
+				It could be appended to the \mapkey{samp.errortxt},
+				but it is undefined what to do with it.
+				
+				\item[\mapkey{samp.debugtxt}] This key is optional,
+				and its value is a free-form \stringtype{} of interest
+				for debugging purposes (e.g. a stack trace).
+				
+				\item[\mapkey{samp.code}] This key is optional, and
+				its value is a \stringtype{} containing a code
+				(numeric or textual) identifying the error.
+			\end{description}
+		\end{description}
+		
+		In order to enhance interoperability, SAMP data types
+		are specified as encoded strings, instead of having
+		a binary encoding, or using platform specific types such
+		as native XML-RPC \mapkey{int} or \mapkey{float} types.
+		Allowed data types are shown in table~\ref{tabSAMPdataTypes}.
+		
+	% section samp_messages_mtypes (end)
+	
+	\section{Standard SAMP message types (MTypes)} % (fold)
+	\label{sec:already_defined_mtypes}
+		
+		\begin{figure}[tb]
+			\centering
+				\begin{minipage}{0.85\linewidth}
+				\begin{framed}
+					\begin{small}
+						\mtypedef{String encoding an MType in
+						\sampmtype}
+								{
+									Description of the meaning of 
+									the message, including the
+									expected behaviour of receiving
+									applications.
+								}
+								{
+									\mtypeparam{parameter name}
+									{data type}
+									{
+										An entry describing every
+										allowed \mapkey{parameter
+										name}
+										in \sampparams.
+										All parameters are mandatory,
+										unless otherwise stated.
+									}
+								}
+								{
+									\mtypeparam{parameter name}
+									{data type}
+									{
+										\emph{None}, if nothing is
+										returned, or one entry for
+										each named
+										returned parameter supported
+										in \sampparams, 
+										describing it.
+									}
+								}
+					\end{small}
+				\end{framed}
+				\end{minipage}
+				
+			\caption{Format for describing MTypes.}
+			\label{fig:sampMTypeDescFormat}
+		\end{figure}
+		
+		As SAMP is an evolution of the PLASTIC messaging protocol,
+		there have been defined some MTypes which represent the
+		kind of messages, with their parameters, that PLASTIC
+		applications were capable of sending.
+		
+		\newcommand{\sampmtypesurl}[0]
+		{http://www.ivoa.net/cgi-bin/twiki/bin/view/IVOA/SampMTypes}
+		The Applications Working Group of the IVOA has created a
+		wiki page\urlnote{\sampmtypesurl} for declaring the
+		MTypes being publicly supported by different applications,
+		so that applications can open up for ad-hoc messages. Once
+		this thesis is published, the MTypes for the MOVOIR will be
+		incorporated to this page.
+		
+		In particular, only the following MTypes are officially
+		supported by clients such as TOPCAT and Aladin, and
+		maintained by the IVOA Applications WG:
+		\method{ta\-ble.load.vo\-ta\-ble}, \method{ta\-ble.load.fits},
+		\method{ta\-ble.high\-light.row},
+		\method{ta\-ble.se\-lect.row\-List},
+		\method{im\-age.load.fits},
+		\method{coord.point\-At.sky}, and
+		\method{spec\-trum.load. ssa-generic}. They are shown,
+		following the format of
+		figure~\ref{fig:sampMTypeDescFormat}, in
+		figures~\ref{fig:tableLoadVotableMtype},
+		\ref{fig:tableLoadFitsMtype},
+		\ref{fig:tableHighlightRowMtype},
+		\ref{fig:tableSelectRowListMtype},
+		\ref{fig:imageLoadFitsMtype},
+		\ref{fig:coordPointAtSkyMtype}, and
+		\ref{fig:spectrumLoadSsaGenericMtype}.
+		
+		\begin{figure}[tbp]
+			\centering
+			\begin{minipage}{0.9\textwidth}
+				\begin{framed}
+					\mtypedef{table.load.votable}
+							{
+								Load (possibly display, or otherwise
+								acknowledge the receipt of) a table in
+								VOTable format.
+							}
+							{
+								\mtypeparam{url}{string}{
+									URL of the VOTable document to
+									load.
+								}
+
+								\mtypeparam[optional]{table-id}{string}
+								{
+									Identifier which may be used to
+									refer to the loaded table in
+									subsequent messages.
+								}
+
+								\mtypeparam[optional]{name}{string}{
+									Name which may be used to label the
+									loaded table in the application
+									GUI.
+								}
+							}
+							{\mtypeparamnone}
+				\end{framed}
+			\end{minipage}
+			
+			\caption[\method{table.load.votable} MType description]
+			{Description of the \method{table.load.votable} MType.}
+			\label{fig:tableLoadVotableMtype}
+		\end{figure}
+		
+		\begin{figure}[tbp]
+			\centering
+			\begin{minipage}{0.9\textwidth}
+				\begin{framed}
+					\mtypedef{table.load.fits}
+							{
+								Load (possibly display, or otherwise
+								acknowledge the receipt of) a data
+								table in FITS format.
+							}
+							{
+								\mtypeparam{url}{string}{
+									URL of the FITS file to load.
+								}
+							
+								\mtypeparam[optional]{table-id}{string}
+								{
+									Identifier which may be used to
+									refer to the loaded table in
+									subsequent messages.
+								}
+							
+								\mtypeparam[optional]{name}{string}
+								{
+									Name which may be used to label the
+									loaded table in the application GUI.
+								}
+							}
+							{\mtypeparamnone}
+				\end{framed}
+			\end{minipage}
+			\caption[\method{table.load.fits} MType description]
+			{Description of the \method{table.load.fits} MType.}
+			\label{fig:tableLoadFitsMtype}
+		\end{figure}
+		
+		\begin{figure}[tbp]
+			\centering
+			\begin{minipage}{0.9\textwidth}
+				\begin{framed}
+					\mtypedef{table.highlight.row}
+							{
+								Highlights a single row of an
+								identified table by row index. The
+								table to operate on is identified by
+								one or both of the \mapkey{table-id} or
+								\mapkey{url} arguments. At least one of
+								these MUST be supplied; if both are
+								given they should refer to the same
+								thing. Exactly what highlighting means
+								is left to the receiving application.
+							}
+							{
+								\mtypeparam[optional, if \mapkey{url} is
+								specified]{table-id}{string}
+								{
+									identifier associated with a table,
+									established by a previous message
+									(e.g. \mapkey{ta\-ble.load.*})
+								}
+
+								\mtypeparam[optional, if
+								\mapkey{table-id} is
+								specified]{url}{string}{URL of a table.}
+
+								\mtypeparam{row}{SAMP int}
+								{
+									Row index (zero-based) of the row
+									to highlight.
+								}
+							}
+							{\mtypeparamnone}
+				\end{framed}
+			\end{minipage}
+			\caption[\method{table.highlight.row} MType description]
+			{Description of the \method{table.highlight.row} MType.}
+			\label{fig:tableHighlightRowMtype}
+		\end{figure}
+		
+		\begin{figure}[tbp]
+			\centering
+			\begin{minipage}{0.9\textwidth}
+				\begin{framed}
+					\mtypedef{table.select.rowList}
+							{
+								Selects a list of rows of an identified
+								table by row index. The table to
+								operate on is identified by one or both
+								of the \mapkey{table-id} or
+								\mapkey{url} arguments. At least one of
+								these MUST be supplied; if both are
+								given they SHOULD refer to the same
+								thing. Exactly what selection means is
+								left to the receiving application.
+							}
+							{
+								\mtypeparam[optional, if \mapkey{url} is
+								specified]{table-id}{string}
+								{
+									Identifier associated with a table,
+									established by a previous message
+									(e.g. \mapkey{ta\-ble.load.*})
+								}
+
+								\mtypeparam[optional, if
+								\mapkey{table-id} is
+								specified]{url}{string}{URL of a table.}
+
+								\mtypeparam{row}{list of SAMP int}
+								{
+									List of row indices (zero-based)
+									defining which table rows are to
+									form the selection
+								}
+							}
+							{\mtypeparamnone}
+				\end{framed}
+			\end{minipage}
+			
+			\caption[\method{table.select.rowList} MType description]
+			{Description of the \method{table.select.rowList} MType.}
+			\label{fig:tableSelectRowListMtype}
+		\end{figure}
+		
+		\begin{figure}[tbp]
+			\centering
+			\begin{minipage}{0.9\textwidth}
+				\begin{framed}
+					\mtypedef{image.load.fits}
+							{
+								Load (possibly display, or otherwise
+								acknowledge) a two-dimensional FITS
+								image.
+							}
+							{
+								\mtypeparam{url}{string}
+								{URL of the FITS image to be loaded.}
+
+								\mtypeparam[optional]{image-id}{string}
+								{
+									Identifier which may be used to
+									refer to the loaded FITS image in
+									subsequent messages.
+								}
+
+								\mtypeparam[optional]{name}{string}
+								{
+									Name which may be used to label the
+									loaded FITS image in the
+									application GUI.
+								}
+							}
+							{\mtypeparamnone}
+				\end{framed}
+			\end{minipage}
+			
+			\caption[\method{image.load.fits} MType description]
+			{Description of the \method{image.load.fits} MType.}
+			\label{fig:imageLoadFitsMtype}
+			
+		\end{figure}
+		
+		\begin{figure}[tbp]
+			\centering
+			\begin{minipage}{0.9\textwidth}
+				\begin{framed}
+					\mtypedef{coord.pointAt.sky}
+							{
+								Directs attention (e.g. by moving a
+								cursor or shifting the field of view)
+								to a given point on the celestial
+								sphere.
+							}
+							{
+								\mtypeparam{ra}{SAMP float}
+								{Right ascension in degrees.}
+
+								\mtypeparam{dec}{SAMP float}
+								{Declination in degrees.}
+							}
+							{\mtypeparamnone}
+				\end{framed}
+			\end{minipage}
+			
+			\caption[\method{coord.pointAt.sky} MType description]
+			{Description of the \method{coord.pointAt.sky} MType.}
+			\label{fig:coordPointAtSkyMtype}
+		\end{figure}
+		
+		\begin{figure}[tbp]
+			\centering
+			\begin{minipage}{0.9\textwidth}
+				\begin{framed}
+					\mtypedef{spectrum.load.ssa-generic}
+							{
+								Load (possibly display, or otherwise
+								acknowledge) a spectrum or SED. The
+								name refers to the fact that the
+								metadata passed with this MType is
+								based on the Simple Spectral Access
+								protocol, but not on any particular
+								version of it. The arguments are chosen
+								such that it is convenient to use this
+								MType for passing the results of an SSA
+								query from an SSA client to a spectrum
+								viewer (particularly to an SSA-capable
+								spectrum viewer). However it is not
+								necessary for SSA to be involved;
+								SSA-like metadata may be faked and used
+								to message loading of a spectrum from
+								any source. In the latter case it is
+								RECOMMENDED to provide at least the
+								\mapkey{Access.Format} entry in the
+								\mapkey{meta} map.
+							}
+							{
+								\mtypeparam{url}{string}
+								{URL of the spectrum to load}
+
+								\mtypeparam{meta}{map}{
+									Additional metadata describing the
+									spectral data found at the URL.
+									Key/Value pairs represent either
+									Utypes or UCDs as defined or used
+									in some version of the SSA
+									specification or its predecessors.
+									Example map keys are
+									\mapkey{Access.Format} (SSA 1.0
+									MIME type Utype) or
+									\mapkey{VOX:Spectrum\_Format}
+									(pre-1.0 SSA MIME type UCD). It is
+									up to the recipient to make sense
+									of these and, for instance, deal
+									with the possibility that given
+									expected keys are present or that
+									apparently contradictory
+									information is presented. Most
+									existing SSA-aware spectrum viewing
+									clients already contain this
+									functionality.
+								}
+
+								\mtypeparam[optional]{spectrum-id}
+								{string}
+								{
+									Identifier which may be used to
+									refer to the loaded spectrum in
+									subsequent messages.
+								}
+
+								\mtypeparam[optional]{name}{string}
+								{
+									Name which may be used to label the
+									loaded spectrum in the application
+									GUI.
+								}
+							}
+							{\mtypeparamnone}
+				\end{framed}
+			\end{minipage}
+			
+			\caption[\method{spectrum.load.ssa-generic} MType
+			description]
+			{Description of the \method{spectrum.load.ssa-generic}
+			MType.}
+			\label{fig:spectrumLoadSsaGenericMtype}
+		\end{figure}
+		
+				
+		We can see in the message descriptions that applications
+		developers' flexibility is encouraged, but an additional
+		property of all of these messages collaborates in that
+		flexibility: none of the MTypes above return anything, and
+		the actions to be carried out by the receiving  application
+		upon receipt of these messages can be completely arbitrary.
+		
+		We will use this flexibility to define a set of
+		\emph{behaviours}, upon receipt of standard MTypes, which
+		will aid in calculations, and will provide the API for
+		the MOVOIR operations.
+		
+	% section already_defined_mtypes (end)
+	
+	% section movoir_alternative_behaviours (fold)
+	\section{Creating alternative response patterns}
+	\label{sec:movoir_alternative_behaviours}
+		
+		We have seen in the previous section that there are a 
+		number of already standardised MTypes, together with their
+		corresponding responses upon receipt of those MTypes.
+		For all of those messages applications returned
+		nothing\footnote{Formally, asynchronously called modules
+		which return nothing SHOULD call the callers' \method{reply}
+		method with a \maptype\ with keys \sampstatus\ set to
+		\sampok\, and \sampresult\ set to an empty map, but
+		applications
+		SHOULD NOT behave incorrectly if they do not receive it.},
+		and there were clear indications that applications should
+		perform certain tasks upon receipt of such MTypes, but
+		there is nothing the caller application can do in order to
+		ensure a particular response, and this is a feature of this
+		messaging system: applications are notified of an event,
+		and what to do upon reception is completely up to them.
+		
+		One clear case of SAMP-based application which subscribes
+		to the messages above, but does not really perform the
+		actions specified by the MType description, are logger
+		application. A typical logger application would register
+		with a SAMP hub, and subscribe to every possible message.
+		However, for all messages received the message handler
+		is the same, and just logs the \sampmtype{} and \sampparams{}
+		of the call, together with information about the caller
+		application.
+		
+		The lesson to learn from this example is that applications
+		which subscribe to broadcasted messages, and specially
+		those who require no answer, are completely transparent to
+		caller applications: we can perform any action it makes
+		sense to perform upon receipt of these messages, as long
+		as the formal behaviour expected by the calling application
+		(in terms of answering a synchronous message, not letting
+		the calling application blocked, filling all required
+		keywords in the response...) is fulfilled.
+		
+		Let us explore a few examples of new functionality which
+		can be added by two means: performing a somewhat different
+		action upon receiving one of the standard messages, or
+		letting called applications see who has called them, and
+		send messages back to applications which support them.
+		
+		\subsection{Modifying or enhancing response actions} % (fold)
+		\label{sub:modifying_or_enhancing_response_actions}
+			The first case (modifying what is done by the receiving
+			applications) was illustrated by our previous example of
+			a logger application, and we will also use this way to
+			create a VODownloader application.
+			
+			A VODownloader is, essentially, an application which,
+			instead of actually working with the VOTables and FITS
+			files which are sent to it, it downloads and saves them
+			to a particular folder. This requires being able to
+			respond to the \mapkey{table.load.votable},
+			\mapkey{table.load.fits}, and \mapkey{image.load.fits},
+			and use the \mapkey{url} parameter as a data source to
+			download the file sent. This changes somehow the
+			meaning of the \mapkey{table.load.*} and
+			\mapkey{image.load.fits} MTypes, but in a sense which
+			is compatible with the message definition, and provides
+			a valuable service for integrating legacy applications
+			for which there is no access to source code, and which
+			cannot be integrated into the VO. For them, a
+			VODownloader application is the only possible data
+			access bridge to the VO.
+		% subsection modifying_or_enhancing_response_actions (end)
+		
+		\subsection{Performing same-message call-backs} % (fold)
+		\label{sub:performing_arbitrary_client_callbacks}
+			When sending an asynchronous message, the caller
+			application provides a function the called
+			service needs to call back in order to provide
+			the actual result.
+			
+			However, that is only possible for asynchronous
+			messages with MTypes expecting return values, and none
+			of the standard messages provide nothing back.
+			Of course, we can create our own, custom MTypes, but
+			those will only be useful for the subset of applications
+			which known about those additional MTypes. If we want to
+			provide an extension mechanism for already existing
+			VO applications, and for those applications whose only
+			connection to the VO is messaging, we need to provide
+			extensions through the existing MTypes.
+			
+			Nonetheless, SAMP provides the mechanisms for that:
+			as described in section 3.12, a callable client must
+			support the \method{receiveNotification},
+			\method{receiveCall}, and \method{reply} methods, and
+			all of them receive a \mapkey{sender-id} parameter.
+			
+			This allows called applications to send messages to
+			the clients who called them first, upon receipt of a
+			particular message.
+			
+			In this way, we can think of different possibilities
+			upon receipt of a given MType which can be replied by
+			sending back the same MType:
+			
+			\begin{description}
+				\item[\method{image.load.fits}] In this message,
+				only the \mapkey{url} parameter is mandatory. Upon
+				receipt of such a message, the called module would
+				perform some processing: for instance, image
+				inversion, rotation, reflection, automatic level
+				adjustments, adaptive wavelet filtering, FFTs,
+				et cetera. Then, it would send the application
+				which sent the original message another
+				\method{image.load.fits} MType with the processed
+				image.
+				
+				\item[\method{table.load.votable}] Again, in this
+				message only the \mapkey{url} parameter is
+				mandatory. Upon receipt of such a message, the
+				called module would perform some processing: for
+				instance, FFT of VOTable columns (in order to
+				get spectra from auto-correlation data), statistics
+				on the columns (min, max, average, median, standard
+				deviation, et cetera), et cetera. Then, it would
+				send the application which sent the original table
+				another \method{table.load.votable} MType with 
+				the processed table.
+			\end{description}
+			
+			In order for users to discover the actual behaviour of
+			each module, the actual processing being performed
+			(including default parameters being applied) SHOULD be
+			available via the \mapkey{samp.description} metadata
+			declared with the hub.
+			
+		% subsection performing_arbitrary_client_callbacks (end)
+		
+		\subsection{Performing different-message call-backs} % (fold)
+		\label{sub:performing_different_message_call_backs}
+			
+			We are not restricted to create responses as messages
+			of the same time to be back to the calling client. We
+			might have, for example, a module which takes an
+			\method{image.load.fits} MType, and uses
+			SExtractor\urlnote{http://terapix.iap.fr/soft/sextractor/}
+			to create a catalogue of sources detected on that FITS.
+			The catalogue could be sent to other table loading
+			applications (e.g. TOPCAT, but it could be broadcast to
+			all subscribers of the \method{table.load.votable} MType)
+			for display via a \method{table.load.votable} message,
+			or simple stored as a file in a particular folder.
+			
+			Another interesting possibility is that of receiving
+			\mapkey{ra} and \mapkey{dec} coordinates via a 
+			\method{coords.pointAt.sky} MType, and performing a
+			ConeSearch query on those coordinates for selected
+			services, sending results back as a
+			\method{table.load.votable} message.
+			
+			With the schema described up to now we could only build
+			modules limited to process just one input, be it a
+			table, an image, or a pair of coordinates. 
+			
+			However, we can push this concept further, so that SAMP
+			modules which need to operate on two inputs would wait
+			for two messages of the same type from the same client,
+			with different data, in order to use both data inputs.
+			
+			One such example would be a module for cross-matching
+			sources from two different catalogues. The sequence, in
+			this case, would be:
+			
+			\begin{enumerate}
+				\item An application (e.g. TOPCAT) sends a VOTable
+				to an application (which we can call XMatch) which
+				supports the \method{table.load.votable} MType.
+				
+				\item XMatch starts preparing for a XMatch of that
+				first table with another table yet to be sent by 
+				the same client.
+				
+				\item The same application sends a second VOTable
+				to the XMatch application via the
+				\method{table.load.votable} MType.
+				
+				\item XMatch performs a cross-matching of both
+				tables, using default parameters, creating a third
+				table, with all fields from both tables for
+				sources which were successfully cross-matched.
+				
+				\item When the cross-matching table has been
+				created, a message is sent to the caller
+				application using the same
+				\method{table.load.votable} MType.
+			\end{enumerate}
+			
+			Such an XMatch module would be able to provide
+			cross-matching services to every SAMP-enabled
+			application able to send \method{table.load.votable}
+			MTypes, as most applications being able to send
+			\method{table.load.votable} MTypes can handle them as
+			well. This means that just by supporting the
+			standard messages, applications can be enhanced by
+			modules which can act upon receipt of standard
+			messages. We have, in fact, created a plug-in API for
+			the VO.
+			
+			This operation model has the drawback of needing a
+			series of default parameters which cannot be specified
+			by the calling applications, as they are using a
+			generic message for loading data.
+			
+			That problem could be overcome in two ways:
+			first, as the data is sent in the VOTable format,
+			if there are additional metadata on spatial resolution,
+			we can build \emph{intelligence} into the cross-matching
+			module to let it adjust its default parameters from the
+			available information.
+			
+			Second, specially formatted VOTables could be sent to
+			the modules via the same \method{table.load.votable}
+			messages. The formatting would include precise field
+			names corresponding to the parameters to be set for
+			processing data from subsequent messages.
+			
+			A final goal of this thesis would be the development
+			of an IVOA-sanctioned plug-in architecture,
+			were specific MTypes would be created for getting
+			application capabilities (default values set-up,
+			methods for discovery of plug-in messages, et cetera)
+			the creation of MTypes specific for handling these
+			module properties.
+			
+			In that case, another tool which could be performed
+			would be the automatic creation of messages for 
+			applications, by just selecting the message, and
+			providing links to the data being created.
+			
+			In addition, by publishing into the IVOA wiki the
+			messages used by the MOVOIR, they could become more
+			generalised, and available from many more modules.
+			
+			\invisiblenote
+			{Apart from having these \emph{workarounds}, for
+			being able to obtain extra functionality from already
+			existing MTypes, providing specific MTypes
+			(for instance \method{tables.xmatch.votables}) allows
+			for better interfacing from scripts and other
+			applications with the actual function being performed.}
+			
+		% subsection performing_different_message_call_backs (end)
+		
+	% section movoir_alternative_behaviours (end)
+	
+	\section{Describing MType parameters} % (fold)
+	\label{sec:describing_mtype_parameters}
+		
+		The main idea permeating this part of the thesis is that
+		of using SAMP as the way to provide a VO API to enhance
+		existing VO applications, and those applications which
+		have been updated to make use of SAMP messaging.
+		
+		In order for applications and developers to have access
+		to the different functions and MTypes available from
+		different active SAMP applications and/or modules,
+		a discovery mechanism is needed.
+		
+		The SAMP hub aids in the discovery of available modules
+		and of the different MTypes supported, but provides no way
+		for applications to discover mandatory and optional
+		parameters for particular MTypes. And the ability to get
+		the data types, and possibly meanings, for each parameter,
+		should also be taken into account.
+		
+		Hence, we propose a new MType,
+		\method{movoir.describe.mtype}. The name has been chosen
+		using the guidelines for MType identifiers set on
+		the SAMP MTypes wiki page\urlnote{\sampmtypesurl}. This
+		MType definition is shown in
+		figure~\ref{fig:movoirDescribeMtype}.
+		
+		\begin{figure}[htbp]
+			\centering
+			\begin{minipage}{0.9\textwidth}
+				\begin{framed}
+					\mtypedef{movoir.describe.mtype}
+							{
+								Applications receiving this message
+								need to provide a description of the
+								MType specified by the \mapkey{mtype}
+								parameter, including message
+								parameters, their type, and whether
+								they are optional or not, and the
+								result map, also including message
+								type. If the application does not
+								support that MType, it MUST return an
+								error condition.
+							}
+							{
+								\mtypeparam{mtype}{string}
+								{MType identifier to be described.}
+
+								\mtypeparam[optional]{verbose}
+								{SAMP boolean}
+								{
+								Boolean string stating whether the
+								answer should be plain
+								(\mapkey{false}), or verbose
+								(\mapkey{true}), indicating an
+								extra description is desired for
+								parameters and the MType. Default
+								value is \mapkey{false}.
+								}
+							}
+							{
+								\mtypeparam{parameters}{map}
+								{
+								Map where the keys are the
+								different parameters supported by
+								the specified \mapkey{mtype}, and
+								values are maps with three
+								mandatory keys: \mapkey{type},
+								giving the SAMP type ---as in
+								table~\ref{tabSAMPdataTypes}--- of
+								the parameter; \mapkey{optional}, a
+								SAMP boolean stating whether the
+								parameter is optional or not; and
+								\mapkey{ucd}, which provides a UCD
+								for the kind of parameter. If
+								\mapkey{verbose} is set to
+								\mapkey{true}, an additional
+								\mapkey{movoir.description} key
+								SHOULD appear for each parameter.
+								}
+								
+								\mtypeparam[optional]{movoir.result}
+								{map}
+								{
+								If present, it indicates the return
+								values provided my the
+								\mapkey{mtype} MType, in the same
+								way as parameters are described. It
+								MUST appear for MTypes with return
+								values.
+								}
+								
+								\mtypeparam[optional]
+								{movoir.description}{string}
+								{
+								If present, it provides a general
+								description of the MType being
+								analysed. It SHOULD appear when the
+								\mapkey{verbose} parameter is set
+								to \mapkey{true}.
+								}
+							}
+				\end{framed}
+			\end{minipage}
+			\caption[\method{movoir.describe.mtype} MType description]
+			{Description of the \method{movoir.describe.mtype} MType.}
+			\label{fig:movoirDescribeMtype}
+		\end{figure}
+		
+		We will show examples of use of the
+		\method{movoir.describe.mtype} message, with both the
+		constructed and received message map shown. For instance,
+		the result for the \method{table.load.votable} message is
+		shown in figure~\ref{fig:describeMtypeVOTableLoad}.
+		
+		\begin{figure}[tbp]
+			\centering
+			
+			\subfloat[][]
+			{
+				\begin{minipage}{0.27\columnwidth}
+					\label{subfig:describeTableLoadVotableSent}
+					\begin{small}
+						\begin{description}
+							\item[\sampmtype]:
+							\mapkey{"movoir.describe.mtype"}
+							
+							\item[\sampparams]:
+							\begin{description}
+								\item[\mapkey{mtype}]:
+								\mapkey{"table.load.votable"}
+							\end{description}
+						\end{description}
+					\end{small}
+				\end{minipage}
+			} 
+			\hfill 
+			\subfloat[][]
+			{
+				\begin{minipage}{0.67\columnwidth}
+					\label{subfig:describeTableLoadVotableReceived}
+					\begin{small}
+					\begin{description}
+						\item[\sampstatus]: \mapkey{"samp.ok"}
+						
+						\item[\sampresult]:
+						\begin{description}
+							\item[\mapkey{parameters}]:
+							\begin{description}
+								\item[\mapkey{url}]:
+								\begin{description}
+									\item[\mapkey{type}]:
+									\mapkey{"string"}
+									\item[\mapkey{optional}]:
+									\mapkey{"false"}
+									\item[\mapkey{ucd}]:
+									\mapkey{"meta.url"}
+								\end{description}
+								
+								\item[\mapkey{table-id}]:
+								\begin{description}
+									\item[\mapkey{type}]:
+									\mapkey{"string"}
+									\item[\mapkey{optional}]:
+									\mapkey{"true"}
+									\item[\mapkey{ucd}]:
+									\mapkey{"meta.id"}
+								\end{description}
+								
+								\item[\mapkey{name}]:
+								\begin{description}
+									\item[\mapkey{type}]:
+									\mapkey{"string"}
+									\item[\mapkey{optional}]:
+									\mapkey{"true"}
+									\item[\mapkey{ucd}]:
+									\mapkey{"meta.name"}
+								\end{description}
+							\end{description} 
+						\end{description}
+					\end{description}
+					\end{small}
+				\end{minipage}
+			} 
+			\caption[Using \texttt{movoir.describe.mtype}
+			on the \mapkey{table.load.votable} method.]
+			{
+				Example of use of the
+				\method{movoir.describe.mtype} message to learn how
+				a particular message works for a particular
+				application. Subfigure
+				\subref{subfig:describeTableLoadVotableSent} shows
+				the map built to send the
+				\method{movoir.describe.mtype} mesage,
+				while~\subref{subfig:describeTableLoadVotableReceived}
+				shows the resulting map. Compare this result with
+				the description of the \method{table.load.votable}
+				MType in section~\ref{sec:already_defined_mtypes}.
+			}
+			\label{fig:describeMtypeVOTableLoad}
+		\end{figure}
+		
+		Figure~\ref{fig:describeVerboseFITSload}, on the other
+		hand, shows the result of calling
+		\method{mo\-voir.des\-cribe.mtype} with the additional
+		\mapkey{verbose} parameter, while
+		figure~\ref{fig:describeSelf} shows the result of calling
+		\method{mo\-voir.des\-cribe.mtype} with itself as MType. This
+		example allows us to see how to handle both maps as 
+		parameters and results. For maps, additional information 
+		needs to be provided in the form of UCD so that applications
+		can learn automatically how to handle the map.
+		
+		\begin{figure}[tbp]
+			\centering
+			
+			\subfloat[][]
+			{
+				\begin{minipage}{0.27\columnwidth}
+					\label{subfig:describeTableLoadFITSSent}
+					\begin{small}
+					\begin{description}
+						\item[\sampmtype]:
+						\mapkey{"movoir.describe.mtype"}
+						
+						\item[\sampparams]:
+						\begin{description}
+							\item[\mapkey{mtype}]:
+							\mapkey{"table.load.fits"}
+							\item[\mapkey{verbose}]:
+							\mapkey{"true"}
+						\end{description}
+					\end{description}
+					\end{small}
+				\end{minipage}
+			} 
+			\hfill 
+			\subfloat[][]
+			{
+				\begin{minipage}{0.67\columnwidth}
+					\label{subfig:describeTableLoadFITSReceived}
+					\begin{small}
+					\begin{description}
+						\item[\sampstatus]: \mapkey{"samp.ok"}
+						
+						\item[\sampresult]:
+						\begin{description}
+							\item[\mapkey{movoir.description}]:
+							\mapkey{"Load (possibly display, or
+							otherwise acknowledge the receipt of) a
+							data table in FITS format."}
+							
+							\item[\mapkey{parameters}]:
+							\begin{description}
+								\item[\mapkey{url}]:
+								\begin{description}
+									\item[\mapkey{movoir.description}]:
+									\mapkey{"URL of the FITS file to be
+									loaded."}
+									\item[\mapkey{type}]:
+									\mapkey{"string"}
+									\item[\mapkey{optional}]:
+									\mapkey{"false"}
+									\item[\mapkey{ucd}]:
+									\mapkey{"meta.url"}
+								\end{description}
+								
+								\item[\mapkey{table-id}]:
+								\begin{description}
+									\item[\mapkey{movoir.description}]:
+									\mapkey{"Identifier which may be
+									used to refer to the loaded table
+									in subsequent messages."}
+									\item[\mapkey{type}]:
+									\mapkey{"string"}
+									\item[\mapkey{optional}]:
+									\mapkey{"true"}
+									\item[\mapkey{ucd}]:
+									\mapkey{"meta.id"}
+								\end{description}
+								
+								\item[\mapkey{name}]:
+								\begin{description}
+									\item[\mapkey{movoir.description}]:
+									\mapkey{"Name which may be used to 
+									label the loaded table in the
+									application GUI."}
+									\item[\mapkey{type}]:
+									\mapkey{"string"}
+									\item[\mapkey{optional}]:
+									\mapkey{"true"}
+									\item[\mapkey{ucd}]:
+									\mapkey{"meta.name"}
+								\end{description}
+							\end{description} 
+						\end{description}
+					\end{description}
+					\end{small}
+				\end{minipage}
+			} 
+			\caption[Verbose description of the
+			\mapkey{table.load.fits} method.]
+			{
+				Another example of use of the
+				\method{movoir.describe.mtype} message. Subfigure
+				\subref{subfig:describeTableLoadFITSSent} shows
+				the map built to send the
+				\method{movoir.describe.mtype} mesage with the
+				\mapkey{verbose} parameter set to \mapkey{true},
+				while~\subref{subfig:describeTableLoadFITSReceived}
+				shows the resulting map. In this case, we
+				have additional \mapkey{movoir.description} keys
+				both for parameters and the message itself.
+			}
+			\label{fig:describeVerboseFITSload}
+		\end{figure}
+		
+		\begin{figure}[tbp]
+			\centering
+			
+			\begin{minipage}{\columnwidth}
+				\begin{small}
+				\begin{description}
+					\item[\sampstatus]: \mapkey{"samp.ok"}
+					
+					\item[\sampresult]:
+					\begin{description}
+						
+						\item[\mapkey{movoir.description}]: 
+						\mapkey{"Applications receiving this
+						message need to provide a description of
+						the MType […]"}
+						
+						\item[\mapkey{parameters}]:
+						\begin{description}
+							\item[\mapkey{mtype}]:
+							\begin{description}
+								\item[\mapkey{movoir.description}]:
+								\mapkey{"MType code to be
+								described."}
+								\item[\mapkey{type}]:
+								\mapkey{"string"}
+								\item[\mapkey{optional}]:
+								\mapkey{"false"}
+								\item[\mapkey{ucd}]:
+								\mapkey{"meta.code; samp.mtype"}
+							\end{description}
+							\item[\mapkey{verbose}]:
+							\begin{description}
+								\item[\mapkey{movoir.description}]:
+								\mapkey{"Whether to add
+								\mapkey{movoir.description} […]."}
+								\item[\mapkey{type}]:
+								\mapkey{"SAMP boolean"}
+								\item[\mapkey{optional}]:
+								\mapkey{"true"}
+								\item[\mapkey{ucd}]:
+								\mapkey{"meta.code"}
+							\end{description}
+						\end{description}
+						
+						\item[\mapkey{movoir.result}]:
+						\begin{description}
+							\item[\mapkey{movoir.description}]:
+							\begin{description}
+								\item[\mapkey{type}]:
+								\mapkey{"string"}
+								\item[\mapkey{optional}]:
+								\mapkey{"true"}
+								\item[\mapkey{ucd}]:
+								\mapkey{"meta.note"}
+								\item[\mapkey{movoir.description}]:
+								\mapkey{"Provides a general
+								description of the MType
+								being analysed[…]"}
+							\end{description}
+							
+							\item[\mapkey{parameters}]:
+							\begin{description}
+								\item[\mapkey{type}]:
+								\mapkey{"map"}
+								\item[\mapkey{optional}]:
+								\mapkey{"false"}
+								\item[\mapkey{ucd}]:
+								\mapkey{"movoir.parameters"}
+								\item[\mapkey{movoir.description}]:
+								\mapkey{"Map whose keys are
+								the different parameters
+								supported by the specified
+								\mapkey{mtype} […]."}
+							\end{description}
+							
+							\item[\mapkey{movoir.result}]:
+							\begin{description}
+								\item[\mapkey{type}]:
+								\mapkey{"map"}
+								\item[\mapkey{optional}]:
+								\mapkey{"false"}
+								\item[\mapkey{ucd}]:
+								\mapkey{"movoir.result"}
+								\item[\mapkey{movoir.description}]:
+								\mapkey{"If present, it indicates
+								the return values provided my the
+								\mapkey{mtype} MType […]"}
+							\end{description}
+						\end{description}
+						
+					\end{description}
+				\end{description}
+				\end{small}
+			\end{minipage}
+			\caption[Verbose description of the
+			\mapkey{table.load.fits} method.]
+			{
+				A more complex example of use of the
+				\method{movoir.describe.mtype} message, where the
+				MType being describe has parameters and provides
+				results which themselves are maps. Compare this
+				(abbreviated) result to the description of
+				\method{movoir.describe.mtype} at the beginning of
+				this section.
+			}
+			\label{fig:describeSelf}
+		\end{figure}
+		
+		In any case, the textual descriptions allow any SAMP
+		developer either to provide a similar support for a
+		given MType, or to create clients able to send those
+		messages.
+		
+		The most interesting feature of the
+		\method{movoir.describe.mtype} message is that it depends
+		on the application being called: in particular, the
+		descriptions of the message correspond to the use of the
+		parameters and of the return values (if any) by that
+		particular module.
+		
+		\invisiblenote{
+		We can see how this is valuable if we
+		compare the result of sending the
+		\method{movoir.describe.mtype} to two different
+		applications. Figure~\ref{fig:compareVOTableLoadDescription}
+		shows the comparison between a generic application which
+		has implemented support for the \method{movoir.describe.type}
+		message, and the VO Downloader.}
+		
+		Figure~\ref{fig:describeSelf} also shows how to complement
+		the UCD1+ vocabulary with special vocabulary for
+		parameters very specific to SAMP: for instance, there is no
+		UCD1+ ---and there should be none--- to specify a SAMP
+		result, so having either its own form (as in
+		\mapkey{movoir.result}), or juxtaposing UC1+ terms with
+		custom terms (as in \mapkey{meta.code; samp.mtype}), allows
+		to maintain UCD semantics as much as possible, while adding
+		a few atoms for clarity.
+		
+		Thus, the controlled vocabulary for the \mapkey{ucd} key is
+		the union of the UCD1+ vocabulary with all terms starting
+		with \mapkey{samp.*} ---interpreting the asterisk
+		(\texttt{*}) as a wildcard--- defined in the SAMP
+		Recommendation~\cite{2009samp.ivoav0904T}, plus the
+		following terms specific for the MOVOIR (but which might be
+		adopted/adapted by the IVOA):
+		
+		\begin{description}
+			\item[\mapkey{movoir.result}] Identifies a map of
+			MType result keys.
+			
+			\item[\mapkey{movoir.parameters}] Identifies a map
+			of MType parameter keys.
+		\end{description}
+		
+		
+	% section describing_mtype_parameters (end)
+	
+	\section{Providing default values and settings to modules} % (fold)
+	\label{sec:providing_default_values_settings}
+		
+		We had also identified the problem of setting default
+		values for data processing algorithms implemented on
+		top of SAMP/MOVOIR. For that, we propose two messages:
+		
+		\begin{description}
+			\item[\method{movoir.configuration.set}] This message
+			sends a \mapkey{url} to a VOTable with the different
+			settings to be used by the module. An optional
+			\mapkey{mtype} parameter can be used to restrict
+			settings to the behaviour for a particular
+			\mapkey{mtype}. In this case, the application SHOULD NOT
+			take into account settings which configure behaviours
+			for different \mapkey{mtype}s.
+			In the case of asynchronous or synchronous calls to
+			this message, the return value SHALL contain a
+			\mapkey{url} to the new current values.
+			If settings for
+			different \mapkey{mtype}s were discarded, the application
+			\sampstatus{} should be set to \sampwarning{}.
+			
+			\item[\method{movoir.configuration.get}] This message
+			will return a \mapkey{url} key pointing to a VOTable
+			containing the different parameters which can be set,
+			and their current values, similar to that returned
+			after a \method{movoir.configuration.set} message.
+		\end{description}
+		
+		In particular, the MType definitions for these two messages
+		are shown in figures~\ref{fig:movoirConfigurationSetMtype}
+		and \ref{fig:movoirConfigurationGetMtype}.
+		
+		\begin{figure}[tbp]
+			\centering
+			\begin{minipage}{0.9\textwidth}
+			\begin{framed}
+			\mtypedef{movoir.configuration.set}
+					{
+					Applications receiving this message will use
+					the \mapkey{url} parameter to retrieve a
+					VOTable with two fields: parameter name,
+					and parameter value (using SAMP types). These
+					will be used to set those parameters affecting
+					the behaviour of the module receiving the
+					message.
+					to provide a description of the MType
+					specified by the \mapkey{mtype} parameter,
+					including message parameters, their type, and
+					whether they are optional or not, and the result
+					map, also including message type. If the
+					application does not support that MType, it MUST
+					return an \samperror{} condition.
+					}
+					{
+						\mtypeparam{url}{string}
+						{
+						URL to the VOTable containing the values to
+						be set. FIELDs with a \mapkey{utype}
+						attribute equal to
+						\mapkey{movoir.pa\-ra\-me\-ter.key} will be
+						considered to contain parameter names to be
+						set, and FIELDs with \mapkey{utype} equal
+						to \mapkey{movoir.parameter.value} will be
+						considered as the value to set. Any
+						additional fields will be discarded.
+						}
+
+						\mtypeparam[optional]{mtype}{string}
+						{String containing a single MType to which
+						the parameters to be set conform}
+					}
+					{
+						\mtypeparam[optional]{url}{string}
+						{
+						For synchronous or asynchronous messages,
+						the returned \mapkey{url} parameter holds a
+						URL to a VOTable with the new settings of
+						the application. In addition to the two
+						fields with \mapkey{movoir.parameter.key}
+						and \mapkey{movoir.parameter.value}
+						U\-Types, a FIELD with \mapkey{name} equal
+						to \mapkey{type}, and \mapkey{utype} equal
+						to \mapkey{movoir.parameter.type} specifies
+						the SAMP type of the parameter. If the
+						parameter is only relevant to a particular
+						MType, an additional field with
+						\mapkey{name} equal to \mapkey{mtype}, and
+						\mapkey{utype} equal to \mapkey{samp.mtype}
+						should be provided.
+						}
+					}
+			\end{framed}
+			\end{minipage}
+			\caption
+			[\method{movoir.configuration.set} MType description]
+			{Description of the \method{movoir.configuration.set}
+			MType.}
+			\label{fig:movoirConfigurationSetMtype}
+		\end{figure}
+		
+		\begin{figure}[tbp]
+			\centering
+			\begin{minipage}{0.9\textwidth}
+			\begin{framed}
+			\mtypedef{movoir.configuration.get}
+					{
+					Applications receiving this message will
+					provide a result with a \mapkey{url} key, which
+					should point to a VOTable with four fields:
+					parameter name, parameter value, parameter type
+					(using SAMP types), and parameter mtype (empty
+					for parameters not specific upon particular
+					mtypes). If a non-supported mtype is specified
+					in the optional \mapkey{mtype} parameter, the
+					\sampstatus{} is set to \sampwarning{}.
+					}
+					{
+						\mtypeparam[optional]{mtype}{string}
+						{String containing a single MType to which
+						the parameters of interest relate to.}
+					}
+					{
+						\mtypeparam{url}{string}
+						{
+						URL to a VOTable with the current settings
+						of the module. In addition to the two
+						fields with \mapkey{movoir.parameter.key}
+						and \mapkey{movoir.parameter.value} UTypes,
+						a FIELD with \mapkey{name} equal to
+						\mapkey{type}, and \mapkey{utype} equal to
+						\mapkey{movoir.parameter.type} specifies
+						the SAMP type of the parameter. If the
+						parameter is only relevant to a particular
+						MType, an additional field with
+						\mapkey{name} equal to \mapkey{mtype}, and
+						\mapkey{utype} equal to \mapkey{samp.mtype}
+						should be provided.
+						}
+					}
+		
+			\end{framed}
+			\end{minipage}
+			\caption
+			[\method{movoir.configuration.get} MType description]
+			{Description of the \method{movoir.configuration.get}
+			MType.}
+			\label{fig:movoirConfigurationGetMtype}
+		\end{figure}
+		
+	% section providing_default_values_settings (end)
+	
+	\section{MOVOIR modules to implement} % (fold)
+	\label{sec:movoir_modules}
+		
+		After having presented how different SAMP-based processing
+		strategies can be built, we will present here the different
+		MOVOIR modules, and their corresponding MTypes they support
+		with the actual behaviour being implemented.
+		
+		In particular, we have implemented the modules which were
+		suggested in section~\ref{sec:legacy_conclusions} of the
+		previous chapter:
+		
+		\begin{description}
+			\item[VO Downloader] The VO Downloader is a SAMP
+			application which can receive
+			\method{table.load.votable}, \method{table.load.fits},
+			and \method{image.load.fits} MTypes, and downloads the
+			received file. If a \mapkey{name} parameter is
+			provided, the file is renamed to that filename. A
+			\mapkey{movoir.vo\-down\-load\-er.dlpath} configuration
+			key in a \mapkey{.movoir} file is used to set the
+			download path, while the current directory from where
+			the VO Downloader has been launched In addition, the VO
+			Downloader application can send the downloaded file
+			back to any other \method{table.load.votable},
+			\method{table.load.fits}, or \method{image.load.fits}
+			subscriber, depending on file format.
+			
+			\item[VO Registry and DAL module] As the VO Desktop
+			application has been ported to SAMP, we will use the
+			VO Desktop as Registry access and DAL module: only
+			the data results will need to be sent to SAMP
+			applications. Any other SAMP-enabled registry and
+			VO data access layer front-end can be used instead.
+			
+			\item[VOTable to FITS converter] Similar to the VO
+			Downloader, the VOTable converter is an application
+			which can receive messages with the
+			\method{ta\-ble.load.votable} MType, and creates and
+			saves the converted FITS file in the same path as the
+			VO Downloader. In addition, the VOTable to FITS
+			converter interface allows the user to send the
+			converted FITS file to SAMP applications supporting the
+			\method{ta\-ble.load.fits} MType.
+			
+			\item[AMIGA ConeSearch module] This module uses the
+			\method{coord.point\-At.sky} MType to provide results
+			of a ConeSearch of 0.5 degrees radius around the
+			\mapkey{ra} and \mapkey{dec} coordinates provided.
+			It is also able to understand an optional,
+			non-standard \mapkey{radius} parameter, to set the
+			radius for the ConeSearch in degrees.
+			
+			\item[Sesame query module] MOVOIR provides a
+			multi-object Sesame query message, as support for
+			a future multi-cone search service, in order to
+			resolve multiple object names at once. This is
+			another example of a service which can be easily
+			implemented in any language ---in this case,
+			Python has been used---, and which can be called from
+			languages with support for XML-RPC calls.
+		\end{description}
+		
+		All MOVOIR modules will also support the
+		\method{movoir.describe.mtype} message, as described in
+		the previous section, in order to provide detailed 
+		description not only on available parameters, or  
+		
+	% section movoir_modules (end)
+	
+	\section{Salient features of the MOVOIR} % (fold)
+	\label{sec:salient_movoir_features}
+	
+		By the way it has been developed, the MOVOIR has the
+		following properties:
+		
+		\begin{description}
+			\item[Multi-language support] Astronomical data tools
+			used to be written in FORTRAN, and compiled for
+			UNIX-like systems. As of late, many astronomical
+			applications, specially if they need to communicate
+			with the VO, are being written in Java or in advanced
+			scripting languages such as Python, which are available
+			not only for UNIX-like systems, but for common
+			platforms such as Windows or the Mac. The MOVOIR has
+			parts written in Java, and in Python, but the interface
+			is common to any kind of application supporting XML-RPC
+			calls. In particular, it will support
+			language-independent VO application messaging ---see
+			section~\ref{sec:vo_application_messaging}---.
+			
+			\item[Multi-platform support] Stemming from the usage
+			of platform neutral languages, such as Java and Python,
+			the MOVOIR can be used in every major platform
+			(Linux, Mac, Windows), and in any other platform
+			supporting any language with an XML-RPC library, or
+			even just able to create communication sockets.
+			
+			\newcommand{\stilurl}[0]
+			{http://www.star.bristol.ac.uk/~mbt/stil/} \item[Reuse
+			of existing packages] The MOVOIR uses the STIL table
+			library\urlnote{\stilurl} for its internal table
+			operations, and the AstroRuntime (the server part of
+			the VO Desktop) for VO query support. The
+			application-specific part of the MOVOIR uses also the
+			STIL table library and the
+			\texttt{nom.tam.fits}\urlnote{\nomtamfitsurl} Java
+			library for Java applications, and the standalone
+			STILTS package\urlnote{\stiltsurl} and the
+			PyFITS\urlnote{\pyfitsurl} for Python applications.
+			This allows for the combination of MOVOIR features with
+			those independently exposed by the STIL and
+			AstroRuntime, and the combination of scripts supporting
+			both tools with those making use of MOVOIR's
+			capabilities.
+			
+			\item[Single-operation, Multiple-targets] The MOVOIR is
+			able to work on multiple targets as the same time in
+			every function which would normally expect a single
+			target. This allows more complex workflows to be built,
+			and to enhance query throughput.
+			
+			 \item[Data Oriented Interface] Most VO applications
+			tend to be built around the existing Data Access Layer,
+			or the VO protocols used for data access. They also
+			treat the coordinate resolution systems such as Sesame,
+			or Registry queries, as separate parts of the system.
+			The MOVOIR interface is data focused, and filtering is
+			performed from the coordinates first, with particular
+			queries fitted to each particular service. This is also
+			true for the scripting interface.
+			
+			\item[Dynamic module update] As the MOVOIR uses a hub
+			based mechanism for module registration, modules can be
+			added or removed dynamically, and SAMP-enabled
+			applications expect registered applications to change
+			over time. This makes modules newly registered with the
+			hub available to all applications able to send the
+			MTypes the new modules are subscribed to. This feature
+			eases development, deployment, and the updating of
+			the MOVOIR, or any other SAMP-based package.
+			
+			 \item[Publish/subscribe, message-based API]
+			As the MOVOIR uses the
+			Simple
+			Application Messaging Protocol (SAMP) as the main
+			interaction bus, all operation requests are sent as
+			SAMP messages, and the synchronous or asynchronous
+			responses are also in the form of SAMP messages. This
+			decision allows for the definition of an initial
+			\emph{plug-in API} which is message-based, instead of
+			language- or library-based.
+		\end{description}
+		
+	
+	% section salient_movoir_features (end)
+	
+	\section{Main issues} % (fold)
+	\label{sec:movoir_main_issues}
+		
+		The main issues with the MOVOIR approach to enhancing VO
+		applications are the following:
+		
+		\subsection{SAMP UI scalability} % (fold)
+		\label{sub:samp_ui_scalability}
+			The main problem with the MOVOIR is its scalability as
+			a plug-in API. As the number of modules included with
+			the MOVOIR, together with the number of SAMP
+			applications, increases, so does the time needed by the
+			user to find the correct module for sending the data.
+			
+			 The modularity of the MOVOIR helps, as modules do not
+			need to be launched until they are needed, and are
+			available right after launch in all applications, but
+			still the problem of a likely increase of the number of
+			SAMP-enabled applications and modules remains.
+			
+			Possible UI solutions to that problem would be:
+			
+			\begin{description}
+				\item[SAMP specific communication panes] Instead of
+				using a simple pop-up me\-nu, a SAMP-specific pane
+				could be used, either as a floating or auxiliary
+				window, or as a pop-up drawer, which allowed for
+				a better access to metadata descriptions not just
+				in the hub UI, but also in the client.
+				
+				\item[Hierarchical display of SAMP Mtypes]
+				Applications could show available applications by
+				the kind of message they can handle. However, only
+				for SAMP standard messages there is a clear
+				identification of the data type they can receive:
+				for custom messages, such as those supported by
+				the MOVOIR, only if all applications support the
+				\method{movoir.describe.mtype} message can data
+				types be discovered.
+			\end{description}
+		% subsection samp_ui_scalability (end)
+		
+		\subsection{High delay, unexpected responses} % (fold)
+		\label{sub:high_delay_responses}
+			Some users might think that the MOVOIR can create
+			“non-causal” responses. That is, users might send
+			a message to a module which takes a long processing
+			time, and even reiterate the message, and then the
+			application they are using might show two tables, or
+			two images, that they are no longer expecting.
+			
+			\newcommand{\ariadneurl}
+			{http://www.ariadneproject.org/index.php?id=63}
+			In order to avoid this processing time should be
+			less than real time expectations. The typical golden
+			rule for interactive systems is delivering a response
+			in under 8 to 15 seconds\urlnote{\ariadneurl}.
+			Independently of the actual value, responses taking
+			longer than that threshold might not be perceived as
+			related to the initiating task, startling users. In
+			any case, systems taking longer than one minute to
+			process data should use messaging just to retrieve
+			data, providing their own UI to initiate the
+			processing and send results back. They should also
+			provide progress information during the task
+			processing, and either let the user send the result
+			once it is available, or identify results with the
+			originating task.
+		% subsection high_delay_responses (end)
+		
+	% section movoir_main_issues (end)
+	
+	\section{Conclusions} % (fold)
+	\label{sec:movoir_conclusions}
+		
+		In this chapter we have shown how a data processing API
+		can be built on top of the SAMP messaging protocol, and
+		what ideas can be developed in order to create an
+		extension mechanism for already existing VO applications.
+		
+		The main achievement for the MOVOIR, being based on
+		SAMP, is that it provides a way to create plug-ins for
+		existing VO applications, which can be made independent of
+		both the platform and language those modules can be written
+		into, and completely independent of applications being
+		enhanced.
+		
+		We have also proposed a few extra messages which can be
+		used to learn about plug-in parameters, and configurability,
+		with the aim to start a discussion within the IVOA on
+		what would be the best one to implement such a plug-in
+		API.
+		
+	% section movoir_conclusions (end)
+	
+% chapter movoir (end)

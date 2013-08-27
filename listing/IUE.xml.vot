@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE version="1.1" 
+ xmlns:sed="http://www.ivoa.net/xml/SedModel/v1.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://www.ivoa.net/xml/VOTable/v1.1">
+<DESCRIPTION>
+  Multimission Archive at STScI (MAST)    archive.stsci.edu
+  send questions to: archive@stsci.edu
+</DESCRIPTION>
+  <COOSYS ID="myJ2000" system="eq_FK5" equinox="2000." epoch="2000."/><RESOURCE type="results">
+<INFO name="QUERY_STATUS" value="OK"></INFO>
+<PARAM ID="id" name="id" value="%IUE%"></PARAM>
+<PARAM name="pos" value="0,0" datatype="char" arraysize="*" unit="degrees">
+<DESCRIPTION>Search position in form ra,dec in decimal degrees</DESCRIPTION>
+</PARAM>
+<PARAM name="size" value="1" datatype="double" unit="degrees">
+<DESCRIPTION>Search diameter in decimal degrees</DESCRIPTION>
+</PARAM>
+<PARAM ID="max_records" name="max_records" value="300"></PARAM>
+<PARAM ID="RA" name="RA" datatype="float" unit="degrees" value="00"></PARAM>
+<PARAM ID="DEC" name="DEC" datatype="float" unit="degrees" value="00"></PARAM>
+<PARAM ID="radius" name="radius" datatype="float" unit="arcmin" value="60"></PARAM>
+<PARAM ID="verb" name="verb" value="1"></PARAM>
+<PARAM ID="target" name="target" value=""></PARAM>
+<TABLE name="SSAP_KEYWORDS">
+<DESCRIPTION>MAST SSAP_KEYWORDS Search: 8 row(s) returned!</DESCRIPTION>
+<FIELD name="filename" datatype="char" ucd="OBS_ID" arraysize="*" utype="ssa:Query.LName" ><DESCRIPTION>File name (data id) in lower case
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="id" datatype="char" ucd="INSTR.OBSTY" arraysize="*" ><DESCRIPTION>Instrument ID using the convention: MAST.Satelite.Instrument
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="ra_j2000" datatype="double" ucd="POS_EQ_RA_MAIN" unit="degrees"  ref="myJ2000" ><DESCRIPTION>Right Ascension (J2000)
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="dec_j2000" datatype="double" ucd="POS_EQ_DEC_MAIN" unit="degrees"  ref="myJ2000" ><DESCRIPTION>Declination (J2000)
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="url" datatype="char" ucd="DATA_LINK" arraysize="*" ><DESCRIPTION>URL of spectrum file
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="target" datatype="char" ucd="ID_TARGET" arraysize="*" ><DESCRIPTION>Target name
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="num_pnts" datatype="int" ucd="META.NUMBER" ><DESCRIPTION>Number of data points
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="mjdmean" datatype="float" ucd="TIME.EXPO.MEAN" unit="days" ><DESCRIPTION>Observation midpoint as Modified Julian Date
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="mjd_obs_start" datatype="float" ucd="TIME:OBS" unit="days" ><DESCRIPTION>Time of start of exposure in MJD
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="obs_start_time" datatype="char" ucd="VOX:OBS_START_TIME" arraysize="*" ><DESCRIPTION>Time of start of exposure
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="obs_end_time" datatype="char" ucd="VOX:OBS_END_TIME" arraysize="*" ><DESCRIPTION>Time of end of exposure
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="format" datatype="char" ucd="VOX:SPECTRUM_FORMAT" arraysize="*" ><DESCRIPTION>Mime type of file
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="ref_frame" datatype="char" ucd="VOX:STC_COORDREFFRAME" arraysize="*" ><DESCRIPTION>Coordinate system reference frame
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="equinox" datatype="float" ucd="VOX:STC_COORDEQUINOX" ><DESCRIPTION>Time Reference
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="filter" datatype="char" ucd="INSTR.FILTER" arraysize="*" ><DESCRIPTION>Filter Name Designation
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="processing" datatype="char" ucd="VOX:IMAGE_PIXFLAGS" arraysize="*" ><DESCRIPTION>level of processing
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="project" datatype="char" ucd="ID_GROUP" arraysize="*" ><DESCRIPTION>HLSP indicator
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="preview" datatype="char" arraysize="*" ><DESCRIPTION>Indicates a preview is available
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="representative" datatype="char" ucd="ID_GROUP" arraysize="*" ><DESCRIPTION>Indicates a scrapbook selection
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="min_wavelength" datatype="float" ucd="EM.WL;STAT.MIN" unit="Angstroms" ><DESCRIPTION>Minimum wavelength in spectrum
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="max_wavelength" datatype="float" ucd="EM.WL;STAT.MAX" unit="Angstroms" ><DESCRIPTION>Maximum wavelength in spectrum
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="axes" datatype="char" ucd="VOX:SPECTRUM_AXES" arraysize="*" ><DESCRIPTION>Names of Axes (space-delimited)
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="dimeq" datatype="char" ucd="VOX:SPECTRUM_DIMEQ" arraysize="*" ><DESCRIPTION>dimensional analysis parameters
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="scaleq" datatype="double" ucd="VOX:SPECTRUM_SCALEQ" arraysize="*" ><DESCRIPTION>Space-separated Scale Factors for dimeq
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="units" datatype="char" ucd="VOX:SPECTRUM_UNITS" arraysize="*" ><DESCRIPTION>Space-separated Units for each axis
+   </DESCRIPTION>
+</FIELD>
+<FIELD name="title" datatype="char" ucd="VOX:IMAGE_TITLE" arraysize="*" ><DESCRIPTION>data set name and target name
+   </DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+<TR>
+<TD>swp18806</TD><TD>MAST.IUE</TD><TD>00</TD><TD>00</TD><TD><![CDATA[http://archive.stsci.edu/pub/vospectra/iue/swp18806mxlo_vo.fits]]></TD><TD>SKY</TD><TD>495</TD><TD>44724.643</TD><TD>44724.638</TD><TD>1982-12-16 10:25:20</TD><TD>1982-12-16 10:37:19</TD><TD>spectrum/fits</TD><TD>FK5</TD><TD>2000.000</TD><TD></TD><TD></TD><TD></TD><TD>n</TD><TD>n</TD><TD>1150.580</TD><TD>1978.691</TD><TD>WAVELENGTH FLUX SIGMA</TD><TD>L ML-1T-3 ML-1T-3</TD><TD>1E-10 1E+7 1E+7</TD><TD>ANGSTROMS ERGS/CM^2/S/A ERGS/CM^2/S/A</TD><TD>SKY</TD>
+</TR>
+<TR>
+<TD>swp52814</TD><TD>MAST.IUE</TD><TD>00</TD><TD>00</TD><TD><![CDATA[http://archive.stsci.edu/pub/vospectra/iue/swp52814mxlo_vo.fits]]></TD><TD>UNKNOWN</TD><TD>495</TD><TD>49672.747</TD><TD>49672.737</TD><TD>1994-11-16 17:40:51</TD><TD>1994-11-16 18:10:50</TD><TD>spectrum/fits</TD><TD>FK5</TD><TD>2000.000</TD><TD></TD><TD></TD><TD></TD><TD>n</TD><TD>n</TD><TD>1150.583</TD><TD>1978.718</TD><TD>WAVELENGTH FLUX SIGMA</TD><TD>L ML-1T-3 ML-1T-3</TD><TD>1E-10 1E+7 1E+7</TD><TD>ANGSTROMS ERGS/CM^2/S/A ERGS/CM^2/S/A</TD><TD>UNKNOWN</TD>
+</TR>
+<TR>
+<TD>swp43876</TD><TD>MAST.IUE</TD><TD>00</TD><TD>00</TD><TD><![CDATA[http://archive.stsci.edu/pub/vospectra/iue/swp43876mxlo_vo.fits]]></TD><TD>SKY</TD><TD>495</TD><TD>48649.293</TD><TD>48649.279</TD><TD>1992-01-28 06:41:55</TD><TD>1992-01-28 07:21:54</TD><TD>spectrum/fits</TD><TD>FK5</TD><TD>2000.000</TD><TD></TD><TD></TD><TD></TD><TD>n</TD><TD>n</TD><TD>1150.583</TD><TD>1978.718</TD><TD>WAVELENGTH FLUX SIGMA</TD><TD>L ML-1T-3 ML-1T-3</TD><TD>1E-10 1E+7 1E+7</TD><TD>ANGSTROMS ERGS/CM^2/S/A ERGS/CM^2/S/A</TD><TD>SKY</TD>
+</TR>
+<TR>
+<TD>swp43879</TD><TD>MAST.IUE</TD><TD>00</TD><TD>00</TD><TD><![CDATA[http://archive.stsci.edu/pub/vospectra/iue/swp43879mxlo_vo.fits]]></TD><TD>SKY</TD><TD>495</TD><TD>48649.430</TD><TD>48649.418</TD><TD>1992-01-28 10:01:32</TD><TD>1992-01-28 10:36:31</TD><TD>spectrum/fits</TD><TD>FK5</TD><TD>2000.000</TD><TD></TD><TD></TD><TD></TD><TD>n</TD><TD>n</TD><TD>1150.583</TD><TD>1978.718</TD><TD>WAVELENGTH FLUX SIGMA</TD><TD>L ML-1T-3 ML-1T-3</TD><TD>1E-10 1E+7 1E+7</TD><TD>ANGSTROMS ERGS/CM^2/S/A ERGS/CM^2/S/A</TD><TD>SKY</TD>
+</TR>
+<TR>
+<TD>swp43878</TD><TD>MAST.IUE</TD><TD>00</TD><TD>00</TD><TD><![CDATA[http://archive.stsci.edu/pub/vospectra/iue/swp43878mxlo_vo.fits]]></TD><TD>SKY</TD><TD>495</TD><TD>48649.388</TD><TD>48649.376</TD><TD>1992-01-28 09:01:22</TD><TD>1992-01-28 09:36:21</TD><TD>spectrum/fits</TD><TD>FK5</TD><TD>2000.000</TD><TD></TD><TD></TD><TD></TD><TD>n</TD><TD>n</TD><TD>1150.583</TD><TD>1978.718</TD><TD>WAVELENGTH FLUX SIGMA</TD><TD>L ML-1T-3 ML-1T-3</TD><TD>1E-10 1E+7 1E+7</TD><TD>ANGSTROMS ERGS/CM^2/S/A ERGS/CM^2/S/A</TD><TD>SKY</TD>
+</TR>
+<TR>
+<TD>lwr17999</TD><TD>MAST.IUE</TD><TD>00</TD><TD>00</TD><TD><![CDATA[http://archive.stsci.edu/pub/vospectra/iue/lwr17999mxlo_vo.fits]]></TD><TD>SKY</TD><TD>562</TD><TD>46756.421</TD><TD>46756.421</TD><TD>1986-11-28 13:21:27</TD><TD>1986-11-28 13:51:26</TD><TD>spectrum/fits</TD><TD>FK5</TD><TD>2000.000</TD><TD></TD><TD></TD><TD></TD><TD>n</TD><TD>n</TD><TD>1851.418</TD><TD>3348.667</TD><TD>WAVELENGTH FLUX SIGMA</TD><TD>L ML-1T-3 ML-1T-3</TD><TD>1E-10 1E+7 1E+7</TD><TD>ANGSTROMS ERGS/CM^2/S/A ERGS/CM^2/S/A</TD><TD>SKY</TD>
+</TR>
+<TR>
+<TD>swp43877</TD><TD>MAST.IUE</TD><TD>00</TD><TD>00</TD><TD><![CDATA[http://archive.stsci.edu/pub/vospectra/iue/swp43877mxlo_vo.fits]]></TD><TD>SKY</TD><TD>495</TD><TD>48649.343</TD><TD>48649.329</TD><TD>1992-01-28 07:54:07</TD><TD>1992-01-28 08:34:06</TD><TD>spectrum/fits</TD><TD>FK5</TD><TD>2000.000</TD><TD></TD><TD></TD><TD></TD><TD>n</TD><TD>n</TD><TD>1150.583</TD><TD>1978.718</TD><TD>WAVELENGTH FLUX SIGMA</TD><TD>L ML-1T-3 ML-1T-3</TD><TD>1E-10 1E+7 1E+7</TD><TD>ANGSTROMS ERGS/CM^2/S/A ERGS/CM^2/S/A</TD><TD>SKY</TD>
+</TR>
+<TR>
+<TD>lwr04315</TD><TD>MAST.IUE</TD><TD>00</TD><TD>00</TD><TD><![CDATA[http://archive.stsci.edu/pub/vospectra/iue/lwr04315mxlo_vo.fits]]></TD><TD>EUROPA</TD><TD>562</TD><TD>43984.174</TD><TD>43984.173</TD><TD>1979-04-21 08:45:07</TD><TD>1979-04-21 09:30:06</TD><TD>spectrum/fits</TD><TD>FK5</TD><TD>2000.000</TD><TD></TD><TD></TD><TD></TD><TD>n</TD><TD>n</TD><TD>1851.433</TD><TD>3348.901</TD><TD>WAVELENGTH FLUX SIGMA</TD><TD>L ML-1T-3 ML-1T-3</TD><TD>1E-10 1E+7 1E+7</TD><TD>ANGSTROMS ERGS/CM^2/S/A ERGS/CM^2/S/A</TD><TD>EUROPA</TD>
+</TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>
+

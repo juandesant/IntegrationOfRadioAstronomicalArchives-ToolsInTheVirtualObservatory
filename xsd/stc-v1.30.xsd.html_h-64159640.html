@@ -1,0 +1,1093 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Documentation for Characterisation-v1.11 - stc-v1.30.xsd - Complex Type stcBaseType</title>
+      <meta http-equiv="Content-Type" content="text/xml; charset=iso-8859-1"/>
+      <style type="text/css">
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* More-configurable styles */
+
+/******** General ********/
+         
+/* Document body */
+body {
+   color: Black;
+   background-color: White;
+   font-family: Arial, sans-serif;
+   font-size: 10pt;
+}
+                  
+/* Horizontal rules */
+hr {
+   color: black;
+}
+/* Document title */
+h1 {
+   font-size: 18pt;
+   letter-spacing: 2px;
+   border-bottom: 1px #ccc solid;
+   padding-top: 5px;
+   padding-bottom: 5px;
+}
+/* Main section headers */
+h2 {
+   font-size: 14pt;
+   letter-spacing: 1px;
+}
+/* Sub-section headers */
+h3, h3 a, h3 span {
+   font-size: 12pt;
+   font-weight: bold;
+   color: black;
+}
+/* Table displaying the properties of the schema components or the
+   schema document itself */
+table.properties th, table.properties th a {
+   color: black;
+   background-color: #F99; /* Pink */
+}
+table.properties td {
+   background-color: #eee; /* Gray */
+}
+
+img{
+ border: 0;
+}         
+
+/********* Documentation style *************/
+p.documentation {
+   color:black;
+   font-style:italic;
+         background-color: #EEEEFF;
+         border: 1px solid #DDDDFF;
+         padding-top: 1px;
+         margin-right: 30px;
+         margin-top: 1px;
+}
+
+         
+/******** Table of Contents Section ********/
+
+/* Controls for switching between printing and viewing modes */
+div#printerControls {
+   color: #963; /* Orange-brown */
+}
+/* Controls that can collapse or expand all XML Instance
+   Representation and Schema Component Representation boxes */
+div#globalControls {
+   border: 2px solid #999;
+}
+
+
+/******** Schema Document Properties Section ********/
+
+/* Table displaying the namespaces declared in the schema */
+table.namespaces th {
+   background-color: #ccc;
+}
+table.namespaces td {
+   background-color: #eee;
+}
+/* Target namespace of the schema */
+span.targetNS {
+   color: #06C;
+   font-weight: bold;
+}
+
+
+/******** Schema Components' Sections ********/
+
+/* Name of schema component */
+.name {
+   color: #F93; /* Orange */
+}
+
+/* Hierarchy table */
+table.hierarchy {
+   border: 2px solid #999; /* Gray */
+}
+
+/* XML Instance Representation table */
+div.sample div.contents {
+   border: 1px dashed black;
+}
+
+
+/* Schema Component Representation table */
+div.schemaComponent div.contents {
+   border: 2px black solid;
+}
+
+
+/******** Glossary Section ********/
+
+/* Glossary Terms */
+.glossaryTerm {
+   color: #036; /* Blue */
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Printer-version styles */
+
+@media print {
+
+/* Ensures that controls are hidden when printing */
+div#printerControls {
+   visibility: hidden;
+}
+div#globalControls {
+   visibility: hidden;
+}
+#legend {
+   display: none;
+}
+#legendTOC {
+   display: none;
+}
+#glossary {
+   display: none;
+}
+#glossaryTOC {
+   display: none;
+}
+
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Base styles */
+
+/******** General ********/
+
+/* Unordered lists */
+ul {
+   margin-left: 1.5em;
+   margin-bottom: 0em;
+}
+/* Tables */
+table {
+   margin-top: 10px;
+   margin-bottom: 10px;
+   margin-left: 2px;
+   margin-right: 2px;
+}
+table th, table td {
+   font-size: 10pt;
+   vertical-align: top;
+   padding-top: 3px;
+   padding-bottom: 3px;
+   padding-left: 10px;
+   padding-right: 10px;
+}
+table th {
+   font-weight: bold;
+   text-align: left;
+}
+/* Table displaying the properties of the schema components or the
+   schema document itself */
+table.properties {
+   width: 90%;
+}
+table.properties th {
+   width: 30%;
+}
+/* Boxes that can make its content appear and disappear*/
+div.box {
+   margin: 1em;
+}
+   /* Box caption */
+div.box span.caption {
+   font-weight: bold;
+}
+   /* Button to open and close the box */
+div.box input.control {
+   width: 1.4em;
+   height: 1.4em;
+   text-align: center;
+   vertical-align: middle;
+   font-size: 11pt;
+}
+   /* Box contents */
+div.box div.contents {
+   margin-top: 3px;
+}
+
+
+/******** Table of Contents Section ********/
+
+/* Controls for switching between printing and viewing modes */
+div#printerControls {
+   white-space: nowrap;
+   font-weight: bold;
+   padding: 5px;
+   margin: 5px;
+}
+/* Controls that can collapse or expand all XML Instance
+   Representation and Schema Component Representation boxes */
+div#globalControls {
+   padding: 10px;
+   margin: 5px;
+}
+
+
+/******** Schema Document Properties Section ********/
+
+/* Table displaying the namespaces declared in the schema */
+table.namespaces th {
+}
+table.namespaces td {
+}
+/* Target namespace of the schema */
+span.targetNS {
+}
+
+
+/******** Schema Components' Sections ********/
+
+/* Name of schema component */
+.name {
+}
+
+/* Hierarchy table */
+table.hierarchy {
+   width: 90%;
+}
+table.hierarchy th {
+   font-weight: normal;
+   font-style: italic;
+   width: 20%;
+}
+table.hierarchy th, table.hierarchy td {
+   padding: 5px;
+}
+
+/* XML Instance Representation table */
+div.sample {
+   width: 90%;
+}
+div.sample div.contents {
+   padding: 5px;
+   font-family: Courier New, sans-serif;
+   font-size: 10pt;
+}
+   /* Normal elements and attributes */
+div.sample div.contents, div.sample div.contents a {
+   color: black;
+}
+   /* Group Headers */
+div.sample div.contents .group, div.sample div.contents .group a {
+   color: #999; /* Light gray */
+}
+   /* Type Information */
+div.sample div.contents .type, div.sample div.contents .type a {
+   color: #999; /* Light gray */
+}
+   /* Occurrence Information */
+div.sample div.contents .occurs, div.sample div.contents .occurs a {
+   color: #999; /* Light gray */
+}
+   /* Fixed values */
+div.sample div.contents .fixed {
+   color: #063; /* Green */
+   font-weight: bold;
+}
+   /* Simple type constraints */
+div.sample div.contents .constraint, div.sample div.contents .constraint a {
+   color: #999; /* Light gray */
+}
+   /* Elements and attributes inherited from base type */
+div.sample div.contents .inherited, div.sample div.contents .inherited a {
+   color: #666; /* Dark gray */
+}
+   /* Elements and attributes added to or changed from base type */
+div.sample div.contents .newFields {
+   font-weight: bold;
+}
+   /* Other type of information */
+div.sample div.contents .other, div.sample div.contents .other a {
+   color: #369; /* Blue */
+   font-style: italic;
+}
+   /* Link to open up window displaying documentation */
+div.sample div.contents a.documentation {
+   text-decoration: none;
+   padding-left: 3px;
+   padding-right: 3px;
+   padding-top: 0px;
+   padding-bottom: 0px;
+   font-weight: bold;
+   font-size: 11pt;
+   background-color: #FFD;
+   color: #069;
+}
+   /* Invert colors when hovering over link to open up window 
+      displaying documentation */
+div.sample div.contents a.documentation:hover {
+   color: #FFD;
+   background-color: #069;
+}
+
+/* Schema Component Representation table */
+div.schemaComponent {
+   width: 90%;
+}
+div.schemaComponent div.contents {
+   font-family: Courier New, sans-serif;
+   font-size: 10pt;
+   padding: 5px;
+}
+   /* Syntax characters */
+div.schemaComponent div.contents {
+   color: #00f; /* blue */
+}
+   /* Element and attribute tags */
+div.schemaComponent div.contents .scTag {
+   color: #933; /* maroon */
+}
+   /* Element and attribute content */
+div.schemaComponent div.contents .scContent, div.schemaComponent div.contents .scContent a {
+   color: black;
+   font-weight: bold;
+}
+   /* Comments */
+div.schemaComponent div.contents .comment {
+   color: #999; /* Light gray */
+}
+
+/******** Legend Section ********/
+
+div#legend table, div#legend div {
+   margin-bottom: 3px;
+}
+div#legend div.hint {
+   color: #999; /* Light gray */
+   width: 90%;
+   margin-left: 1em;
+   margin-bottom: 2em;
+}
+
+
+/******** Glossary Section ********/
+
+/* Glossary Terms */
+.glossaryTerm {
+   font-weight: bold;
+}
+
+/********* Details *************/
+.detailsToc {
+  color: #666; /* Light gray */
+}
+
+.details {
+  color: #666; /* Light gray */
+  text-decoration:none;
+}
+
+/******** Footer ********/
+
+.footer {
+   font-size: 8pt;
+}
+</style>
+      <script type="text/javascript">
+<!--
+          
+         
+/**
+ * Counter of documentation windows
+ * Used to give each window a unique name
+ */
+var windowCount = 0;
+         
+/**
+ * Opens up a window displaying the documentation
+ * of a schema component in the XML Instance
+ * Representation table.
+ * 
+ * @param compDesc      Description of schema component 
+ * @param compName      Name of schema component 
+ * @param docTextArray Array containing the paragraphs 
+ *                           of the new document
+ */
+function viewDocumentation(compDesc, compName, docTextArray) {
+  var width = 400;
+  var height = 200;
+  var locX = 100;
+  var locY = 200;
+
+  /* Generate content */
+  var actualText = "<html>";
+  actualText += "<head><title>";
+  actualText += compDesc;
+  if (compName != '') {
+     actualText += ": " + compName;
+  }
+  actualText += "</title></head>";
+  actualText += "<body bgcolor=\"#FFFFEE\">";
+  // Title
+  actualText += "<p style=\"font-family: Arial, sans-serif; font-size: 12pt; font-weight: bold; letter-spacing:1px;\">";
+  actualText += compDesc;
+  if (compName != '') {
+     actualText += ": <span style=\"color:#006699\">" + compName + "</span>";
+  }
+  actualText += "</p>";
+  // Documentation
+  var idx;
+  for (idx = 0; idx < docTextArray.length; idx++) {
+     actualText += "<p style=\"font-family: Arial, sans-serif; font-size: 10pt;\">" + docTextArray[idx] + "</p>";
+  }
+  // Link to close window
+  actualText += "<a href=\"javascript:void(0)\" onclick=\"window.close();\" style=\"font-family: Arial, sans-serif; font-size: 8pt;\">Close</a>";
+  actualText += "</body></html>";
+
+  /* Display window */
+  windowCount++;
+  var docWindow = window.open("", "documentation"+windowCount, "toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable,alwaysRaised,dependent,titlebar=no,width="+width+",height="+height+",screenX="+locX+",left="+locX+",screenY="+locY+",top="+locY);
+  docWindow.document.write(actualText);
+}         
+      
+// -->
+</script>
+   </head>
+   <body>
+      <h1>
+         <a name="top">Documentation for Characterisation-v1.11</a>
+      </h1>
+      <h3>Complex Type: <a name="h-64159640" class="name">stcBaseType</a>
+      </h3>
+      <h4>
+         <a href="stc-v1.30.xsd.html" class="details">[Table of contents]</a>
+      </h4>
+      <table class="hierarchy">
+         <tr>
+            <th>Super-types:</th>
+            <td>None</td>
+         </tr>
+         <tr>
+            <th>Sub-types:</th>
+            <td>
+               <ul>
+                  <li>
+                     <span class="type">
+                        <a title="Jump to &#34;coordFrameType&#34; type definition."
+                           href="stc-v1.30.xsd.html_h663083639.html">coordFrameType</a>
+                     </span> (by extension)<ul>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;genericCoordFrameType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-2063322812.html">genericCoordFrameType</a>
+                           </span> (by extension)<ul>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;pixelFrameType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h1621374470.html">pixelFrameType</a>
+                                 </span> (by extension)</li>
+                           </ul>
+                        </li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;spaceFrameType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h51472262.html">spaceFrameType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;timeFrameType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-1063647819.html">timeFrameType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;spectralFrameType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-1601050754.html">spectralFrameType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;redshiftFrameType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h2047121649.html">redshiftFrameType</a>
+                           </span> (by extension)</li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="type">
+                        <a title="Jump to &#34;coordSysType&#34; type definition."
+                           href="stc-v1.30.xsd.html_h617122775.html">coordSysType</a>
+                     </span> (by extension)<ul>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;astroCoordSystemType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h1034880132.html">astroCoordSystemType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;pixelCoordSystemType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h477391709.html">pixelCoordSystemType</a>
+                           </span> (by extension)</li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="type">
+                        <a title="Jump to &#34;double2Type&#34; type definition."
+                           href="stc-v1.30.xsd.html_h293519318.html">double2Type</a>
+                     </span> (by extension)<ul>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;size2Type&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-223028122.html">size2Type</a>
+                           </span> (by extension)</li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="type">
+                        <a title="Jump to &#34;double3Type&#34; type definition."
+                           href="stc-v1.30.xsd.html_h294442839.html">double3Type</a>
+                     </span> (by extension)<ul>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;size3Type&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-222104601.html">size3Type</a>
+                           </span> (by extension)</li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="type">
+                        <a title="Jump to &#34;double4Type&#34; type definition."
+                           href="stc-v1.30.xsd.html_h295366360.html">double4Type</a>
+                     </span> (by extension)</li>
+                  <li>
+                     <span class="type">
+                        <a title="Jump to &#34;double9Type&#34; type definition."
+                           href="stc-v1.30.xsd.html_h299983965.html">double9Type</a>
+                     </span> (by extension)</li>
+                  <li>
+                     <span class="type">
+                        <a title="Jump to &#34;curve2Type&#34; type definition."
+                           href="stc-v1.30.xsd.html_h-1411599070.html">curve2Type</a>
+                     </span> (by extension)</li>
+                  <li>
+                     <span class="type">
+                        <a title="Jump to &#34;curve3Type&#34; type definition."
+                           href="stc-v1.30.xsd.html_h-1410675549.html">curve3Type</a>
+                     </span> (by extension)</li>
+                  <li>
+                     <span class="type">
+                        <a title="Jump to &#34;coordinateType&#34; type definition."
+                           href="stc-v1.30.xsd.html_h-649183113.html">coordinateType</a>
+                     </span> (by extension)<ul>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;basicCoordinateType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-1548816357.html">basicCoordinateType</a>
+                           </span> (by extension)<ul>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;scalarCoordinateType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-1350774845.html">scalarCoordinateType</a>
+                                 </span> (by extension)</li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;posVector1CoordinateType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-61013199.html">posVector1CoordinateType</a>
+                                 </span> (by extension)<ul>
+                                    <li>
+                                       <span class="type">
+                                          <a title="Jump to &#34;velVector1CoordinateType&#34; type definition."
+                                             href="stc-v1.30.xsd.html_h1355695496.html">velVector1CoordinateType</a>
+                                       </span> (by extension)</li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;spectralCoordinateType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-1072796165.html">spectralCoordinateType</a>
+                                 </span> (by extension)</li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;redshiftCoordinateType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-874533784.html">redshiftCoordinateType</a>
+                                 </span> (by extension)</li>
+                           </ul>
+                        </li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;pixelVector1CoordinateType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h237801727.html">pixelVector1CoordinateType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;timeCoordinateType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-196896220.html">timeCoordinateType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;vector2CoordinateType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h1797317308.html">vector2CoordinateType</a>
+                           </span> (by extension)<ul>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;genVector2CoordinateType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-207763978.html">genVector2CoordinateType</a>
+                                 </span> (by extension)</li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;posVector2CoordinateType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h1446538610.html">posVector2CoordinateType</a>
+                                 </span> (by extension)<ul>
+                                    <li>
+                                       <span class="type">
+                                          <a title="Jump to &#34;velVector2CoordinateType&#34; type definition."
+                                             href="stc-v1.30.xsd.html_h-1431719991.html">velVector2CoordinateType</a>
+                                       </span> (by extension)</li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;pixelVector2CoordinateType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h1745353536.html">pixelVector2CoordinateType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;vector3CoordinateType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-990098179.html">vector3CoordinateType</a>
+                           </span> (by extension)<ul>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;genVector3CoordinateType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h1299787831.html">genVector3CoordinateType</a>
+                                 </span> (by extension)</li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;posVector3CoordinateType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-1340876877.html">posVector3CoordinateType</a>
+                                 </span> (by extension)<ul>
+                                    <li>
+                                       <span class="type">
+                                          <a title="Jump to &#34;velVector3CoordinateType&#34; type definition."
+                                             href="stc-v1.30.xsd.html_h75831818.html">velVector3CoordinateType</a>
+                                       </span> (by extension)</li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;pixelVector3CoordinateType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-1042061951.html">pixelVector3CoordinateType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;stringCoordinateType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h192572200.html">stringCoordinateType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;astroCoordsFileType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h1180861102.html">astroCoordsFileType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;orbitType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h1567463391.html">orbitType</a>
+                           </span> (by extension)</li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="type">
+                        <a title="Jump to &#34;coordsType&#34; type definition."
+                           href="stc-v1.30.xsd.html_h686081693.html">coordsType</a>
+                     </span> (by extension)<ul>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;pixelCoordsType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-789063527.html">pixelCoordsType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;astroCoordsType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-932322542.html">astroCoordsType</a>
+                           </span> (by extension)</li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="type">
+                        <a title="Jump to &#34;coordIntervalType&#34; type definition."
+                           href="stc-v1.30.xsd.html_h-1202936977.html">coordIntervalType</a>
+                     </span> (by extension)<ul>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;timeIntervalType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-1436498063.html">timeIntervalType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;coordScalarIntervalType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h1850341755.html">coordScalarIntervalType</a>
+                           </span> (by extension)<ul>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;spectralIntervalType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h430744840.html">spectralIntervalType</a>
+                                 </span> (by extension)</li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;redshiftIntervalType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-1012622667.html">redshiftIntervalType</a>
+                                 </span> (by extension)</li>
+                           </ul>
+                        </li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;coord2VecIntervalType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-1924439439.html">coord2VecIntervalType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;coord3VecIntervalType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h1859993680.html">coord3VecIntervalType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;uCoordScalarIntervalType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h187682992.html">uCoordScalarIntervalType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;uCoord2VecIntervalType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h1421312742.html">uCoord2VecIntervalType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;uCoord3VecIntervalType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h910778565.html">uCoord3VecIntervalType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;spatialIntervalType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-278281154.html">spatialIntervalType</a>
+                           </span> (by extension)<ul>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;regionType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-1511821709.html">regionType</a>
+                                 </span> (by extension)<ul>
+                                    <li>
+                                       <span class="type">
+                                          <a title="Jump to &#34;shapeType&#34; type definition."
+                                             href="stc-v1.30.xsd.html_h1978393526.html">shapeType</a>
+                                       </span> (by extension)<ul>
+                                          <li>
+                                             <span class="type">
+                                                <a title="Jump to &#34;allSkyType&#34; type definition."
+                                                   href="stc-v1.30.xsd.html_h-263824065.html">allSkyType</a>
+                                             </span> (by extension)</li>
+                                          <li>
+                                             <span class="type">
+                                                <a title="Jump to &#34;circleType&#34; type definition."
+                                                   href="stc-v1.30.xsd.html_h-632179121.html">circleType</a>
+                                             </span> (by extension)</li>
+                                          <li>
+                                             <span class="type">
+                                                <a title="Jump to &#34;ellipseType&#34; type definition."
+                                                   href="stc-v1.30.xsd.html_h1486022323.html">ellipseType</a>
+                                             </span> (by extension)</li>
+                                          <li>
+                                             <span class="type">
+                                                <a title="Jump to &#34;polygonType&#34; type definition."
+                                                   href="stc-v1.30.xsd.html_h921244175.html">polygonType</a>
+                                             </span> (by extension)</li>
+                                          <li>
+                                             <span class="type">
+                                                <a title="Jump to &#34;boxType&#34; type definition."
+                                                   href="stc-v1.30.xsd.html_h-862453856.html">boxType</a>
+                                             </span> (by extension)</li>
+                                          <li>
+                                             <span class="type">
+                                                <a title="Jump to &#34;sectorType&#34; type definition."
+                                                   href="stc-v1.30.xsd.html_h1086658021.html">sectorType</a>
+                                             </span> (by extension)</li>
+                                          <li>
+                                             <span class="type">
+                                                <a title="Jump to &#34;convexType&#34; type definition."
+                                                   href="stc-v1.30.xsd.html_h-1768434458.html">convexType</a>
+                                             </span> (by extension)</li>
+                                          <li>
+                                             <span class="type">
+                                                <a title="Jump to &#34;convexHullType&#34; type definition."
+                                                   href="stc-v1.30.xsd.html_h1925656531.html">convexHullType</a>
+                                             </span> (by extension)</li>
+                                          <li>
+                                             <span class="type">
+                                                <a title="Jump to &#34;skyIndexType&#34; type definition."
+                                                   href="stc-v1.30.xsd.html_h-2005666832.html">skyIndexType</a>
+                                             </span> (by extension)</li>
+                                       </ul>
+                                    </li>
+                                    <li>
+                                       <span class="type">
+                                          <a title="Jump to &#34;unionType&#34; type definition."
+                                             href="stc-v1.30.xsd.html_h-1279810588.html">unionType</a>
+                                       </span> (by extension)</li>
+                                    <li>
+                                       <span class="type">
+                                          <a title="Jump to &#34;intersectionType&#34; type definition."
+                                             href="stc-v1.30.xsd.html_h-895766584.html">intersectionType</a>
+                                       </span> (by extension)</li>
+                                    <li>
+                                       <span class="type">
+                                          <a title="Jump to &#34;negationType&#34; type definition."
+                                             href="stc-v1.30.xsd.html_h640269604.html">negationType</a>
+                                       </span> (by extension)</li>
+                                    <li>
+                                       <span class="type">
+                                          <a title="Jump to &#34;diffType&#34; type definition."
+                                             href="stc-v1.30.xsd.html_h989505604.html">diffType</a>
+                                       </span> (by extension)</li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;posScalarIntervalType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-566347302.html">posScalarIntervalType</a>
+                                 </span> (by extension)</li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;pos2VecIntervalType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-1077793136.html">pos2VecIntervalType</a>
+                                 </span> (by extension)</li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;pos3VecIntervalType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-1588327313.html">pos3VecIntervalType</a>
+                                 </span> (by extension)</li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;velocityIntervalType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-555065599.html">velocityIntervalType</a>
+                                 </span> (by extension)<ul>
+                                    <li>
+                                       <span class="type">
+                                          <a title="Jump to &#34;velScalarIntervalType&#34; type definition."
+                                             href="stc-v1.30.xsd.html_h2111368931.html">velScalarIntervalType</a>
+                                       </span> (by extension)</li>
+                                    <li>
+                                       <span class="type">
+                                          <a title="Jump to &#34;vel2VecIntervalType&#34; type definition."
+                                             href="stc-v1.30.xsd.html_h-1352101415.html">vel2VecIntervalType</a>
+                                       </span> (by extension)</li>
+                                    <li>
+                                       <span class="type">
+                                          <a title="Jump to &#34;vel3VecIntervalType&#34; type definition."
+                                             href="stc-v1.30.xsd.html_h-1862635592.html">vel3VecIntervalType</a>
+                                       </span> (by extension)</li>
+                                    <li>
+                                       <span class="type">
+                                          <a title="Jump to &#34;velocitySphereType&#34; type definition."
+                                             href="stc-v1.30.xsd.html_h-284750199.html">velocitySphereType</a>
+                                       </span> (by extension)</li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;sphereType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-1845126452.html">sphereType</a>
+                                 </span> (by extension)</li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;regionFileType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h225539471.html">regionFileType</a>
+                                 </span> (by extension)</li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="type">
+                        <a title="Jump to &#34;coordAreaType&#34; type definition."
+                           href="stc-v1.30.xsd.html_h-1662332105.html">coordAreaType</a>
+                     </span> (by extension)<ul>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;pixelCoordAreaType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-1608208453.html">pixelCoordAreaType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;astroCoordAreaType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-240032094.html">astroCoordAreaType</a>
+                           </span> (by extension)</li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="type">
+                        <a title="Jump to &#34;stcMetadataType&#34; type definition."
+                           href="stc-v1.30.xsd.html_h-32280762.html">stcMetadataType</a>
+                     </span> (by extension)<ul>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;stcDescriptionType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-2131901447.html">stcDescriptionType</a>
+                           </span> (by extension)<ul>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;astroSTCDescriptionType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h2137661294.html">astroSTCDescriptionType</a>
+                                 </span> (by restriction)</li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;observatoryLocationType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h-1413729596.html">observatoryLocationType</a>
+                                 </span> (by restriction)</li>
+                              <li>
+                                 <span class="type">
+                                    <a title="Jump to &#34;pixelSpaceType&#34; type definition."
+                                       href="stc-v1.30.xsd.html_h122358047.html">pixelSpaceType</a>
+                                 </span> (by restriction)</li>
+                           </ul>
+                        </li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;obsDataLocationType&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h1752170996.html">obsDataLocationType</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;STCCoordinate&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h2086776021.html">STCCoordinate</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;STCCoordinateList&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-410427629.html">STCCoordinateList</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;STCRegion&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h1772262609.html">STCRegion</a>
+                           </span> (by extension)</li>
+                        <li>
+                           <span class="type">
+                              <a title="Jump to &#34;STCRegionList&#34; type definition."
+                                 href="stc-v1.30.xsd.html_h-102897393.html">STCRegionList</a>
+                           </span> (by extension)</li>
+                     </ul>
+                  </li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <table class="properties">
+         <tr>
+            <th>Name</th>
+            <td>stcBaseType</td>
+         </tr>
+         <tr>
+            <th>
+               <a title="Look up 'Abstract' in glossary" href="stc-v1.30.xsd.html#term_Abstract">Abstract</a>
+            </th>
+            <td>yes</td>
+         </tr>
+         <tr>
+            <th>Documentation</th>
+            <td class="documentation">STC standard base type. Elements of derived types may contain real content, be a reference to another element in the document (idref), or be a reference to a distributed resource; the href is to be a standard IVOA identifier or a valid URL. Actuation is up to the client. At this time it is required to be of type simple. An id is optional; it allows referencing by other elements.</td>
+         </tr>
+      </table>
+      <div class="sample box">
+         <div>
+            <input type="button" id="h-64159640_xibox_button" class="control"
+                   onclick="switchState('h-64159640_xibox'); return false;"
+                   style="display: none"/> 
+            <span class="caption">XML Instance Representation</span>
+         </div>
+         <div id="h-64159640_xibox" class="contents">
+            <div style="margin-left: 0em">&lt;...<br/>
+               <span style="margin-left: 0.5em"> id="<span class="type">
+                     <a href="stc-v1.30.xsd.html#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:ID</span> 
+                  <span class="occurs">[0..1]</span>"</span>
+               <br/>
+               <span style="margin-left: 0.5em"> idref="<span class="type">
+                     <a href="stc-v1.30.xsd.html#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:IDREF</span> 
+                  <span class="occurs">[0..1]</span>"</span>
+               <br/>
+               <span style="margin-left: 0.5em"> ucd="<span class="type">
+                     <a href="stc-v1.30.xsd.html#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span> 
+                  <span class="occurs">[0..1]</span>"</span>
+               <br/>
+               <span style="margin-left: 0.5em"> 
+                  <a href="stc-v1.30.xsd.html#ns_xlink" title="Find out namespace of 'xlink' prefix">xlink</a>:<a title="Jump to &#34;type&#34; attribute declaration(located in external schema documentation)."
+                     href="xlink.xsd.html_h-1961369859.html"
+                     class="externalLink">type</a>="<span class="occurs">[0..1]</span>"</span>
+               <br/>
+               <span style="margin-left: 0.5em"> 
+                  <a href="stc-v1.30.xsd.html#ns_xlink" title="Find out namespace of 'xlink' prefix">xlink</a>:<a title="Jump to &#34;href&#34; attribute declaration(located in external schema documentation)."
+                     href="xlink.xsd.html_h-1961734418.html"
+                     class="externalLink">href</a>="<span class="occurs">[0..1]</span>"</span>
+               <br/>
+               <span style="margin-left: 0.5em"> ID_type="<span class="type">
+                     <a href="stc-v1.30.xsd.html#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span> 
+                  <span class="occurs">[0..1]</span>"</span>
+               <br/>
+               <span style="margin-left: 0.5em"> IDREF_type="<span class="type">
+                     <a href="stc-v1.30.xsd.html#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span> 
+                  <span class="occurs">[0..1]</span>"</span>/&gt; </div>
+         </div>
+         <script type="text/javascript">
+<!--
+          setState('h-64159640_xibox', true);
+// -->
+</script>
+      </div>
+      <div class="sample box">
+         <div>
+            <input type="button" id="h-64159640_diagram_button" class="control"
+                   onclick="switchState('h-64159640_diagram'); return false;"
+                   style="display: none"/> 
+            <span class="caption">Diagram</span>
+         </div>
+         <div id="h-64159640_diagram" class="contents">
+            <img usemap="#h1343000216" src="schemaDiagrams/h1343000216.png"/>
+            <!--
+            Map ref: file:/Volumes/jdsant/Documents/IAA/MaterialesTesis/LaTeX-Tesis/xsd//schemaDiagrams/h1343000216.map--><map name="h1343000216">
+               <area shape="rect" alt="h-1573457691" coords="157,0,322,26"
+                     href="stc-v1.30.xsd.html_h-1573457691.html#h-1573457691"/>
+
+            </map>
+         </div>
+         <script type="text/javascript">
+<!--
+          setState('h-64159640_diagram', true);
+// -->
+</script>
+      </div>
+      <div class="schemaComponent box">
+         <div>
+            <input type="button" id="h-64159640_scbox_button" class="control"
+                   onclick="switchState('h-64159640_scbox'); return false;"
+                   style="display: none"/> 
+            <span class="caption">Schema Component Representation</span>
+         </div>
+         <div id="h-64159640_scbox" class="contents">
+            <div style="margin-left: 0em">&lt;<span class="scTag">xs:complexType</span> 
+               <span class="scTag">name</span>="<span class="scContent">stcBaseType</span>" <span class="scTag">abstract</span>="<span class="scContent">true</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:attributeGroup</span> 
+                  <span class="scTag">ref</span>="<span class="scContent">
+                     <a title="Jump to &#34;STCReference&#34; attribute group definition."
+                        href="stc-v1.30.xsd.html_h-1573457691.html">STCReference</a>
+                  </span>"/&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div>
+         </div>
+         <script type="text/javascript">
+<!--
+          setState('h-64159640_scbox', false);
+// -->
+</script>
+      </div>
+      <hr/>
+      <p class="footer">Generated by <a href="http://www.oxygenxml.com">&lt;oXygen/&gt; XML Editor</a> using a modified version of <a href="http://titanium.dstc.edu.au/xml/xs3p">xs3p</a> that adds schema diagrams and chunking support. Last modified: <script type="text/javascript">
+<!--
+          document.write(document.lastModified);
+// -->
+</script>
+      </p>
+   </body>
+</html>

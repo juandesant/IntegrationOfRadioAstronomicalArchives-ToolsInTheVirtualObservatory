@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE persons SYSTEM "persons.dtd">
+<PERSONS>
+	<PERSON>
+		<NAME> Juan de Dios Santander Vela </NAME>
+		<BIRTHDATE> 23/05/1972 </BIRTHDATE>
+		<DEGREE lang="es_ES"> Ingeniero en Electrónica </DEGREE>
+		<INSTITUTION>Instituto de Astrofísica de Andalucía</INSTITUTION>
+	</PERSON>
+</PERSONS>

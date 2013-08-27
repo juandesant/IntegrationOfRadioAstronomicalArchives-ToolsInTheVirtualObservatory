@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+pdflatex  -interaction nonstopmode -file-line-error tesis # don't stop
+open tesis.pdf # open the PDF in the current PDF viewer

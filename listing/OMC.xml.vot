@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+                 
+
+
+
+
+
+
+<VOTABLE version="1.1" xmlns="http://www.ivoa.net/xml/VOTable/v1.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.1 http://www.ivoa.net/xml/VOTable/v1.1" 
+    xmlns:sdm="http://www.ivoa.net/xml/SpectralDataModel/v0.95a">
+    <RESOURCE type="results">
+        <DESCRIPTION>OMC Simple Spectral Access Protocol (SSAP) Service.</DESCRIPTION>
+
+
+<INFO name="QUERY_STATUS" value="OK">Successful Search</INFO>
+<TABLE>
+	<GROUP utype="sdm:SSA.Access"> 
+		<FIELDref ref="acref" /> 
+		<PARAM name="format" datatype="char" arraysize="*" ucd="meta.code.mime"
+			utype="sdm:SSA.Access.Format" value="application/x-votable+xml" />
+	</GROUP>
+	<GROUP utype="sdm:SSA.Target">
+		<FIELDref ref="target"/>
+	</GROUP>
+	<GROUP utype="sdm:SSA.Dataset"> 
+		<PARAM name="DatasetType" datatype="char" arraysize="*"
+			ID="datasetType" utype="sdm:SSA.Dataset.Type" value="TimeSeries"/>
+		<FIELDref ref="nsamples" />
+		<PARAM name="CreationType" datatype="char" arraysize="*"
+			utype="sdm:SSA.Dataset.CreationType" value="pointed" />
+		<PARAM name="Aperture" datatype="char" arraysize="*"
+			utype="sdm:SSA.Dataset.Aperture" value="5" />
+		<FIELDref ref="Title"/> 
+		<PARAM name="DataModel" datatype="char" arraysize="*"
+			utype="sdm:SSA.Dataset.DataModel" value="SDM-V0.95a" />
+	</GROUP>
+	<GROUP utype="sdm:SSA.Curation">
+		<PARAM name="Collection" datatype="char" arraysize="*" ucd="meta.id"
+			utype="sdm:SSA.Curation.Collection"
+			value="LAEFF-OMC" />
+		<PARAM name="publisher" datatype="char" arraysize="*" ucd="meta.id"
+			utype="sdm:SSA.Curation.PublisherID"
+			value="http://laeff.inta.es" />
+	</GROUP>
+	<GROUP utype="sdm:SSA.Coverage"> 
+		<GROUP utype="sdm:SSA.Coverage.Location">
+			<PARAM name="Bandpass Characteristic Value" datatype="float"
+				utype="sdm:SSA.Coverage.Location.Spectral" ucd="instr.bandpass"
+				unit="nm" value="550" />
+			<FIELDref ref="CoverageSpatial" />
+		</GROUP> 
+		<GROUP utype="sdm:SSA.Coverage.Bounds"> 
+			<FIELDref ref="boundsTime" />
+			<PARAM name="upper/lower bounds of spectral coverage" datatype="float"
+				arraysize="2" utype="sdm:SSA.Coverage.Bounds.Spectral"
+				ucd="instr.bandwidth" unit="nm" value="505.5 594.5" />
+		</GROUP> 
+	</GROUP>
+
+	<FIELD name="Title" datatype="char" arraysize="*" ID="Title"
+		ucd="meta.id;meta.dataset" utype="sdm:SSA.Dataset.Title" />
+	<FIELD name="AccessReference" datatype="char" arraysize="*" ID="acref"
+		ucd="meta.ref.url" utype="sdm:SSA.Access.Reference" />
+	<FIELD name="TargetName" datatype="char" arraysize="*" ID="target"/>
+	<FIELD name="Coordinates" ID="CoverageSpatial" datatype="float" arraysize="2"
+		utype="sdm:SSA.Coverage.Location.Spatial" ucd="pos.eq" unit="deg"/>
+	<FIELD name="TimeBounds" datatype="float"
+		arraysize="2" ID="boundsTime" utype="sdm:SSA.Coverage.Bounds.Time"
+		ucd="" unit="d" />
+	<FIELD name="NumberOfSamples" datatype="int" ID="nsamples"
+		ucd="meta.number" utype="sdm:SSA.Dataset.SSA.NSamples" />
+	<DATA> 
+		<TABLEDATA> 
+ </TABLEDATA> </DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>
+		
+
+
+

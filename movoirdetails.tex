@@ -1,0 +1,243 @@
+\chapter{MOVOIR Details} % (fold)
+\label{cha:movoir_details}
+
+	\section{SAMP MTypes description} % (fold)
+	\label{sec:samp_mtypes}
+		
+		The MOVOIR messaging system/API is based on SAMP MTypes.
+		The SAMP standard allows for the extensibility of the
+		protocol by letting developers create custom MTypes for
+		particular applications. An MType is described by:
+		
+		\begin{description}
+			\item[MType string id] Administrative MTypes for the
+			SAMP protocol start with \texttt{samp.}, and application
+			defined MTypes need a non-null id starting with a
+			different prefix. The custom, as recommended by section
+			5.1 of the SAMP Proposed Recommendation, in order to
+			make MTypes as generic as possible, is to use object (or
+			data product) oriented prefixes, with a verb indicating
+			the action, and clarification afterwards. Examples of
+			this are \texttt{image.load.fits} or
+			\texttt{table.load.votable}.
+			
+			 \item[List of named parameters] MType parameters need
+			to be named, as SAMP messages use maps for parameters,
+			to allow for easier mapping on the XML-RPC protocol, but
+			also for extensibility. The list can be empty, if the
+			message needs no parameters (for instance, for an
+			action-triggering message).
+			
+			For each of the named parameters, and each of the named
+			return values, the following information is needed:
+			
+			\begin{description}
+				\item[name] As stated in the list of named
+				parameters or named returned values.
+				
+				\item[data type] One of \texttt{map},
+				\texttt{list} or \texttt{string}, as specified in
+				section 3.3 of the SAMP
+				IVOA Recommendation~\cite{2009samp.ivoav0904T}; for
+				lists, appropriate scalar subtypes can be specified
+				(section 3.4)
+				
+				\item[meaning] Parameter description in order to
+				ensure that named parameters for the same message
+				share their meaning.
+				
+				\item[is it optional?] If not stated, MType
+				parameters are considered to be mandatory.
+				
+				\item[default value] Optional, and only for
+				optional parameters.
+			\end{description}
+			
+			
+			 \item[List of named returned values] As the result of a
+			MType message any number of returned values, each with
+			its own name, can be returned. The list can be empty, as
+			many messages return nothing. Irrespective of this, all
+			MType calls should return a value. For each returned
+			named parameter, its name, data type, meaning, optional
+			character, and default value have to be specified.
+			
+			 \item[MType description] MTypes are a controlled
+			vocabulary, and in order to increase interoperability,
+			and the reuse of existing MTypes, a description of the
+			MType is mandatory, in order to ensure all applications
+			responding to the message behave in coherent way.
+		\end{description}
+		
+		
+	% section samp_mtypes (end)
+	
+	\section{MOVOIR MTypes} % (fold)
+	\label{sec:movoir_mtypes}
+	
+		The MOVOIR API can be defined, then, by the collection of
+		MTypes that it can respond to, together with the returned
+		values.
+		
+		\mtypedef{movoir.conesearch.withPositions}
+		{Queries ConeSearch services in the VO registry in order to
+		retrieve data around the proposed list of objects and
+		positions, at a particular angular distance radius. The
+		result is a list of data result maps. If there is an error
+		in resolving any of the names, \texttt{samp.status} is set
+		to warning, and \texttt{samp.warning} is used to specify
+		which ones where not resolved.}
+		{
+			\mtypeparam{objects}{list}{string}{List of object names
+			or positions for which the ConeSearch services are to
+			be queried. It must not be empty.}
+			
+			\mtypeparam{searchRadius}{float}{Radius (in degrees)
+			around which the search is to be performed.}
+			
+			\mtypeparam[optional]{band}{list}{List of wavebands 
+			the returned data must belong to. If empty, or non
+			existing, there is no filtering of results by band.
+			Default value: \emph{empty list}.}
+			
+			\mtypeparam[optional]{keywords}{list}{List of keywords
+			that should appear in any part of the registry entry.
+			If not empty, all of the keywords in the list appear
+			in the returned value.
+			Default value: \emph{empty list}.}
+		}
+		{
+			\mtypeparam{coneSearchEntries}{map}{Map of all
+			retrieved entries, using the service IVORN as a key.
+			For each entry, a list of results is provided.}
+		}
+		
+		movoir.conesearch.withPositions
+		
+		movoir.siapsearch.withPositions
+		
+		movoir.ssapsearch.withPositions
+		
+		movoir.dalsearch.withPositions
+		
+		movoir.dalservices
+		
+		movoir.dalservices.conesearch
+		
+		movoir.dalservices.siap
+		
+		movoir.dalservices.ssap
+		
+		movoir.arquery (for sending a query to the astroruntime,
+		and have data back)
+
+		
+	% section movoir_mtypes (end)
+
+	\section{MOVOIR Python scripting module} % (fold)
+	\label{sec:movoir_python_scripting_module}
+		\newcommand{\sampyurl}[0]
+		{http://cosmos.iasf-milano.inaf.it/luigi/projects/vo/samp/}
+		The MOVOIR Python scripting module uses the SAMPy
+		module\urlnote{\sampyurl} by Luigi Paioro, but creates the
+		following modules for abstracting the low-level SAMP
+		functionality from scripts, providing direct access to the
+		messages and results listed in the previous section:
+		
+		\begin{itemize}
+			\item MOVOIR.arquery: for direct querying of the
+			AstroRuntime.
+			
+			\item MOVOIR.conesearch: ConeSearch query module.
+			Supports the MTypes above for allowing the query from
+			different tools.
+			
+		\end{itemize}
+	% section movoir_python_scripting_module (end)
+	
+	\section{MOVOIR based tools} % (fold)
+	\label{sec:movoir_based_tools}
+	
+		Some tools have been developed based on SAMP and the
+		MOVOIR in order to show different possibilities for
+		the MOVOIR.
+		
+		\begin{description}
+			\item[MOVOIR GUI] MOVOIR is the underlying 
+		\end{description}
+		[MOVOIR GUI]
+	% section movoir_based_tools (end)
+	
+	\section{movoirDownloader MTypes} % (fold)
+	\label{sec:vodownloader_registered_mtypes}
+	
+		The VO Downloader is a MOVOIR module which, apart from 
+		registering its own set of MOVOIR-based MTypes, registers
+		for notification of the following MTypes:
+		
+		\mtypedef{table.load.votable}
+				{Download a table in VOTable format. In the case of
+				the VO Downloader, causes the download of the
+				provided file.}
+				{\mtypeparam{url}{string}{URL of the VOTable
+				document to download.}
+				\mtypeparam[optional]{table-id}{string}{identifier
+				which may be used to refer to the downloaded table
+				in subsequent messages.}
+				\mtypeparam[optional]{name}{string}{name which may
+				be used to label the downloaded table in the
+				application GUI.}
+				\mtypeparam[optional, MOVOIR specific]{session-id}
+				{string}{a string which can be attached to all
+				downloaded data from the same session, so that they
+				can be traced together.}
+				}
+				{\mtypeparamnone}
+				
+		\mtypedef{image.load.fits}
+				{Download a two-dimensional FITS image.}
+				{\mtypeparam{url}{string}{URL of the FITS image to
+				download.}
+				\mtypeparam[optional]{image-id}{string}{identifier
+				which may be used to refer to the downloaded FITS
+				image in subsequent messages.}
+				\mtypeparam[optional]{name}{string}{name which may
+				be used to label the downloaded FITS image in the
+				application GUI.}
+				\mtypeparam[optional, MOVOIR specific]{session-id}
+				{string}{a string which can be attached to all
+				downloaded data from the same session, so that they
+				can be traced together.}
+				}
+				{\mtypeparamnone}
+				
+		It will also use the following generic MType:
+		
+		\mtypedef{url.download}
+				{Download a generic URL.}
+				{\mtypeparam{url}{string}{URL to download.}
+				\mtypeparam[optional]{download-id}{string}{identifier
+				which may be used to refer to the downloaded generic
+				data in subsequent messages.}
+				\mtypeparam[optional]{name}{string}{name which may
+				be used to label the downloaded data in the
+				application GUI.}
+				\mtypeparam[optional, MOVOIR specific]{session-id}
+				{string}{a string which can be attached to all
+				downloaded data from the same session, so that they
+				can be traced together.}
+				}
+				{\mtypeparamnone}
+				
+		Notice the addition of an optional, MOVOIR specific
+		\texttt{session-id } parameter; the semantics remains the
+		same for applications using the \texttt{table.load.votable}
+		and \texttt{image.load.fits} MTypes, as they should ignore
+		unknown parameters, as per the SAMP IVOA
+		Recommendation~\cite{2009samp.ivoav0904T}.
+	
+	% section vodownloader_registered_mtypes (end)
+	
+	
+
+% chapter movoir_details (end)

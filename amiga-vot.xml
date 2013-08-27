@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ivoa.net/xml/VOTable/VOTable/v1.1">
+  <COOSYS ID="J2000" equinox="J2000" epoch="J2000" system="eq_FK5"/>
+  <RESOURCE name="AMIGA Fundamental Physics Parameters">
+    <DESCRIPTION>AMIGA Search byparameters results</DESCRIPTION>
+    <INFO name="VOtable temporary file (24 hours cache expired)" value="http://amiga.iaa.csic.es:8080/XML-CACHE/AMIGA_VOtable.09-01-09.1231514155.xml"/>
+    <INFO name="QUERY_STATUS" value="OK"/>
+    <INFO name="Objects Found" value="3"/>
+    <TABLE name="Search Results">
+      <FIELD name="CIG Number" ID="col1" datatype="char" ucd="meta.id; meta.main" arraysize="8*">
+        <DESCRIPTION>CIG Number in KIG catalogue</DESCRIPTION>
+        <LINK>http://nedwww.ipac.caltech.edu/cgi-bin/nph-ex_refcode?refcode=1973AISAO...8....3K</LINK>
+      </FIELD>
+      <FIELD name="RA J2000" ID="col2" unit="deg" datatype="float" precision="5" width="9" ref="J2000" ucd="pos.eq.ra; meta.main">
+        <DESCRIPTION>Right Ascension J2000 (Leon and Verdes-Montenegro. 2003)</DESCRIPTION>
+        <LINK>http://amiga.iaa.csic.es:8080/FCKeditor/UserFiles/File/cig_ref2.ps</LINK>
+      </FIELD>
+      <FIELD name="DEC J2000" ID="col3" unit="deg" datatype="float" precision="4" width="7" ref="J2000" ucd="pos.eq.dec; meta.main">
+        <DESCRIPTION>Declination J2000 (Leon and Verdes-Montenegro. 2003)</DESCRIPTION>
+        <LINK>http://amiga.iaa.csic.es:8080/FCKeditor/UserFiles/File/cig_ref2.ps</LINK>
+      </FIELD>
+      <FIELD name="Vr" ID="col4" unit="km/s" datatype="int" ucd="src.veloc.hc;meta.main" width="5">
+        <DESCRIPTION>Recession Velocity (Verdes-Montenegro et al. 2005)</DESCRIPTION>
+        <LINK>http://amiga.iaa.csic.es:8080/FCKeditor/UserFiles/File/aa2280-04.pdf</LINK>
+      </FIELD>
+      <GROUP Name="Name">
+        <FIELDRef ref="col1"/>
+      </GROUP>
+      <GROUP Name="Coords">
+        <FIELDRef ref="col2"/>
+        <FIELDRef ref="col3"/>
+      </GROUP>
+      <GROUP Name="Velocity">
+        <FIELDRef ref="col4"/>
+      </GROUP>
+      <DATA>
+        <TABLEDATA>
+          <TR>
+            <TD>CIG 523</TD>
+            <TD>184.17545</TD>
+            <TD>69.4629</TD>
+            <TD>-5</TD>
+          </TR>
+          <TR>
+            <TD>CIG 663</TD>
+            <TD>227.29241</TD>
+            <TD>67.2143</TD>
+            <TD>-247</TD>
+          </TR>
+          <TR>
+            <TD>CIG 802</TD>
+            <TD>260.03112</TD>
+            <TD>57.9093</TD>
+            <TD>-292</TD>
+          </TR>
+        </TABLEDATA>
+      </DATA>
+    </TABLE>
+  </RESOURCE>
+</VOTABLE>

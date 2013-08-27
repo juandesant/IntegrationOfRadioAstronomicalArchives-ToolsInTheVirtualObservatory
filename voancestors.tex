@@ -1,0 +1,87 @@
+Due to the purely scientific, non-commercial nature of astrophysical
+data, public access to them has always been the norm. With the
+connection of most educational and research institutions to the
+Internet, the first primitive online archives were born. One of the
+first was that of the International Ultraviolet Explorer (IUE), which
+was made available to the public in 1985. As the World Wide Web did not
+exist yet at that time, astronomers had to login to remote servers from
+which the data were downloaded through the File Transfer Protocol
+(FTP).
+
+Apart from the data from observations themselves, articles and other
+publications on astronomical objects were also of great value, and
+during the \emph{Astronomy from large databases}
+conference~\cite{1988afld.book.....M}, held in 1987, a proposal was
+made for the design and operation of a system to compile all
+astronomical publications, the SAO/NASA Astrophysics Data System (ADS).
+A prototype was built in 1990, with the system being released to the
+public in early 1993~\cite{1993ASPC...52..132K}. The system was made
+possible thanks to the collaboration of the publishing journals.
+
+Simultaneously, systems like the Simbad Astronomical
+Database\urlnote{http://simbad.u-strasbg.fr/simbad/}~\cite{
+2000A&AS..143....9W} (an online database hosted by the Centre de Donées
+Astronomiques de Strasbourg, CDS), or the NASA/IPAC Extragalactic
+Database\urlnote{http://nedwww.ipac.caltech.edu/}~\cite{
+1992ASPC...25...47M} (NED) contained data with diverse information on
+observed astrophysical objects, which were compiled, maintained and
+published online by the respective large scale astronomical data
+centres.
+
+\newcommand{\adsbibcodeurl}[0]
+{http://doc.adsabs.harvard.edu/abs_doc/help_pages/bibcodes.html}
+As all of these initiative had grown independently, the were developed
+with different considerations in mind, and were not coordinated.
+However, the possibility of joining publications available at the ADS,
+and the Simbad/NED databases, allowed astronomers to have access to
+publications on the objects of their interest, or to access more data
+in those databases from the corresponding literature. The joint
+ADS/NED/Simbad effort was called URANIA~\cite{1996AAS...189.0603B}, and
+is one of the first joint initiatives for data service interoperability
+in astronomy. The main product of that agreement is the
+\emph{bibcode}\urlnote{\adsbibcodeurl}, a unique identifier of
+publications which encodes details on the publication date, publication
+kind, and/or journal, and author\footnote{When astronomers upload data related to a particular publication to the NED or Simbad services, or that data is gathered from the publication, the bibcode allows the cross-identification of sources and publications.}.
+
+\newcommand{\vizierurl}[0]
+{http://webviz.u-strasbg.fr/viz-bin/VizieR}
+Outside the URANIA project, the
+INES\urlnote{http://sdc.laeff.inta.es/ines/} (IUE Newly Extracted
+Spectra)~\cite{1999A&AS..139..183R} archive, holding reprocessed IUE
+observations, represents the first instance of interoperability between
+two completely different astrophysical services: one holding spectral
+information (INES), the other keeping bibliographical references (ADS).
+It was possible to access the information available in ADS for a
+particular object from the INES archive, and from the ADS the INES
+spectra used for a particular article could be accessed. Other service
+linked to the ADS through bibcodes is the VizieR\urlnote{\vizierurl}
+service for Astronomical Catalogues~\cite{2000A&AS..143...23O}.
+
+Another important milestone in the development of online, interoperable
+archives was the NASA multi-mission archive initiative, which tried to
+provide a common archival infrastructure across different space-borne
+missions. Three portals were finally created:
+MAST\urlnote{http://archive.stsci.edu/} (Multi-mission Archive at Space
+Telescope)~\cite{1999AAS...194.8302I}, mainly for optical-ultraviolet
+observations\footnote{VLA FIRST images are also available through
+MAST.}; IRSA\urlnote{http://irsa.ipac.caltech.edu/} (InfraRed Science
+Archive)~\cite{2000AAS...19711610B}, for the infrared; and
+HEASARC\urlnote{http://heasarc.gsfc.nasa.gov/} (High Energy
+Astrophysics Science Archive Research
+Center)~\cite{1994BAAS...26..995R} for high-energy (X-rays, gamma rays)
+astrophysical observations. These portals allowed for the first time a
+unified view of data from widely different provenance under the same
+query interface. MAST also provided some applications for data
+visualisation across mission, such as the
+COPLOT\urlnote{http://archive.stsci.edu/mast_coplot.html} tool.
+However, data products from each mission were, still, quite different.
+
+Finally, regarding the use of applications in order to combine and
+manipulate data from different services, one of the first examples
+prior to the VO development is the Aladin Sky Atlas. Initially, Aladin
+was only able to access CDS-based catalogues and images, which were
+accessed through custom built, Aladin-specific protocols. However,
+Aladin helped in making developers and astronomers realise that any
+other system which shared the data access and data description
+protocols would allow either to improve Aladin, by allowing it to
+access more datasets, or more easily recreate Aladin-like functionality, without the need of being a data and service provider.

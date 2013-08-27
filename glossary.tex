@@ -1,0 +1,1541 @@
+\glossary{ALMA}
+{
+    	the \emph{Atacama Large Millimetre Array} is going to be the
+        largest radio interferometer in the world. It will consist of
+        more than 56 12-m diameter antennas in different
+        configurations, together with a compact array of 8 6-m antennas
+        and four more 12-m antennas to allow for smaller baselines
+        (below 12m), allowing for much more extended emission to be
+        captured. The antennas will be above 5000m in plateau of
+        Chajnantor, at the Atacama desert, while the operation support
+        facilities will be found just below 3000m.
+}
+
+\glossary{AMIGA}
+{
+    	bilingual acronym which stands in English for \emph{Analysis of
+        the interstellar Medium of Isolated GAlaxies}, and in Spanish
+        for \emph{Análisis del Medio Interestelar de Galaxias
+        Aisladas}. AMIGA is a research project funded by the Spanish
+        National Call for Space and Astrophysics wich started in 2004
+        [TODO search this date], whose PI is Lourdes Verdes-Montenegro,
+        devoted to the study of the largest optically selected sample
+        of isolated galaxies (1050), following strict isolation
+        criteria, in order to provide a baseline that can be used to
+        differentiate whether particular galactic traits are intrinsic,
+        or depend on the interaction with neighbouring galaxies. This
+        study uses multi-wavelength information from many different
+        telescopes and wave bands, and joined the \gls{SVO} in 2005
+        in order to create \gls{VO} tools needed for performing
+        AMIGA's work, but also useful for the community at large. AMIGA
+        VO actitivies have a strong emphasis on the radio band, both
+        because of our interest in \gls{ALMA}, and because of the
+        relative under-development of the radio-VO, both in terms of
+        number of archives, available tools, and data models.
+}
+
+\glossary{API}
+{
+    	acronym standing for \emph{Applications Programming Interface}.
+        An API is a set of related functions that allow applications to
+        make use of the operating system (or specific functions). For
+        instance, in UNIX-like systems, the POSIX API is the one
+        allowing file access, memory management, multi-tasking, et
+        cetera. Programs written using the POSIX API do not need to
+        implement file access, memory management, and so one, but
+        instead they will call functions of the POSIX API suitable for
+        those tasks.
+}
+
+\glossary{Applications Working Group}
+{
+    	The \gls{IVOA} Applications Working Group is concerned
+        primarily with the software tools that astronomers use to
+        access VO data and services for doing astronomy. This WG
+        provides a means for VO Applications development and
+        implementation to be closely linked to the standards
+        development in the IVOA, and where necessary proposes and
+        develops standards for VO Applications to interoperate. The
+        role of the Applications WG is to identify missing or desirable
+        technical capabilities for VO applications, as well as
+        components in terms of scientific usability. This WG is the
+        IVOA front-end for announcing and discussing new VO
+        applications and standards for application interoperability.
+        The \gls{PLASTIC} protocol was the first attempt at tool
+        interoperability, and now the WG is promoting \gls{SAMP},
+        which is still a \gls{Working Draft}.
+}
+
+\glossary{ASCII}
+{
+    	acronym standing for \emph{American Standard Code for
+        Information Interchage}. ASCII is the standard for the
+        codification of textual data in binary form. In only specifies
+        the first 127 characters out of the 256 that can be encoded
+        with one byte (2^8), and it can only properly show characters
+        from the US-English alphabet and symbols. Other European
+        characters, such as ñ, ç, ß, å, and the like are not covered by
+        ASCII, and require additional encoding. As ASCII specifies 8
+        bits per character, no single encoding can provide all
+        characters from each different language, much less at the same
+        time. The present solution for character interoperability is
+        \gls{Unicode}.
+}
+
+\glossary{AstroGrid}
+{
+    	UK research program devoted to the exploitation of grid
+        capabilities in the astronomical enviroment. Since the creation
+        of the Astrophysical Virtual Observatory (AVO) prototypes,
+        AstroGrid has focused on \gls{Virtual Observatory}
+        interoperability of remote services, under what is called
+        Global Worker Services, and the Common Execution Architecture.
+        They also develop the VODesktop and the AstroRuntime. The
+        latter is a set of functions for VO access that can be called
+        either using \gls{XML-RPC} or \gls{Java-RMI} from any
+        other application, while the former is a set of VO
+        visualisation and data access and filtering tools built on top
+        of the \gls{AstroRuntime}.
+}
+
+\glossary{AstroRuntime}
+{
+    	the AstroRuntime is an \gls{AstroGrid} subproject that tries to
+        provide a complete \gls{\gls{Virtual Observatory}} toolbox to
+        any application able to communicate with it. Technically, it is
+        a client-side middleware that provides uniform access to all
+        \gls{Virtual Observatory} services, from any programming
+        language supporting \gls{XML-RPC} calls, direct \gls{HTTP}
+        communications, or \gls{Java-RMI} interfaces.
+}
+
+\glossary{Astronomy}
+{
+		several dictionaries define \emph{astronomy} as the study of
+        the properties of objects and matter outside the Earth's
+        atmosphere. Etymologically, comes from the greek
+        $\alpha\sigma\tau\epsilon\rho{}i$
+		% αστέρι
+        (\emph{astro-asteri}, meaning star), and the greek $\nu\'o\mu
+        o\varsigma$
+		% νόμος
+		(\emph{nomos}, meaning law), and that would
+        be the study of the laws governing celestial objects. If those
+        laws are restricted to the relative movement of astronomical
+        objects, is considered a part of Mathematics. However, when
+        scientists try to derive physical or chemical properties from
+        celestial objects, it is used interchangeably with
+        \gls{astrophysics}.
+}
+
+\glossary{Astrophysics}
+{
+    	the part of \gls{astronomy} dealing with the acquisition of
+        physical information from astronomical objects. Examples of
+        such information include object velocities, distances,
+        oscillations, temperatures, object dynamics, et cetera.
+        However, many people use astronomy and astrophysics
+        interchangeably, as today it is very difficult to perform
+        non-physical astronomical observations, as even when measuring
+        object positions and distances physical models are used to
+        enhance the distance estimation.
+}
+
+\glossary{Attribute}
+{
+    	in \gls{XML}, an attribute is information that qualifies a tag,
+        and goes alongside with it. For instance, \texttt{PARAM}
+        \gls{tags} in a \gls{VOTable} can have \texttt{ID},
+        \texttt{unit}, \texttt{datatype}, \texttt{precision},
+        \texttt{width}, \texttt{ref}, \texttt{name}, \texttt{ucd},
+        \texttt{utype}, \texttt{arraysize} and \texttt{value}
+        attributes. Some attributes might be required for a particular
+        tag. For instance, \texttt{PARAM} tags require an \texttt{ID},
+        a \texttt{name}, and a \texttt{value}, making the minimum valid
+        \texttt{PARAM} tag: \texttt{<PARAM name=``resolution''
+        value=``50'' />}. Of course, \texttt{units} and \texttt{ucd}
+        are not required attributes (in the sense that the VOTable XML
+        schema does not define them as required), but are absolutely
+        required to understand the quantity: \texttt{<PARAM
+        name=``resolution'' value=``50'' units=``arcsec''
+        ucd=``pos.angResolution'' />}).
+}
+
+\glossary{Batch processing}
+{
+    	Non-interactive processing of a bunch of data (\emph{batch}).
+        Typically used for lengthy operations on the same set of data,
+        and launched from a \gls{CLI}. Involves programming the series
+        of operations, either with a script, or a complete application
+        or tool. Batch processing is useful when processing different
+        data sets with the same parameters, in order to obtain
+        consistent results. Compare with \gls{Interactive session}.
+}
+
+\glossary{Binary-based file formats}
+{
+    	a binary-based file format is one where the data representation
+        closely resembles the in-memory representation for programs
+        doing computations with such data. Usually, binary-based file
+        formats perform better at reading and writing, because there is
+        no need to parse the input. However, binary-based file formats
+        suffer from flexibility problems, and scripting tools need to
+        decode the data first in order to manipulate them. Compare with
+        \gls{text-based file formats}.
+}
+
+\glossary{Browser}
+{
+    	In computer science, a browser is a piece of software that
+        allows navigating around, and perusing, a particular kind of
+        information, such as \emph{Web browsers} for accessing the
+        \gls{World Wide Web}, or \emph{file browsers} for navigating
+        around a computer's file system.
+}
+
+\glossary{Character encoding}
+{
+    	The mapping between a particular sets of bits and a particular
+        character printed or shown on screen is called character
+        encoding. The best known encoding is \gls{ASCII}, but it fails
+        to represent non-US-English characters, as it only specifies
+        127 characters out of 256. The ISO provides character encoding
+        specifications such as Latin1 for Western European countries,
+        Latin2 for cyrillic, and the family of ISO 8859 standards for
+        Arabic, Hebrew, Greek, and many other languages. Even different
+        manufacturers used different encodings, such as IBM's EDBIBC,
+        or Apple's MacRoman. The problem with ASCII based character
+        encoding is that each encoding is exclusive: a Latin2 document
+        cannot provide Arabic text, nor can Arabic and Hebrew be mixed,
+        for instance. The solution consists in breaking the 256
+        characters limit, and providing consistent support across
+        operating systems, languages and scripting systems, from an
+        international consortium. See \gls{Unicode}.
+}
+
+\glossary{CLI}
+{
+    	acronym for \emph{Command Line Interface}. A CLI is a
+        text-based interface, similar to a UNIX shell, where commands
+        are entered with a keyboard, and parameters are entered
+        together with the command for batch processing sessions, or
+        after entering the command for interactive processing sessions.
+        Compare with \gls{GUI}.
+}
+
+\glossary{CSIC}
+{
+    	Spanish acronym standing for \emph{Consejo Superior de
+        Investigaciones Científicas}, or \emph{High Council of
+        Scientific Research} in English. CSIC is the largest research
+        organisation in Spain, and the \gls{IAA} belongs to it.
+}
+
+\glossary{CSS}
+{
+    	acronym standing for \emph{Cascading Style Sheets}. CSS is a
+        \gls{W3C} standard to define presentation by means of a
+        hierarchical cascade of style sheets —similar to styles in word
+        processing packages—, so that a given \gls{HTML}/\gls{XHTML}
+        document content can show different appearances depending on
+        the style sheet being applied.
+}
+
+\glossary{CSV}
+{
+    	A \gls{text-based file format} (compare with \gls{binary file
+        formats}) where data records are separated in different rows
+        (i.e., the text line separator acts as record separator), and
+        data belonging to different columns are separated by commas
+        (CSV stands for \emph{Comma Separated Values}). Optionally, the
+        last row of comments prior to the first row of data can contain
+        table headers. Compare with \gls{TST}.
+}
+
+\glossary{Data Access Layer Working Group}
+{
+    	The task of the Data Access Layer (DAL) working group is to
+        define and formulate VO standards for remote data access.
+        Client data analysis software uses these services to access
+        data via the VO framework; data providers implement these
+        services to publish data to the VO. The DAL working group will
+        define the scope of the DAL standards, outline a process by
+        which DAL standards are defined, and generate the initial
+        version 1.0 of the DAL standard. This standard will provide
+        guidance to data centres and survey projects when designing VO
+        compliant interfaces. It will allow them to justify the
+        allocation of resources for its implementation and maintenance.
+        Once the work on Version 1.0 is accomplished the working group
+        will coordinate future development of the standard. Currently,
+        one \gls{IVOA} \gls{Recommendation} from this WG exists:
+        \gls{SSAP}, and \gls{SCS}. \gls{SIAP} should follow soon, but
+        it is still a \gls{Working Draft}.
+}
+
+\glossary{Data Modelling Working Group}
+{
+    	The role of the Data Modeling working group (WG) is to provide
+        a framework for the description of \gls{metadata} attached to
+        observed or simulated data. The WG activity focuses on logical
+        relationships between these metadata, examining how an
+        astronomer wants to retrieve, process, and interpret
+        astronomical data, and providing an architecture to handle
+        them. This WG standards can then be re-used in the protocols
+        defined by the \gls{Data Access Layer Working Group} or in
+        VO-aware applications.
+}
+
+\glossary{DOI}
+{
+    	Acronym for \emph{Digital Object Identifier}. A DOI consists of
+        a permanent identifier given to an electronic document that, in
+        contrast to a \gls{URL}, is not dependent upon the electronic
+        document's location. A DOI has to be resolved by the
+        [http://doi.org/ DOI System], which provides both the metadata
+        associated with the document, and a known location for an
+        electronic copy. DOIs are particular cases of the CNRI Handle
+        System, the first system for resolving digital document codes
+        into URLs. DOIs are CNRI Handles with prefix \texttt{10}.
+        Compare with \gls{URN}s.
+}
+
+\glossary{Driver}
+{
+    	In computer technology, a driver is a piece of software in
+        charge of talking to classes of devices, so that an application
+        only has to talk to the class of devices, and the difference in
+        detail between different devices is abstracted by the driver.
+        For instance, \gls{JDBC} drivers provide database connectivity
+        for applications written in \gls{Java}, and hide the
+        implementation differences between different database vendors,
+        such as MySQL or PostgreSQL.
+}
+
+\glossary{DTD}
+{
+    	acronym standing for \emph{Document Type Definition}. DTD is a
+        non-XML-based purpose-specific language for the definition of
+        constraints for \gls{XML} documents, also known as \gls{XML
+        schema}. A DTD document specifies the \gls{tags} that can be
+        used in documents using a particular DTD, tag \gls{attributes},
+        tag values, and the order, repetition, and hierarchical
+        relationship between tags. Compare with \gls{XML Schema}. (Mind
+        the capitalisation.)
+}
+
+\glossary{Dublin Core}
+{
+    	set of \gls{metadata} for archive resources shared by all
+        registries which are \gls{OAI}-compliant. The Dublin Core
+        mandates metadata keywords for resource titles, creators,
+        subject, description, publishers, contributors, publishing
+        data, resource type, resource format, resource identifiers,
+        resource sources, language, relationships with other resources,
+        resource coverage, and resource-related rights.
+}
+
+\glossary{End-point}
+{
+    	in \gls{web services} parlance, an end-point is an \gls{URL} to
+        which \gls{REST} or \gls{SOAP} conforming queries can be
+        performed. End-points for web services are usually defined via
+        \gls{WSDL} documents, whereas for \gls{VO} services end-points
+        are defined in the VO \gls{Registry}.
+}
+
+\glossary{Euro3D}
+{    	\gls{FITS}-based data format developed within the \gls{OPTICON}
+        network for storing 3D spectra coming from \gls{IFU}s. It can
+        be made general enough to hold data coming from radio
+        interferometry data, but the overhead becomes enormous compared
+        to more traditional FITS-based ways of storing this data.
+}
+
+\glossary{FITS}
+{
+    	acronym standing for \emph{Flexible Image Transport System}.
+        FITS is a file format standard developed by NASA in the '70s,
+        which allows for metadata headers (\emph{cards}) of the form
+        \texttt{KEYWORD = VALUE}, and arbitrary shaped binary tables
+        for which column number and column descriptions exist in the
+        headers. FITS keywords are made of at most 8 ASCII characters,
+        and the whole keyword, equal separator (\texttt{=}), and value,
+        cannot be more than 79 characters long. FITS files are
+        organised around HDUs (Header Data Unit), described by the
+        primary FITS header, which in turn can contain additional
+        headers and HDUs. Only a few FITS headers are standardised.
+}
+
+\glossary{FORTRAN}
+{
+    	acronym for \emph{FORmula TRANslator}. FORTRAN is a programming
+        language invented by John Backus in the '50s for IBM, and has
+        an special emphasis on matrix computations, for which is best
+        suited. This native support of vectors, arrays, and matrices
+        made FORTRAN the most popular programming language in the
+        scientific world. As many of the astrophysical and
+        astrometrical calculations make extensive use of this kind of
+        processing, FORTRAN soon became the preferred programming
+        language in astrophysics.
+}
+
+\glossary{GDL}
+{
+    	acronym for \emph{GNU Data Language}. GDL is an
+        \gls{open-source} clone of the \gls{IDL} language, without the
+        IDL libraries. It can be used to perform data analysis
+        operations using IDL compatible libraries, such as the \gls{IDL
+        Astronomy Library}.
+}
+
+\glossary{Grid and Web Services Working Group}
+{
+    	The aim of the \gls{IVOA} Grid & Web Services Working Group is
+        to define the use of \gls{grid} technologies and \gls{web
+        services} within the VO context and to investigate, specify,
+        and implement required standards in this area. This group was
+        formed from a merger of the previously existing Web Services
+        group and the Grid group, as ordered at the IAU General
+        Assembly in 2003.
+}
+
+\glossary{Grid}
+{
+		Grid computing is a form of distributed computing, where
+        computation and/or storage nodes from a pool of geographically
+        distributed resources can be used to perform tasks in parallel,
+        with more or less interaction between nodes, and which use
+        common \gls{middleware} that provides the resource allocation
+        \gls{API}s to grid computing applications. A grid can be
+        functionally defined as a system of computers without a
+        centralised administration, which communicate by means of open
+        standards, and which provide a quality of service beyond
+        \emph{best effort} (i.e., programs in the grid are launched on
+        suitable nodes, abnormal program termination events are logged
+        and execution retried, and needed execution times can be
+        specified).
+}
+
+\glossary{GUI}
+{
+    	Acronym for \emph{Graphical User Interface}. A GUI is a
+        graphical way to show data on a computer screen, and perform
+        user interaction with graphical devices, as mouse-controlled
+        pointers for interacting with on-screen buttons. GUIs are also
+        useful for \gls{interactive sessions}, such as interactive
+        visualisations where the graphical representation can change
+        interactively following user inputs. Example of GUI
+        environments are the X-Window environment for general computing
+        tasks, the IDLDE, or IRAF's graphical xgterm windows. Compare
+        with \gls{CLI}.
+}
+
+\glossary{HTML}
+{
+    	The \emph{Hyper Text Markup Language} is the main invention of
+        Tim Berners-Lee, and is the cornerstone of the \gls{World Wide
+        Web}. HTML uses \gls{tags} to markup (i.e., to label) text
+        content, specifying both content, links, and presentation. The
+        latest HTML versions, and \gls{XHTML}, try to provide content
+        with markup that provides semantics to the content, while the
+        presentation is left to CSS.
+}
+
+\glossary{HTTP}
+{
+    	The \emph{Hyper Text Transfer Protocol} is the other invention
+        and cornerstone of the \gls{World Wide Wed}, and was also
+        invented by Tim Berners-Lee. HTTP initially was a protocol for
+        hypertext data retrieval, allowing for GET operations on
+        \gls{URL}s pointing to HTML documents, or hypermedia elements
+        pointed by the HTML documents such as images, sounds, videos,
+        et cetera.
+		It was later upgraded to allow information transport from
+        the browser to the server, via HTTP POST calls which sent
+        information from web forms, and additional PUT and DELETE calls
+        for better semantic support of remote operations. This protocol
+        is also used for the query of web services, which must provide
+        an HTTP server.
+}
+\glossary{Hypermedia}
+{
+    	See \gls{hypertext}.
+}
+
+\glossary{Hypertext}
+{
+    	term coined by Ted Nelson in 1965, at the same time as
+        hypermedia, when developing a collaborative document editing
+        that allowed text and media insertion and labelling, with links
+        between document sections in the same or another document. Ted
+        Nelson work can be seen as an implementation of Vannevar Bush
+        vision as expressed in his 1945 essay \emph{As we may think}.
+        For instance, in a text dealing with web services, links may
+        exist to terms such as \gls{HTTP}, \gls{XML}, \gls{REST},
+        \gls{SOAP}, \gls{WSDL}, et cetera,
+		which would be placed exactly where
+        those terms appeared. Such a \emph{link-enriched} text is
+        called hypertext. If the system goes beyond text to use other
+        kinds of media (graphics, images, sounds, video, et cetera) the term
+        hypermedia is used.
+}
+
+\glossary{IAA}
+{
+    	Spanish acronym standing for \emph{Instituto de Astrofísica de
+        Andalucía}, or \emph{Institute of Astrophysics of Andalusia}.
+        Usually written as IAA-CSIC, to show the IAA is an institute
+        belonging to the \gls{CSIC}.
+}
+
+\glossary{IAU}
+{
+    	The \emph{International Astronomy Union} was founded in 1919.
+        Its mission is to promote and safeguard the science of
+        astronomy in all its aspects through international cooperation.
+        Its individual members are professional astronomers all over
+        the world, at the Ph.D. level and beyond, and active in
+        professional research and education in astronomy. Besides, the
+        IAU maintains friendly relations with organisations that
+        include amateur astronomers in their membership.
+        http://www.iau.org/
+}
+
+\glossary{IDL}
+{
+    	acronym standing for \emph{Interactive Data Language}. The IDL
+        is a language and \gls{CLI} environment for performing
+        mathematical operations, with an emphasis on matrix algebra, on
+        \gls{interactive sessions}. IDL has a strong share of computing
+        the astronomy and astrophysics world due to its similarity to
+        an interactive version of FORTRAN, and to the huge \gls{IDL
+        Astronomy Library} providing packages for many astronomical and
+        astrophysical \gls{reduction} duties. IDL is not open software,
+        and initially belonged to Research Systems Inc. (RSI), and now
+        belongs to ITT Industries and operates as ITT Visual
+        Information Solutions). However, the Astronomy Library is
+        \gls{open-source} software, and can be used with clones such as
+        \gls{GDL}.
+}
+
+\glossary{IEC}
+{
+    	acronym for the \emph{International Electrotechnical
+        Commission}, a non-profit international standards organisation
+        that prepares and publishes International Standards for all
+        electrical, electronic, and related technologies. IEC also
+        manages conformity assessment, in order to certify that
+        equipment complies with its standards.
+}
+
+\glossary{IETF}
+{
+    	The \emph{Internet Engineering Task Force} develops and
+        promotes Internet standards, co-operating closely with the
+        \gls{W3C} and \gls{ISO}/\gls{IEC} standard bodies and dealing
+        in particular with standards of the \gls{Internet}
+        \gls{protocol suite}. It is an open standards organisation,
+        with no formal membership or membership requirements.
+        \gls{IVOA}'s organisation is loosely modelled after the IETF's,
+        as their goals a very similar: promote open, interoperable
+        standards to be used throughout the Internet.
+}
+
+\glossary{INTA}
+{
+    	Spanish acronym standing for \emph{Instituto Nacional de
+        Técnica Aeroespacial}, or \emph{National Institute for
+        Aerospatial Technologies} in English. INTA is the organisation
+        funding the \gls{LAEFF}, and ensures continued funding both for
+        LAEFF and the \gls{SVO}.
+}
+
+\glossary{Interactive session}
+{
+    	Session of data processing which is performed in an environment
+        that uses simple steps that return control to the user as soon
+        as they have finished. Some of the steps might imply \gls{batch
+        processing}, but after each step is finished control is
+        returned to the user. The user has control of a particular
+        environment, where data resides, and can directly make change
+        to the data. Some \gls{CLI} environments for interactive
+        processing are \gls{IRAF}, \gls{IDL}, \gls{Python}, \gls{shell}
+        command lines, \gls{MATLAB}, et cetera.
+		Typically, \gls{GUI}s are also
+        useful for interactive sessions.
+}
+
+\glossary{IRAF}
+{
+    	acronym standing for \emph{Image Reduction and Analysis
+        Facility}. IRAF is a huge collection of software modules
+        written by astronomers and programmers at the \gls{NOAO},
+        needed for the \gls{reduction} of astronomical images provided
+        as pixel matrices, such as those provided by imaging array
+        detectors like CCDs. IRAF provides a \gls{CLI} that handles the
+        loading of such images, mathematical operations on them such as
+        image subtraction or division, with specific analysis tasks to
+        extract scientific products such as 1D spectra, 2D spectra,
+        pixel counts, etc, during \gls{interactive sessions}. Scripts
+        can be written to perform \gls{batch processing}.
+}
+
+\glossary{ISO}
+{
+    	short-name of the \emph{International Organisation for
+        Standardisation}, an international-standard-setting body
+        composed of representatives from various national standards
+        organisations. The form \emph{ISO} is used to avoid changing
+        the organisation name in different languages, and comes from
+        the Greek $i\sigma{}o\varsigma$ (\emph{isos}),
+        meaning \emph{equal}. The ISO sanctions international
+        standards. In the case of standards dealing with information
+        technologies, there is a Joint Technical Committee with
+        \gls{IEC}, and standards coming from that joint committee are
+        known as ISO/IEC standards.
+}
+
+\glossary{IVOA}
+{
+    	acronym standing for \emph{International Virtual Observatory
+        Alliance}. An alliance of different national \gls{Virtual
+        Observatory} initiatives, formed in June 2002, whose mission is
+        to facilitate the international co-ordination and collaboration
+        necessary for enabling global and integrated access to data
+        gathered by astronomical observatories. The IVOA Executive is
+        present at the \gls{IAU} via the Virtual Observatory Working
+        Group. http://ivoa.net/
+}
+
+\glossary{IVORN}
+{
+    	acronym standing for \emph{International Virtual Observatory
+        Resource Name}. An IVORN is a kind of \gls{URN} with protocol
+        \texttt{ivo:}, that encodes both an \emph{Authority ID} and a
+        \emph{Resource Key} within that particular authority. The
+        encoding is such that the URN is of the form
+        \texttt{ivo://AuthorityID/ResourceKey}. An additional parameter
+        can be specified for particular, local uses, after either a
+        question mark (\texttt{?}) or a number mark (\texttt{#}). Thus,
+        the URN \texttt{ivo://AuthorityID/ResourceKey#temp1}
+        corresponds to an IVORN (protocol \texttt{ivo://}) for a
+        \texttt{ResourceKey} resource under \texttt{AuthorityID}, and
+        #temp1 is a particular reference of local value (for instance,
+        in order to specify message dates). IVORNs are an \gls{IVOA
+        Recommendation}. \emph{Authority ID}s must be registered as
+        \gls{VO Resource}s of type \emph{identity}.
+        http://www.ivoa.net/Documents/latest/IDs.html
+}
+
+\glossary{Java}
+{
+    	Platform-independent programming language developed by Sun
+        Microsystems with the aim of writing applications that can work
+        across different computing platforms by means of a \gls{Virtual
+        Machine} that executes compiled Java byte-code, and isolates
+        the differences between operating systems. In the context of
+        the \gls{Virtual Observatory}, many tools are being written in
+        Java so that they can reach the maximum number of potential
+        users, regardless of platform. http://www.java.com/
+}
+
+\glossary{Java-RMI}
+{
+    	short for \emph{Java Remote Method Invocation}, Java-RMI is an
+        \gls{API} that provides \gls{RPC} capabilities within the
+        \gls{Java} object model. In other words, it allows Java objects
+        remotely call methods from objects in other packages, without
+        the burden of setting up a whole RPC server, because Java-RMI
+        is embedded in the language.
+}
+
+\glossary{JDBC}
+{    	\emph{Java Data Base Connectivity} is a standard way of
+        specifying connections to \gls{SQL}-compliant databases, so
+        that an application written in \gls{Java} uses the same
+        database query source code, and only the configuration of the
+        JDBC driver is different.
+}
+
+\glossary{LAEFF}
+{
+    	Spanish acronym for \emph{Laboratorio de Astrofísica Espacial y
+        Física Fundamental}, or \emph{Spatial Astrophysics and
+        Fundamental Physics Laboratory} in English. LAEFF is the seed
+        of the \gls{SVO}, and was the first organisation to develop a
+        \gls{VO} compliant archive (INES) for the newly extracted
+        spectra from the IUE mission. LAEFF belongs to \gls{INTA}.
+}
+
+\glossary{Markup}
+{
+    	As a noun, refers to textual labels (\gls{tags}) that are
+        applied to parts of data to specify either different visual
+        representations, particular data semantics, or classification
+        within a hierarchy. Examples of markup are \gls{XHTML} tags,
+        which either specify visual properties (i.e, \texttt{<b>} for
+        boldface, or \texttt{<i>} for italics), hierarchical
+        relationships (i.e., \texttt{<h1>} to \texttt{<h6>} to
+        represent headers within a document outline), or semantics
+        (again, \texttt{<hn>} to represent headers, \texttt{<ol>} to
+        represent ordered lists or dictionary entries, or
+        \texttt{<abbrv>} for abbreviations). In some languages, markup
+        is used to mark the start and end of applicability of the tags,
+        while in others they only mark the start, and the end is
+        implicit in the language, such as LaTeX' section hierarchy
+        using \texttt{\part}, \texttt{\chapter}, \texttt{\section} and
+        related commands.
+}
+
+\glossary{Metadata}
+{
+    	data about the data, or additional information describing the
+        actual data. For instance, in a \gls{FITS} file, headers
+        provide metadata via several keywords, in order to specify
+        telescope (\texttt{TELESCOP}), instrument (\texttt{INSTRUME}),
+        date of observation (\texttt{DATEOBS}), et cetera. Metadata is
+        usually not needed if the \emph{system} performing the
+        observation is the same as the one performing the reduction, as
+        data \gls{reduction} procedures can be built with direct
+        knowledge of the observing conditions. However, if data are to
+        be treated by a different system, they need the additional
+        metadata so that all system configuration is made explicit.
+        Metadata scope can be just a single datum, a data table, a data
+        file, or a complete file collection. In the \gls{VO}, metadata
+        is split into several data models, which specify what kinds of
+        metadata are needed, for instance, for observing target
+        specification, astronomical data characterisation in different
+        domains, et cetera.
+}
+
+\glossary{Method}
+{
+    	Part of an objects that contains code to perform a function.
+        See \gls{Property}.
+}
+
+\glossary{Middleware}
+{
+    	is the software layer that lies between the operating system
+        and applications on each side of a distributed computing system
+        in a network. In the case of \gls{grid computing}, middleware
+        manages access to remote storage elements, the replication of
+        local archives into the grid storage pool, job submission and
+        control, et cetera.
+}
+
+\glossary{Model}
+{
+    	See \gls{MVC}.
+}
+
+\glossary{Moore's Law}
+{
+    	Named after Intel's engineer Gordon Moore, this \emph{law}
+        should be better known as \emph{Moore's Observation}. Moore
+        observed the number of transistors that different integrated
+        chips fabrication facilities where able to integrate on a
+        single chip on different moments since the invention of the
+        integrated circuit, and saw that they fitted an exponential
+        law, where the number of transistors per chip doubled each
+        year. The exponential increase in integrated transistors is
+        followed independently by different equipment at different
+        rates: computer memories show the highest transistor densities,
+        doubling every [TODO find rate], while microprocessors double
+        every 18-24 months.
+}
+
+\glossary{MVC}
+{
+    	acronym standing for \emph{Model-View-Controller}, a
+        programming paradigm that advocates the separation between
+        \gls{Models} (the internal data representation), \gls{Views}
+        (the way the information gets to the user, and the user
+        interface users can act upon), and \gls{Controllers} (the
+        intermediate layer between Model and Views.
+}
+
+\glossary{NOAO}
+{
+    	Acronym standing for \emph{National Optical Astronomy
+        Observatory}, organisation for the management of the US
+        National Solar Observatory, the Inter-American Observatory at
+        Cerro Tololo, and the Kitt Peak National Observatory, together
+        with the US participation in the Gemini Observatory. The NOAO
+        is responsible for astronomical archives for all managed
+        observatories.
+}
+
+\glossary{OAI}
+{
+    	acronym standing for \gls{Open Archives Initiative}.
+}
+
+\glossary{Object (computing)}
+{
+    	an object, in computer science, is either a blueprint for
+        building useful computer constructs which tie together
+        operations and data on which those operations are to be
+        performed, or an instance of such computer construct built
+        following that blueprint. Objects have properties and methods,
+        and both properties and methods can only be used by the same
+        object, by other objects of the same blueprint, by other
+        objects which have parts of their blueprint in common, or by
+        any other object, depending on the scope we have defined both
+        for the object and its particular properties and methods.
+}
+
+\glossary{Open Archives Initiative}
+{
+    	a non-profit organisation which develops and promotes
+        interoperability standards that aim to facilitate the efficient
+        dissemination of content. It has roots in the Open Access
+        Movement, but over time its role has expanded to promote broad
+        access to digital resources of all kinds for \gls{e-Learning}
+        and \gls{e-Science}. The VO \gls{Registry} uses OAI's
+        harvesting protocol (OAI-PMH) for data interchange between
+        Registries.
+}
+
+\glossary{OPTICON}
+{
+    	acronym standing for \emph{OPTical and Infrarred COordination
+        Network}. OPTICON's objective is to standardise astronomical
+        procedures (regarding both data acquisition and manipulation,
+        including software packages) as much as possible between the
+        \gls{optical} and the \gls{IR} bands. OPTICON funding comes
+        from European Commission's Framework Programmes. [TODO review
+        this is correct]
+}
+
+\glossary{Parser}
+{
+    	part of program code devoted to interpret (parse) user or file
+        input. Parsers differ for different applications, but they
+        usually cope with finding data delimiters, converting text
+        representations into machine representations, and giving access
+        to particular pieces of data.
+}
+
+\glossary{Pipeline}
+{
+    	In software engineering, a pipeline consists of a chain of
+        processing elements (processes, threads, coroutines, et cetera),
+        arranged so that the output of each element is the input of the
+        next. In astronomy, a pipeline is the chain of processes that
+        need to be performed on an astronomical observation in order to
+        derive one or more scientific products.
+}
+
+\glossary{PlasKit}
+{
+    	implementation written in \gls{Java} of the \gls{PLASTIC}
+        protocol developed by Mark Taylor for his \gls{TOPCAT}
+        application. It implementsts both the PLASTIC hub, and PLASTIC
+        client classes.
+}
+
+\glossary{PLASTIC}
+{
+    	Acronym of \emph{PLatform for AStronomical Tool
+        InterConnection}, a protocol for communication between
+        client-side \gls{Virtual Observatory} astronomy applications.
+        Applications use PLASTIC to perform tasks such as instruct
+        other PLASTIC-enabled applications to load \gls{VOTables},
+        highlight a subset of rows or load an image of a particular
+        area of sky. PLASTIC allows a modular approach to choosing VO
+        applications, where each application is used for the task it
+        performs best. There are two kinds of PLASTIC applications:
+        Application hubs, and client applications. Client applications
+        register themselves with the PLASTIC hub, and use the hub to
+        query for other registered applications, and the PLASTIC
+        services those applications provide.
+}
+
+\glossary{Product\gls{, }Data Product\gls{
+ or }Scientific Product}
+{
+    	a processed observation product in the form of an image,
+        spectrum, set of spectra, flux measurement, et cetera, that it
+        is calibrated and compensated for all instrumental and
+        observational effects. Synonym of \emph{reduced data}.
+}
+
+\glossary{Property}
+{
+    	Part of an object devoted to store pieces of information. Those
+        properties are accessible to object methods, and can be made
+        invisible to other objects, so that particular object method's
+        can perform their tasks based on their properties, while
+        (usually) not accessing other object properties. In \gls{XML},
+        the names property and attribute are used ambiguosly.
+}
+
+\glossary{Proposed Recommendation}
+{
+    	Within \gls{IVOA}, a Proposed Documentation is a document that,
+        after starting as a Working Draft, has received sufficient
+        input from the \gls{Working Group} (WG), possibly with a
+        WG-wide \gls{RFC} period, and has not suffered a significant
+        revision after the RFC.
+}
+
+\glossary{Protocol}
+{
+    	Set of standard rules for data representation, signalling,
+        authentication and error detection required to send and
+        retrieve information over a communications channel. In the
+        context of the \gls{IVOA}, a protocol regulates how to retrieve
+        information from a \gls{Virtual Observatory} service, and
+        depends on the kind of information being provided. Astronomical
+        images are available through servers conforming to the
+        \gls{SIAP} protocol, whereas the spectral information is made
+        available through the \gls{SSAP} protocol.
+}
+
+\glossary{Python}
+{
+    	Name of a computer programming and scripting language,
+        developed by Guido van Rossum in 1991, and available under an
+        \gls{Open Source} license for many different computer
+        platforms. Python programs are compiled at execution time, and
+        the compiled code is executed by the interpreter. Python has
+        been widely adopted in the astronomical community, and its
+        \gls{XML-RPC} and \gls{web services} capabilities allow for
+        interoperation with a large basis of services written in any
+        language that supports \gls{XML-RPC}, and with \gls{Virtual
+        Observatory} web services, making it a suitable candidate for
+        interoperation with Java and the Virtual Observatory.
+}
+
+\glossary{Recommendation}
+{
+    	Within \gls{IVOA}, a document which is in the Recommendation
+        state has already reached the \gls{Proposed Recommendation}
+        stage, has passed an IVOA-wide four weeks RFC period without
+        significant revisions, the Chair of the corresponding
+        \gls{Working Group} has asked the IVOA Chair to promote the
+        document, and the \gls{IVOA Executive} has sanctioned the
+        document to \gls{Recommendation}. If the Recommendation is
+        relevant enough, the IVOA Executive might send the document to
+        the joint IAU VO Working Group to obtain the endorsement of the
+        \gls{IAU}, and reach the state of \gls{IAU Standard}.
+}
+
+\glossary{Reduction}
+{
+    	in astrophysics parlance \emph{reduction}, or more precisely
+        data reduction, refers to the operations needed to convert raw
+        data coming from astrophysical instruments into scientific
+        products. For instance, the raw information coming from a radio
+        spectrograph is the form of photon counts in different
+        frequency channels. The astrophysicist also needs the usual
+        photon count on the detector when the instrument observes an
+        empty patch of the sky; the opacity of the atmosphere at
+        different angles to correct for atmospheric extinction at the
+        elevation of the source; the average photon count from a
+        calibration source, so that received photon fluxes can be
+        converted into photon fluxes emitted by the source; and the
+        Doppler-effect correction due to the relative movements between
+        the source and the observatory. The \emph{reduced} scientific
+        products are flux and wavelength calibrated spectra, integrated
+        flux within a waveband, and/or the recession velocity of an
+        object relative to the Earth, our solar system, or our own
+        galaxy.
+}
+
+\glossary{Registry}
+{
+    	In the \gls{Virtual Observatory} architecture, a Registry holds
+        resource \gls{metadata} (in the form of a \gls{VOResource}
+        record) for the different services available within the VO,
+        allowing astronomers to locate, get details of, and make use
+        of, any resource located anywhere. There is no \emph{prefered}
+        IVOA registry, but instead registries are interoperable,
+        allowing the \gls{harvesting} of records from one registry to
+        another, so that eventually all registered services can be
+        found in any other registry. Registries conform to the
+        \gls{OAI} specifications, so that existing Registries for other
+        digital repositories have been enhanded to be able to cope with
+        VO records. This also means that VO registry records, VO
+        Resources, use the \gls{Dublin Core} metadata for maximum
+        interoperability.
+}
+ 
+\glossary{REST}
+{
+    	Computer acronym for \emph{REpresentational State Transfer}.
+        REST is a collection of network architecture principles, first
+        enunciated by Roy Fielding in his Ph.D. thesis, which outline
+        how to define and address resources. REST architectures do not
+        rely on \gls{HTTP} to keep the state of an interaction.
+        Instead, the state is encoded in the service invocation, both
+        in the kind of HTTP operation to be performed (GET for
+        completely stateless calls, such as retrieving information from
+        a particular user or resource; POST for operations that update
+        existing resources; PUT for operations which add new resources;
+        DELETE for operations which remove records), and a URL
+        containing all information needed for resource identification,
+        and additional data for resource filtering (GET) or updates
+        (POST, PUT, DELETE). Both GET and POST operations, in an
+        architecture following REST principles, can be repeated as many
+        times as desired without side effects. PUT operations should
+        also be called additional times, and the receiver has to be
+        able to identify identical requests not as new resources, but
+        resource modifications. And DELETE operations should provide an
+        error when called more than once.
+}
+
+\glossary{RFC}
+{
+    	acronym standing for \emph{Request For Comments}. In \gls{W3C}
+        parlance, an RFC is a document that states the current best
+        practices, or recommended behaviour, for applications,
+        protocols, and other interoperation tools, as well as best
+        practices for the development of new practices. In the
+        \gls{IVOA}, an RFC is issued for a document in \gls{IVOA
+        Working Draft} status prior to become an \gls{IVOA Proposed
+        Recommendation}.
+}
+
+\glossary{RPC}
+{
+    	acronym of \emph{Remote Procedure Call}. RPC is an
+        inter-process communication technology that allows a computer
+        program to cause a subroutine or procedure to execute in
+        another environment (commonly on another computer on a shared
+        network, or in another running application). In languages
+        supporting RPC, the programmer does not have to specify the
+        details for this remote interaction. More modern flavours of
+        RPC are \gls{XML-RPC}, and \gls{Java-RMI}.
+}
+
+\glossary{SAMP}
+{		\emph{Simple Application Messaging Protocol}, a local
+		messaging protocol intented to replace \gls{PLASTIC}, in
+		order to avoid programming-language dependencies (parts of
+		PLASTIC depended upon the Java specific RPC, Java-RMI), and
+		to make protocol semantics richer and simpler. SAMP hubs
+		exist in \gls{Perl}, \gls{Python} and \gls{Java}
+		\invisiblenote{in alpha versions}, as well as clients,
+		whereas true PLASTIC hubs only existed in Java. See
+		\gls{PLASTIC} for comparison.
+}
+
+\glossary{SCS}
+{
+    	acronym standing for \emph{Simple Cone Search}, an \gls{IVOA}
+        \gls{Recommendation} from the \gls{Data Access Layer}
+        \gls{Working Group} that specifies how to perform positional
+        queries catalogues of astronomical sources within a prescribed
+        search radius around a central position, hence the term
+        \emph{Cone Search}.
+}
+
+\glossary{SDSS}
+{
+    	is the acronym for the \emph{Sloan Digital Sky Survey}, a major
+        multi-filter imaging and spectroscopic survey using a dedicated
+        2.5-m wide-angle optical telescope at Apache Point Observatory
+        in New Mexico. The project was named after the Alfred P. Sloan
+        Foundation. The survey was begun in 2000, and aims to map 25%
+        of the sky with wide-angle observations of around 6 square
+        degrees in five filters (ugriz). The observations are processed
+        through a dedicated pipeline that differentiates between stars,
+        galaxies, and other kinds of objects, and is finally expected
+        to provide a catalogue of 100 million objects, and spectra for
+        1 million objects. The processing includes high-precision
+        redshift determination from the spectroscopic observations, and
+        more coarse photometric redshift estimation from the source
+        intensity in the different filters.
+}
+
+\glossary{SED}
+{
+    	acronym for \emph{Spectral Energy Distribution}. In
+        astrophysics, the SED is a function that gives energy per
+        wavelength or frequency unit. In the \gls{VO}, SED is a data
+        model --expressed as an \gls{XML} \gls{Schema}-- for such
+        astrophysical spectral energy distributions, that can be also
+        used to specify single frequency fluxes (continuum
+        measurements).
+}
+
+\glossary{Semantics Working Group}
+{
+    	This \gls{IVOA} working group (WG) aims to systematise the way
+        in which meaning is attributed to particular data or metadata
+        fields within the VO. This WG started by specifying \gls{UCD}s,
+        which provided broad physical meaning to quantities in generic
+        \gls{VOTable}s. Later, it has expanded its scope to keep
+        maintaining UCDs, but also specify an IVOA Standard Vocabulary,
+        and the exploration of Semantic Web/Ontologies technologies
+        within the Virtual Observatory.
+}
+
+\glossary{Serialisation}
+{
+    	Serialisation is the process of converting a set of different
+        objects and entities, belonging to different data models, into
+        a single, linearly accessible, document, in such a way that a
+        univocal reconstruction of the serialised objects and entities
+        is possible.
+}
+
+\glossary{SIAP}
+{
+    	acronym standing for \emph{Simple Image Access Protocol}. SIAP
+        is a protocol specially crafted for the discovery and retrieval
+        of astronomical images within the \gls{Virtual Observatory}.
+        The SIAP is an \gls{IVOA} \gls{Working Draft} [TODO check], and
+        is one of the IVOA's \gls{Data Access Layer} \gls{Working
+        Group} protocols.
+}
+
+\glossary{SOAP}
+{
+    	acronym originally standing for \emph{Simple Object Access
+        Protocol}. SOAP is a web services communication protocol which
+        extends \gls{XML-RPC} with additional capabilities, such as
+        support for different transports (i.e., SOAP could not only be
+        used on \gls{HTTP}/HTTPS, but on \gls{SMTP}, and even instant
+        messaging if a suitable transport layer were built). SOAP web
+        services are usually described by a \gls{WSDL} document.
+}
+
+\glossary{SQL}
+{
+    	The \emph{Standard Query Language} is the most standardised way
+        to query databases. It specifies database operations such as
+        \texttt{SELECT} rows and columns, \texttt{INSERT} data into
+        existing tables, \texttt{UPDATE} particular rows, or even
+        \texttt{CREATE} the tables. When querying archives, the most
+        usual SQL construct is the \texttt{SELECT}, which specifies
+        which tables we want to obtain data \texttt{FROM}, and what
+        conditions do the data conform to (\texttt{WHERE} is valid data
+        in parameter space).
+}
+
+\glossary{SSAP}
+{
+    	acronym for \emph{Simple Spectrum Access Protocol}, a protocol
+        devised after the \gls{SIAP}, and that allows for discovery and
+        retrieval of instrumental or synthetic spectra within the
+        \gls{Virtual Observatory}. The SSAP is an \gls{IVOA Working
+        Draft}, nearing the status to \gls{IVOA Proposed
+        Recommendation} [TODO check].
+}
+
+\glossary{Starlink Project}
+{
+    	 The Starlink project was a UK funded computing project which
+         supplied general-purpose data reduction software. It was
+         funded from 1980 by the Particle Physics and Astronomy
+         Research Council, which withdrew funding in 2005. The Joint
+         Astronomy Centre took over Starlink's software assets, with
+         the latest software release dated February 2008.
+}
+
+\glossary{STIL}
+{
+		Acronym for \emph{Starlink Tables Infrastructure Library}.
+		Developed by Mark Taylor for the \gls{Starlink project},
+		the STIL is a pure \gls{Java} library for generic input,
+		output, and processing of tabular data. It presents to the
+		application programmer a view of a table which looks the
+		same regardless of whether it came from a \gls{FITS} file,
+		a \gls{VOTable}, an \gls{ASCII} text file, a query on a
+		relational database, or whatever. It was initially
+		developed to allow Java packages to deal with the Starlink
+		table format, and has been enhanced to deal with VOTables.
+}
+
+\glossary{SVO}
+{
+    	acronym standing for \emph{Spanish Virtual Observatory}. The
+        SVO is the organisation that represents VO efforts within
+        \gls{IVOA} and the \gls{Euro-VO} since 2004. SVO is leaded by
+        the VO and Archives group at the \gls{LAEFF-INTA}, and its PI
+        is Enrique Solano. LAEFF-INTA provides most of the FTEs for the
+        SVO, but the \gls{IAA-CSIC} also provides 1 FTE, belonging to
+        the \gls{AMIGA} group.
+}
+
+\glossary{Tag}
+{
+    	Piece of metadata used to label a particular piece of data. In
+        \gls{XML}, tags are enclosed between angular brackets
+        (\texttt{<tag>}), and either surround a piece of data between
+        corresponding start and end labels (e.g., in
+        \gls{XHTML},\texttt{<p></p>} are used for paragraphs, as in
+        \texttt{<p>This is a tagged paragraph</p>}), or are
+        self-contained (e.g., in a \gls{VOTable}, common table
+        parameters are defined as \texttt{<PARAM name=``Right
+        Ascension'' ucd=``pos.eq.ra'' unit=``degrees'' value=``180.0''
+        />}). Notice that tag semantics are provided (preferably) by
+        the XML Schema, or the XML DTD if the XML document does not use
+        an Schema.
+}
+
+\glossary{Text-based file format}
+{
+    	a text based file format is one where data is stored in a
+        human-readable form, so that text manipulation tools (shell
+        scripts, or UNIX tools such as \texttt{sed} and \texttt{awk},
+		for
+        instance) can deal with such files, at the expense of data
+        retrieval speed. Programs which use text-based files need to
+        parse the input in order to convert the text into an internal
+        binary format suitable for manipulation. Please compare with
+        \gls{binary-based file formats}.
+}
+
+\glossary{TOPCAT}
+{
+    	acronym standing for \emph{Tool for OPerations on CAtalogues
+        and Tables}, and name of an application written in \gls{Java}
+        developed by Mark Taylor for the \gls{Starlink project}. It
+        provides an interactive graphical viewer and editor for tabular
+        data, and uses the \gls{STIL} library as its internal table
+        model. In the latest versions it has incorporated \gls{VO}
+        capabilities, both by enhancing the STIL to deal with
+        \gls{VOTables}, and by incorporating \gls{PLASTIC} (through the
+        \gls{PlasKit}).
+}
+
+\glossary{TST}
+{
+    	Tab-separated text is a \gls{text-based file format} where
+        records are separated by the text line separator, and fields
+        are separated by tabs (\gls{ASCII} character \texttt{0x08}).
+        Optionally, the last row of comments prior to the first row of
+        data can contain table headers. Compare with \gls{CSV}.
+}
+
+\glossary{UCD}
+{
+    	acronym of \emph{Unified Content Descriptor}. UCDs are one of
+        the attributes (meta-data) that table columns in the
+        \gls{Virtual Observatory} can have. In particular, is one of
+        the attributes for the \texttt{FIELD} and \texttt{PARAM} tags
+        in a \gls{VOTable}. The UCD is built from a controlled
+        vocabulary, managed by the \gls{IVOA Semantics Working Group},
+        that provides physical semantics to the \texttt{FIELD} or
+        \texttt{PARAM}eter using the UCD. There are two versions of the
+        UCD standard: UCD1, which uses long strings of underscore (_)
+        separated tags (e.g. \texttt{POS_EQ_RA}), and the newer,
+        recommended, UCD1+, which consists of a series of atoms that
+        can change or refine their meaning by juxtaposition. E.g.,
+        \texttt{pos.eq.ra} indicates that some field provides the right
+        ascension for a position in equatorial coordinates, while
+        \texttt{pos.eq.ra; meta.main} indicates that for all the fields
+        that might provide a right ascension, this is the main
+        reference.
+}
+
+\glossary{Unicode}
+{
+    	international standard character encoding capable of holding a
+        minimum of 65536 unique characters, with different graphic
+        renditions per character. Unicode presents a uniform encoding
+        of all present day characters and glyphs in any language
+        (including modern and ancient Greek, Cyrillic, Arabic, Hebrew,
+        Chinese, Japanese, Korean, Devanagari, et cetera),
+		and with room for
+        languages such as the Aramaic, and even for embellishment
+        glyphs. Two different flavours of Unicode exist: UTF-16, where
+        each character always occupies two bytes (16 bits, hence the
+        name); and UTF-8, where characters in common with \gls{ASCII}
+        occupy just one byte (8 bits) for backwards compatibility, and
+        non-ASCII characters use a prefix and then the two-byte Unicode
+        identifier.
+}
+
+\glossary{URI}
+{
+    	acronym for \emph{Universal Resource Identifier}. Defined by
+        \gls{IETF}'s [http://www.ietf.org/rfc/rfc2396.txt RFC 2396],
+        the URI is a compact string of characters useful for
+        identifying an abstract or physical resource. A particular URI
+        specifies a protocol, a location, and a particular resource. If
+        the particular resource resides in a hierarchy, the protocol
+        ends in \texttt{//}. It can be seen that an \gls{IVORN} is a
+        hierarchical \gls{URI} (in particular, a \gls{URN}) where the
+        protocol is \texttt{ivo://} (the Virtual Observatory protocol),
+        the location is the Authority ID, and the particular resource
+        is the Resource Key.
+}
+
+\glossary{URL}
+{
+    	acronym for \emph{Universal Resource Locator}, a particular
+        kind of \gls{URI} that can be directly used to access a
+        resource using the protocol encoded in the protocol part of the
+        URI, and with the path encoded after the protocol. There is no
+        need for URLs to remain persistent. Compare with \gls{URN}.
+}
+
+\glossary{URN}
+{
+    	acronym for \emph{Universal Resource Name}. URNs are the subset
+        of \gls{URI}s that are required to remain \emph{globally
+        unique} and \emph{persistent} even when the resource they
+        identify ceases to exist or becomes unavailable. A URN differs
+        from a \gls{URL} in that it's primary purpose is the
+        \emph{persistent labelling of a resource with an identifier}.
+        Such identifiers are drawn from one of a set of defined
+        namespaces, each of which has its own set name structure and
+        assignment procedures. Resolvers for the namespace of a URN
+        must exist, and they will be able to deal with all valid URNs
+        for that namespace. URIs for URNs start with the \texttt{urn:}
+        namespace.
+}
+
+
+\glossary{View}
+{
+    	Particular rendition of data coming from a \gls{Model}. Views
+        can be elements of a \gls{GUI}, such as table in a computer
+        application; can be particular web pages from a web server; or
+        can be data in a particular data format, such as a \gls{FITS}
+        file or a VOTable generated by an application. See \gls{MVC}.
+}
+
+\glossary{Virtual Observatory}
+{    	[TODO provide suitable Virtual Observatory definition(s)]
+        Collection of interoperating data archives and software tools
+        which utilise the internet to form a scientific research
+        environment in which astronomical research programs can be
+        conducted. VO-compliant tools access such data archives in a
+        way that is transparent to the user.
+}
+
+\glossary{Virtual Organisation}
+{
+    	Group of users of the same \gls{grid} infrastructure which
+        similar interests, in order to share computing resources.
+}
+
+\glossary{VO}
+{
+    	acronym standing for \gls{Virtual Observatory}. In \gls{grid}
+        parlance, VO stands for \gls{Virtual Organisation}, but in this
+        glossary (and throughout the thesis) Virtual Organisations are
+        shortened into \gls{VOrg}. When referring the Virtual
+        Observatory and Virtual Organisations at the same time,
+        \gls{VObs} and \gls{VOrg} are used.
+}
+
+\glossary{VO Query Language Working Group}
+{
+    	This \gls{IVOA} working group is in charge of defining a
+        universal query language to be used by applications accessing
+        distributed data within the \gls{Virtual Observatory}
+        framework. Such query language is called VOQL, and will be an
+        evolution of the prototype ADQL (Astronomical Data Query
+        Language). Future VO standards, such as the Table Access
+        Protocol, will make use of VOQL as its query language.
+}
+
+
+\glossary{VObs}
+{    	\gls{Virtual Observatory}.
+}
+
+\glossary{VOEvent Working Group}
+{
+    	This \gls{IVOA} working group's objective is to define the
+        content and meaning of a standard information packet for
+        representing, transmitting, archiving, and publishing the
+        discovery of an immediate event in the sky. This packet is
+        called VOEvent. The objective is to drive robotic telescopes
+        and archive searches, alert the community, and to build
+        interoperable archives for such events. The scope for these
+        events includes not just ``photon'' events, but also
+        gravitational waves, neutrinos, air showers, et cetera.
+}
+
+\glossary{VOrg}
+{    	\gls{Virtual Organisation}.
+}
+
+\glossary{VOTable}
+{
+    	An \gls{XML} document that provides \gls{metadata} for one or
+        more resources, each of them possibly containing one or more
+        tables, which in turn may contain actual data, or links to the
+        data itself. The VOTable allows for serialisation of different
+        data models by means of an special attribute field, the
+        \gls{\texttt{utype}}. An additional attribute, the
+        \gls{\texttt{ucd}}, is used in order to provide physical
+        meaning to the data model attribute. The VOTable data format
+        was the first \gls{IVOA} standard to reach the status of
+        \gls{IVOA Recommendation}, and the Commission 5 of the
+        \gls{IAU} (dealing with data formats, archives, and the VO) is
+        studying its promotion to IAU Standard.
+}
+
+\glossary{VOTable Working Group}
+{
+    	Working group of \gls{IVOA} devoted to maintain and extend the
+        \gls{VOTable} definition and schema.
+}
+
+\glossary{W3C}
+{
+    	Short version of \emph{World Wide Web Consortium}. The W3C
+        develops standards applicable to the \gls{World Wide Web}, such
+        as the \gls{HTML} and \gls{XHTML} specifications for document
+        mark-up languages, or the \gls{CSS} specification for
+        conditional X/HTML formatting. W3C's members come from the
+        companies and other organisations developing web browsers and
+        other web-related technologies. \gls{IVOA}'s document promotion
+        system loosely resembles W3C's, with Working Drafts, Proposed
+        Recommendations, and IVOA Recommendations.
+}
+
+\glossary{Web}
+{
+    	usually, short form of the \gls{World Wide Web}.
+}
+
+\glossary{Web services}
+{
+    	web services are defined by the \gls{W3C} as \emph{software
+        systems designed to support interoperable machine-to-machine
+        interaction over a network}, but many systems exist which
+        fulfil this definition. In a more specific definition, web
+        services are computer programs which are exposed and invoked
+        via traditional web-based protocols (\gls{HTTP}, \gls{HTTPS}).
+        Two flavours of web services exist: \gls{REST}, and \gls{SOAP}.
+        REST web services can be consumed by any tool that can generate
+        an HTTP GET, POST, or even DEL communication (any web browser,
+        or the \texttt{curl} command line utility, for example),
+		and their output
+        format is defined by the service provider in human readable
+        documentation. SOAP web services describe themselves by a
+        \gls{WSDL} document, and all the communication is enclosed in
+        an \gls{XML} \emph{envelope}, following the SOAP specification.
+}
+
+\glossary{Workflow}
+{
+    	set of steps performed on different observational data sets in
+        order to produce one or more scientific products. Similar to
+        pipeline in meaning, but used more frequently when processing
+        is not just linear, but needs different inputs and intermediate
+        decisions.
+}
+
+\glossary{Working Draft}
+{
+    	Within an \gls{IVOA} \gls{Working Group} (WG), a new technical
+        specification starts as a \gls{Working Draft} (WD). Only when
+        the WD is mature enough, an \gls{RFC} is started, and if there
+        is agreement within the WG, the document will be promoted to a
+        \gls{Proposed Recommendation}.
+}
+
+\glossary{Working Group}
+{
+    	Within \gls{IVOA}, standardisation work occurs in the scope of
+        several Working Groups (WGs), each one devoted to a part of the
+        Virtual Observatory. Presently, the following WGs exist:
+        \gls{Applications}, \gls{Data Access Layer}, \gls{Data
+        Modeling}, \gls{Grid & Web Services}, \gls{Resource Registry}',
+        \gls{Semantics}, \gls{VO Event}, and \gls{VO Query Language}.
+}
+
+\glossary{World Wide Web}
+{
+    	system of interlinked \gls{hypertext} documents accessable
+        through the internet. More technically, the system comprises
+        servers which can answer \gls{HTTP} requests, serving
+        \gls{HTML} documents which contain the actual content, together
+        with images, sound, and other media. The resulting mesh of
+        servers and links between them, together with the world-wide
+        nature of the system is what gave it its name. A user needs a
+        \gls{browser} in order to access the web.
+}
+
+\glossary{WSDL}
+{
+    	acronym for \emph{Web Services Description Language}. WSDL is
+        an \gls{XML}-based language and model for describing \gls{web
+        services}. WSDL documents define the messages understood by the
+        web service, the parameters and data types that can be used
+        with those messages and the information being returned, and the
+        different end-points and transport protocols which provide a
+        given service. WSDL documents use \gls{XML Schema} to provide
+        data types for the different queries and responses.
+}
+
+\glossary{XHTML}
+{    	\gls{XML}-based variant of \gls{HTML}, allowing XHTML content
+        to be embedded in other XML documents, perhaps in a different
+        namespace, which allows for data aggregation. As an aside of
+        being a form of XML, XHTML documents are well-formed (i.e.,
+        \gls{tags} do not intermingle, but are completely contained
+        within other tags; e.g., \texttt{<b><i>I'm not
+        well-formed</b></i>} is not well-formed, as the \texttt{<b>}
+        tag closes before the \texttt{<i>} tag, which opened last,
+        while \texttt{<b><i>well-formed!</i></b>} is well-formed),
+        which allows easier parsing. If integration with other XML
+        documents is not a concern, the latest HTML specification
+        mandates compliant documents to be well-formed, gaining most of
+        XHTML benefits, except for being valid XML documents.
+}
+
+\glossary{XML}
+{
+    	acronym standing for \emph{eXtensible Markup Language}, a
+        language whose purpose is to \gls{markup} data elements, i.e.
+        label them, to express data meaning and purpose next to said
+        data elements. Both data and markup are text-based, with
+        support for different character encoding specifications,
+        including Unicode, which makes it readable for humans and
+        unambiguous for computers.Besides, XML markup is always
+        well-formed, in the sense that all elements are completely
+        included in other elements, and there is no element overlap,
+        what makes XML parsers easier to write than for other markup
+        languages (i.e., for old-style \gls{HTML}). The particular
+        \gls{tags} used for each particular XML document are expressed
+        by an \gls{XML schema}, which allows automated validation of
+        XML documents: a valid document must conform to the particular
+        XML schema specified in its header, and has to be well-formed.
+        \gls{Virtual Observatory} \gls{Data Access Layer} protocols use
+        different XML-based representations for data transfer. The most
+        common XML document within the VO is the \gls{VOTable}.
+}
+
+\glossary{XML schema}
+{
+    	the schema of an \gls{XML} document is the expression of the
+        set of rules that allow creating valid XML documents. These
+        rules include the data type for values of \gls{tags}, tag
+        \gls{attributes}, inclusion and order relationships, i.e., how
+        many times and in what order a particular tag can appear, what
+        kind of tags can be included inside. Different XML schema
+        specifications exist, being the first the \gls{DTD} (Document
+        Type Definition), the \gls{W3C} \gls{XML Schema} (observe the
+        difference in capitalisation), and others.
+}
+
+\glossary{XML Schema}
+{
+    	standard of the \gls{W3C} for the specification of \gls{XML
+        schema}s. It uses a purpose specific \gls{XML}-based language
+        for the specification of the restrictions of XML documents. XML
+        Schema restrictions on data types can be very sophisticated,
+        using \gls{regular expressions} to validate values and
+        attributes. Compare with \gls{DTD}.
+}
+
+\glossary{XML-RPC}
+{    	\gls{XML}-based Remote Procedure Call, a way of invoking
+        software functions from running applications within the same
+        machine, that uses XML for parameter encoding, method
+        invocation, and response encoding and parsing. The \gls{IVOA}
+        messaging protocols, \gls{PLASTIC} and \gls{SAMP}, use XML-RPC
+        (in particular, PLASTIC uses \gls{Java-RMI}).
+}

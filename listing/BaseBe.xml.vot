@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE version="1">
+  <RESOURCE type="results">
+    <DESCRIPTION>Spectral Service at ObsPM</DESCRIPTION>
+    <INFO name="QUERY_STATUS" value="OK"/>
+    <TABLE>
+      <FIELD ID="ObsId" ucd="OBS_ID" datatype="char" arraysize="*"/>
+      <FIELD ID="Reference" ucd="DATA_LINK" datatype="char" arraysize="*"/>
+      <FIELD ID="Target_Name" ucd="VOX:Image_Title" datatype="char" arraysize="*"/>
+      <FIELD ID="Start_Time" ucd="VOX:OBS_START_TIME" datatype="char" arraysize="*"/>
+      <FIELD ID="End_Time" ucd="VOX:OBS_END_TIME" datatype="char" arraysize="*"/>
+      <FIELD ID="RA" ucd="POS_EQ_RA_MAIN" datatype="char" arraysize="*"/>
+      <FIELD ID="DEC" ucd="POS_EQ_DEC_MAIN" datatype="char" arraysize="*"/>
+      <FIELD ID="AXES" ucd="VOX:Spectrum_axes" datatype="char" arraysize="*"/>
+      <FIELD ID="UNITS" ucd="VOX:Spectrum_units" datatype="char" arraysize="*"/>
+      <FIELD ID="DIMEQ" ucd="VOX:Spectrum_dimeq" datatype="char" arraysize="*"/>
+      <FIELD ID="SCALEQ" ucd="VOX:Spectrum_scaleq" datatype="double" arraysize="*"/>
+      <FIELD ID="FORMAT" ucd="VOX:Spectrum_Format" datatype="char" arraysize="*"/>
+      <DATA>
+        <TABLEDATA/>
+      </DATA>
+    </TABLE>
+  </RESOURCE>
+</VOTABLE>

@@ -1,0 +1,149 @@
+% chapter conclusiones (fold)
+\chapter*[Conclusiones y trabajo futuro]{Conclusiones y trabajo futuro}
+\addcontentsline{toc}{chapter}{Conclusiones y trabajo futuro}
+\label{conclusiones}
+	
+	En esta tesis hemos realizado un repaso extenso e inclusivo
+	de qué significa el Observatorio Virtual (VO) desde el punto de
+	vista de los radioastrónomos de hoy en día: por un lado,
+	hemos visto cómo el VO mejora las capacidades de los archivos
+	que utilizan, y cómo la descripción unificada de dichos datos
+	permite su interoperabilidad; por otro, hemos visto la
+	necesidad de que las herramientas software a las que están
+	acostumbrados los radioastrónomos se adapten al VO, cómo
+	se puede lograr esa integracion, y cuál es la forma de menor
+	impacto en dichas aplicaciones de lograr esa integración.
+	
+	Durante dicho repaso a la literatura disponible, y a los
+	estándares desarrollados por IVOA, hemos visto que no
+	existía ningún modelo de datos sancionado por IVOA
+	apropiado para todas las observaciones astronómicas.
+	Además, los modelos existentes no soportaban las
+	especificidades de las observaciones radioastronómicas.
+	
+	Por ello, se ha desarrollado un modelo de datos, pensado
+	inicialmente para observaciones con radiotelescopios de
+	antena única (RADAMS), aprovechando de un lado el boceto de
+	modelo de datos de Observaciones~\cite{2005dmo..rept.....M}, y
+	el modelo de datos de Caracterización~\cite{2008dmadcrept.....L}.
+	Sobre ese modelo se han desarrollado las clases Provenance,
+	Policy, Curation y Packaging, para las que no existían
+	propuestas concretas.
+	
+	Esos añadidos se realizan de forma modular tanto en su 
+	expresión en base de datos como en su serialización XML, de
+	modo que pueden ser ignorados por aplicaciones que no los
+	entiendan.
+	
+	Puesto que la parte más específicamente radioastronómica del
+	RADAMS se halla en el modelo de datos Provenance (Procedencia,
+	o Linaje), y dado el ya mencionado caracter modular del RADAMS,
+	el resultado es la creación de una propuesta completa de modelo
+	de datos de Observación para IVOA. En el caso del sub-modelo
+	Provenance.Instrument, se ha tenido en cuenta su adaptabilidad
+	para la descripción de interferómetros, y no sólo de
+	radiotelescopios de antena única.
+	
+	Hemos validado este modelo al implementar dos archivos
+	radioastronómicos basados en él, como son los archivos para las
+	antenas DSS-63 e IRAM~30m. Esa validación es, a su vez,
+	un respaldo a la viabilidad de los modelos de datos de
+	IVOA como herramientas de diseño de archivos astronómicos
+	en general.
+	
+	Para esta última tarea hemos proporcionado metadatos completos
+	para la creación de las serializaciones XML de los servicios
+	del archivo, consistentes en palabras clave FITS y Unified
+	Content Descriptors (UCDs) para todos los atributos. Se ha
+	usado el mecanismo de yuxtaposición de UCDs para proporcionar
+	UCDs más específicos de los ya existentes. Se ha propuesto
+	también la adición de algunos UCDs al vocabulario UCD1+.
+	
+	De otra parte, hemos analizado las opciones disponibles para
+	la incorporación de herramientas astronómicas (no
+	específicamente radioastronómicas) en el marco del VO, y
+	hemos encontrado que utilizar un protocolo de mensajería
+	basado en tecnologías multiplataforma y multilenguaje, como
+	XML-RPC, nos permite hacer compatible e interoperable con el
+	VO esas herramientas antiguas con un mínimo de esfuerzo, y 
+	de cambios en el código, siempre que esas herramientas sean
+	conformes a un esquema Modelo-Vista-Controlador (MVC).
+	
+	Hemos validado dicho análisis al implementar SAMP en varias
+	aplicaciones, y haber demostrado su interoperabilidad. En
+	concreto, hemos implementado SAMP, y los mensajes propios
+	de MOVOIR, en las aplicaciones VODownloader, \massa{}, y otros
+	módulos de MOVOIR.
+		
+	Por último, el MOVOIR es la primera muestra de una posible
+	arquitectura para la creación de módulos de ampliación
+	---\emph{plug-ins}--- que permitirían la ampliación de las
+	aplicaciones existentes y que utilicen el protocolo SAMP,
+	sin necesidad ninguna de tener acceso a su código fuente.
+	
+	\section*{Trabajo futuro} % (fold)
+	\addcontentsline{toc}{section}{Trabajo futuro}
+	\label{sec:trabajo_futuro}
+		
+		En el futuro, voy a trabajar con el Grupo de Gestión de
+		Archivos (Archive Management Group) del Departamento de 
+		Archivos (Archive Department) de la División de Gestión de
+		Datos y Operaciones de la ESO (European Southern
+		Observatory, Observatorio Europeo Austral) en la
+		organización de sus archivos, y más concretamente de sus
+		metadatos correspondientes en el marco del IVOA, lo que va
+		a permitir la continuidad del presente trabajo. Además,
+		seguiré siendo miembro del grupo de trabajo de IVOA
+		dedicado a Modelado de Datos (IVOA Data Modelling Working
+		Group), y uno de los técnicos a cargo del desarrollo de un
+		modelo de datos para cubos de datos radio en el marco
+		del proyecto europeo EuroVO-AIDA Technology Forum.
+		
+		En concreto, espero realizar las siguientes tareas en ese
+		marco, y en colaboración con el grupo AMIGA:
+		
+		\begin{itemize}
+			\item Someter las diferentes partes del RADAMS para su
+			aprobación dentro del IVOA Data Modelling Working Group,
+			para la creación final de una IVOA Recommendation
+			correspondiente al Modelo de Datos de Observación.
+			Existirá así al menos una implementación de referencia
+			del modelo, un requisito del IVOA para sus estándares.
+			
+			\item Extender el uso de tecnologías de web semántica,
+			propuestas en la forma de extensión de vocabularios,
+			en substitución de mecanismos alternativos, no estándar,
+			como las ESO Hierarchic Keywords.
+			
+			\item Presentar el MOVOIR en los IVOA InterOp, y
+			el ADASS (Astronomical Data Analysis Software and
+			Systems), y obtener sugerencias de los usuarios
+			para crear más módulos para el MOVOIR.
+			
+			\item Extender y dejar listos para distribución
+			los módulos de MOVOIR.
+			
+			\item Proponer MOVOIR como implementación de referencia
+			para una arquitectura de \emph{plug-in} sancionada por
+			IVOA. Si se sanciona una tal arquitectura, se permitiría
+			una mejor integración de los módulos de MOVOIR, mediante
+			el soporte de mensajes adicionales, con aplicaciones que
+			implementen dichos mensajes.
+			
+			\item Desarrollar una métrica objetiva de calidad de
+			datos basados en RADAMS, e implementar un módulo MOVOIR
+			que sea capaz de proporcionarla.
+			
+			\item Usar MOVOIR para la adaptación del paquete de
+			análisis de cubos de datos y modelado cinemático GIPSY
+			al VO, en el marco del proyecto
+			AMIGA\textsuperscript{3}.
+			
+			\item Generalizar el RADAMS para que soporte datos
+			interferométricos, en colaboración con el ALMA Archive
+			Team de la ESO, dentro del mismo marco.
+		\end{itemize}
+		
+	% section trabajo_futuro (end)
+	
+% chapter conclusiones (end)

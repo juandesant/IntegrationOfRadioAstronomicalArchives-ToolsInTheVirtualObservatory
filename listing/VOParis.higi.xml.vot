@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VOTABLE version="1.1"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="http://www.ivoa.net/xml/VOTable/VOTable-1.1.xsd"
+   xmlns:ssa="http://www.ivoa.net/xml/DalSsap/v1.04"
+   xmlns="http://www.ivoa.net/xml/VOTable/v1.1">
+   <RESOURCE type="results">
+      <DESCRIPTION>HI database of 21 cm line profiles of galaxies</DESCRIPTION>
+      <INFO name="QUERY_STATUS" value="OK" />
+      <INFO name="SERVICE_PROTOCOL" value="1.04">SSAP</INFO>
+      <TABLE>
+         <FIELD ID="Access.Reference" name="Access.Reference" datatype="char" ucd="meta.ref.url" utype="ssa:Access.Reference" arraysize="*" />
+         <FIELD ID="Access.Size" name="Access.Size" datatype="long" utype="ssa:Access.Size" unit="bytes" />
+         <FIELD ID="DataID.Title" name="DataID.Title" datatype="char" ucd="meta.title;meta.dataset" utype="ssa:DataID.Title" arraysize="*" />
+         <FIELD ID="DataID.DatasetID" name="DataID.DatasetID" datatype="char" ucd="meta.id;meta.dataset" utype="ssa:DataID.DatasetID" arraysize="*" />
+         <FIELD ID="Target.Name" name="Target.Name" datatype="char" ucd="meta.id;src" utype="ssa:Target.Name" arraysize="*" />
+         <FIELD ID="Char.SpatialAxis.Coverage.Location.Value" name="Char.SpatialAxis.Coverage.Location.Value" datatype="double" ucd="pos.eq" utype="ssa:Char.SpatialAxis.Coverage.Location.Value" arraysize="2" unit="deg" />
+         <FIELD ID="Char.SpatialAxis.Coverage.Bounds.Extent" name="Char.SpatialAxis.Coverage.Bounds.Extent" datatype="double" ucd="instr.fov" utype="ssa:Char.SpatialAxis.Coverage.Bounds.Extent" unit="deg" />
+         <FIELD ID="Char.SpectralAxis.Ucd" name="Char.SpectralAxis.Ucd" datatype="char" utype="ssa:Char.SpectralAxis.Ucd" arraysize="*" />
+         <FIELD ID="Char.SpectralAxis.Unit" name="Char.SpectralAxis.Unit" datatype="char" utype="ssa:Char.SpectralAxis.Unit" arraysize="*" />
+         <FIELD ID="Char.SpectralAxis.Coverage.Location.Value" name="Char.SpectralAxis.Coverage.Location.Value" datatype="double" ucd="instr.bandpass" utype="ssa:Char.SpectralAxis.Coverage.Location.Value" unit="cm" />
+         <FIELD ID="Char.SpectralAxis.Coverage.Bounds.Extent" name="Char.SpectralAxis.Coverage.Bounds.Extent" datatype="double" ucd="instr.bandwidth" utype="ssa:Char.SpectralAxis.Coverage.Bounds.Extent" unit="m" />
+         <FIELD ID="Char.SpectralAxis.Coverage.Bounds.Start" name="Char.SpectralAxis.Coverage.Bounds.Start" datatype="double" ucd="em;stat.min" utype="ssa:Char.SpectralAxis.Coverage.Bounds.Start" unit="cm" />
+         <FIELD ID="Char.SpectralAxis.Coverage.Bounds.Stop" name="Char.SpectralAxis.Coverage.Bounds.Stop" datatype="double" ucd="em;stat.max" utype="ssa:Char.SpectralAxis.Coverage.Bounds.Stop" unit="cm" />
+         <FIELD ID="Char.TimeAxis.Coverage.Location.Value" name="Char.TimeAxis.Coverage.Location.Value" datatype="double" ucd="time.epoch" utype="ssa:Char.TimeAxis.Coverage.Location.Value" unit="d" />
+         <FIELD ID="Char.TimeAxis.Coverage.Bounds.Extent" name="Char.TimeAxis.Coverage.Bounds.Extent" datatype="double" ucd="time.duration" utype="ssa:Char.TimeAxis.Coverage.Bounds.Extent" unit="s" />
+         <FIELD ID="Char.FluxAxis.Ucd" name="Char.FluxAxis.Ucd" datatype="char" utype="ssa:Char.FluxAxis.Ucd" arraysize="*" />
+         <FIELD ID="Char.FluxAxis.Unit" name="Char.FluxAxis.Unit" datatype="char" utype="ssa:Char.FluxAxis.Unit" arraysize="*" />
+         <GROUP ID="Access" name="Access" utype="ssa:Access">
+            <FIELDref ref="Access.Reference" />
+            <PARAM ID="Access.Format" name="Access.Format" datatype="char" utype="ssa:Access.Format" value="application/fits" arraysize="*" />
+            <FIELDref ref="Access.Size" />
+         </GROUP>
+         <GROUP ID="Dataset" name="Dataset" utype="ssa:Dataset">
+            <PARAM ID="Dataset.DataModel" datatype="char" name="Dataset.DataModel" utype="ssa:Dataset.DataModel" value="Spectrum-1.0" arraysize="*" />
+         </GROUP>
+         <GROUP ID="DataID" name="DataID" utype="ssa:DataID">
+            <FIELDref ref="DataID.Title" />
+            <FIELDref ref="DataID.DatasetID" />
+         </GROUP>
+         <GROUP ID="Curation" name="Curation" utype="ssa:Curation">
+            <PARAM ID="Curation.Publisher" name="Curation.Publisher" datatype="char" ucd="meta.curation" utype="ssa:Curation.Publisher" value="" arraysize="*" />
+         </GROUP>
+         <GROUP ID="Target" name="Target" utype="ssa:Target">
+            <FIELDref ref="Target.Name" />
+         </GROUP>
+         <GROUP ID="Char.SpatialAxis" name="Char.SpatialAxis" utype="ssa:Char.SpatialAxis">
+            <FIELDref ref="Char.SpatialAxis.Coverage.Location.Value" />
+            <FIELDref ref="Char.SpatialAxis.Coverage.Bounds.Extent" />
+         </GROUP>
+         <GROUP ID="Char.SpectralAxis" name="Char.SpectralAxis" utype="ssa:Char.SpectralAxis">
+            <FIELDref ref="Char.SpectralAxis.Ucd" />
+            <FIELDref ref="Char.SpectralAxis.Unit" />
+            <FIELDref ref="Char.SpectralAxis.Coverage.Location.Value" />
+            <FIELDref ref="Char.SpectralAxis.Coverage.Bounds.Extent" />
+            <FIELDref ref="Char.SpectralAxis.Coverage.Bounds.Start" />
+            <FIELDref ref="Char.SpectralAxis.Coverage.Bounds.Stop" />
+         </GROUP>
+         <GROUP ID="Char.TimeAxis" name="Char.TimeAxis" utype="ssa:Char.TimeAxis">
+            <FIELDref ref="Char.TimeAxis.Coverage.Location.Value" />
+            <FIELDref ref="Char.TimeAxis.Coverage.Bounds.Extent" />
+         </GROUP>
+         <GROUP ID="Char.FluxAxis" name="Char.FluxAxis" utype="ssa:Char.FluxAxis">
+            <FIELDref ref="Char.FluxAxis.Ucd" />
+            <FIELDref ref="Char.FluxAxis.Unit" />
+         </GROUP>
+         <DATA>
+            <TABLEDATA>
+            </TABLEDATA>
+         </DATA>
+      </TABLE>
+   </RESOURCE>
+</VOTABLE>

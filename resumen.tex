@@ -1,0 +1,253 @@
+% chapter resumen (fold)
+\chapter*[Resumen]{Resumen}
+\addcontentsline{toc}{chapter}{Resumen}
+\label{resumen}
+
+% Mensaje a transmitir por el resumen
+	
+	El nacimiento de la astrofísica se produce cuando se pasa de
+	la medición de los movimientos periódicos de los cuerpos
+	celestes a la interrogación de luz por medio de la
+	espectroscopía. Una forma más poética de decirlo sería
+	afirmar que la astrofísica es la ciencia del análisis
+	extremadamente cuidadoso de la luz de los cuerpos celestes.
+	
+	Desde hace tiempo, ese análisis se realiza de forma digital,
+	pero sin que exista una uniformidad entre los datos
+	proporcionados por cada tipo de observatorio, y ni siquiera
+	entre observatorios del mismo tipo.
+	
+	Dado que la tendencia actual en la astrofísica nos dirige 
+	hacia el análisis multifrecuencia de los objetos celestes
+	(utilizando observatorios que barren el espectro
+	electromagnético desde las ondas de radio hasta los rayos
+	gamma, pasando por el infrarrojo, la luz visible, los rayos
+	ultravioleta y los rayos-X), pero cada una de esas bandas de
+	información se obtiene con instrumentos y observatorios
+	diferentes (por ejemplo, es imposible observar rayos-X o 
+	rayos gamma si no es desde un telescopio espacial), se
+	hace necesario uniformar la forma de expresar información
+	científica dentro del mundo de la astrofísica.
+	
+	Además, y tal y como expresa la cita de Arthur C. Clarke
+	que da entrada a esta tesis, es posible encontrar información
+	que no se esperaba en los datos guardados. Sin embargo, dado 
+	que la capacidad de generación de información de los detectores
+	astronómicos viene también dominada por la Ley de Moore, el
+	incremento de la cantidad de información guardada es
+	exponencial, por lo que de nuevo se hace necesario establecer
+	un cambio en la forma de tratar los datos astrofísicos.
+	
+	Necesitamos, pues, una infraestructura que permita el acceso
+	distribuido y uniforme (tanto en protocolos de acceso, como en
+	la descripción de la información) a los datos que pueda
+	necesitar el astrónomo, pero también que proporcione servicios
+	de análisis remoto que minimicen al máximo la necesidad de
+	transferir cantidades ingentes de información entre el archivo
+	y la estación de trabajo.
+	
+	Esa infraestructura, basada en tecnología de servicios web,
+	tecnología grid, y en la descripción de datos mediante modelos
+	de datos basados en XML, se conoce como Observatorio Virtual, y
+	viene desarrollándose desde 2001, y fue validada
+	en 2002 con el desarrollo del Astrophysical Virtual Observatory
+	(AVO), una aplicación que era capaz de mostrar imágenes que
+	se obtenían a partir de diferentes archivos, y de dibujar sobre
+	esas imágenes las localizaciones de medidas y observaciones
+	tomadas por otros observatorios.
+	
+	Desde nuestro grupo de investigación se lidera el proyecto
+	AMIGA (Análisis del Medio Interestelar de Galaxias Aisladas),
+	que pretende realizar una caracterización estadística
+	multifrecuencia de un conjunto de más de mil galaxias
+	seleccionadas por un estricto criterio de aislamiento, lo que
+	garantiza que se han visto libres de interacciones con galaxias
+	de tamaño comparable durante el último millar de millones de
+	años. Debido a que las propiedades que nos interesan son las 
+	del hidrógeno neutro y gases en estado molecular como
+	H${}_2$ o CO, las longitudes de onda de radio son de particular
+	interés para nosotros.
+	
+	El desarrollo del Observatorio Virtual, sin embargo, ha venido
+	dominado por la zona de luz visible, que es en la que contamos
+	con mayor experiencia, pero también en la que existía un mayor
+	número de archivos ya disponibles.
+	
+	El propósito de esta tesis, por tanto, es la de proporcionar
+	un marco en el cual se puedan crear archivos radioastronómicos,
+	y se puedan integrar en el Observatorio Virtual. Veremos que
+	es necesario ampliar los modelos actualmente existentes
+	dentro del Observatorio Virtual para poder acomodar los datos
+	radioastronómicos, y aprovecharemos para proporcionar modelos
+	de datos de observaciones más genéricos que los existentes.
+	
+	Además, es necesario poder integrar las actuales herramientas
+	de análisis radioastronómicas con el Observatorio Virtual.
+	En esta tesis, desarrollamos un mecanismo para la incorporación
+	al Observatorio Virtual tanto de aplicaciones para las que se
+	dispone de código fuente como para aquellas que no pueden
+	manipularse.
+	
+	Dicho mecanismo de compatibilidad con el Observatorio Virtual
+	vuelve a utilizar técnicas básicas de computación remota como
+	XML-RPC para establecer un sistema de mensajería entre
+	diferentes módulos basado en un modelo de
+	publicación/subscripción, tanto de proceso de datos como de
+	acceso al Observatorio Virtual. Se reduce así al mínimo la
+	intervención en las aplicaciones, que sólo deben incorporar un
+	pequeño módulo de mensajería, dependiendo del resto de módulos
+	para el descubrimiento y manipulación de datos del Observatorio
+	Virtual.
+	
+	Como efecto secundario de esta modularidad, y la existencia de
+	los mecanismos de publicación/subscripción, se crea un
+	mecanismo para la creación de módulos de funcionalidad
+	dinámicamente descubribles, y que permite la extensión de
+	cualquier aplicación que soporte la suscripción a una serie
+	de mensajes ya establecidos.
+	
+	Por último, procedemos a validar el desarrollo de la tesis
+	mediante el desarrollo e integración en el Observatorio Virtual
+	de dos archivos radioastronómicos, para los radiotelescopios
+	DSS-63 de 70m, ubicado en Robledo de Chavela (Madrid), e
+	IRAM~30m de Pico Veleta, en Sierra Nevada (Granada),
+	y la integración en el observatorio virtual de una herramienta
+	para espectroscopía, \massa{} (MAdrid Simple Spectral
+	Analysis).
+	
+	
+\invisiblenote{
+- Astronomía, y especialmente astrofísica, ciencia del análisis extremadamente 
+cuidadoso de la luz de los cuerpos celestes.
+
+- Ese análisis, desde hace tiempo, se realiza de forma digital, con un 
+metaformato común (FITS), pero sin homogeneidad entre observatorios similares,
+mucho menos entre observatorios de diferente tipo.
+
+- Hoy en día, la astrofísica se mueve hacia el análisis multifrecuencia 
+(desde radio a rayos gamma, pasando por IR, visible, UV, rayos X...)
+
+- Además, el crecimiento exponencial ``Tipo Ley de Moore'' de la resolución 
+y sensibilidad de los telescopios implica que \emph{cada año se genera tanta 
+información como había disponible el año precedente}.
+
+- NECESITAMOS el tratamiento automático de la información. Para ello se necesita:
+
+   - Archivos: en muchos casos, los datos que se generan durante una observación
+     se quedan en manos de quien la hizo; disponer de sistemas (archivos) que 
+     proporcionen la información de las observaciones tras un tiempo prudencial 
+     es el futuro. El máximo común denominador de los archivos actuales es el
+     acceso mediante web.
+
+   - Interoperabilidad de archivos: la existencia de archivos es el primer paso. 
+     El paso siguiente debe ser su interoperabilidad, para poder acceder del 
+     mismo modo a todos los archivos astronómicos del mundo. Eso implica 
+     protocolos basados en el máximo común denominador de esos archivos: la web. 
+     Por tanto, es fundamental utilizar protocolos basadas en servicios web,
+     y archivos descritos por metadatos basados en el lenguaje de marca XML.
+
+   - Herramientas: los datos científicos contenidos en los archivos 
+     interoperables no tienen utilidad si no es para producir resultados 
+     científicos. Para ello, es necesario manipularlos con herramientas 
+     que permitan realizar tareas científicas complejas. Es necesario que 
+     las herramientas puedan adquirir los datos directamente de los citados 
+     archivos, y que puedan entender su formato común.
+
+   - Interoperabilidad local: en la filosofía UNIX, cada herramienta se 
+     construye para hacer bien una única tarea, permite que otras se agreguen 
+     mediante un mecanismo de ``pipes'' (\emph{tuberías}) que permite la 
+     interconexión de esas tareas. Si proporcionamos alguna forma sencilla de
+     compartir información entre aplicaciones, podemos utilizar en cada paso 
+     la aplicación que mejor se adapta a lo que queramos hacer. Parte de esta 
+     interoperabilidad local se basa en las mismas herramientas de la 
+     interoperabilidad entre archivos, y otra parte de basa en el uso de 
+     protocolos de mensajería local basados en XML.
+
+Llamamos Observatorio Virtual al conjunto de archivos, protocolos de 
+interoperabilidad, y herramientas, que permiten trabajar a un científico con 
+datos de calidad de cualquier instrumento, y utilizando varias herramientas 
+que son interoperables entre sí.
+
+Así pues, el Observatorio Virtual es un ejemplo de Arquitectura Orientada a 
+Servicios (SOA, Service Oriented Architecture) en sentido amplio, aunque se 
+trate de una infraestructura de propósito específico. 
+La especificidad se concreta en la definición concreta de sus propios 
+protocolos de acceso a datos ---basados en REST---, modelos de datos
+
+En esta tesis:
+
+- Estudiamos la arquitectura, modelos de datos y los protocolos que constituyen
+  el observatorio virtual (VO)
+
+- Creamos un modelo de datos radio astronómicos que se pueda utilizar dentro 
+  del VO.
+
+- Definimos la arquitectura de un archivo radio astronómico compatible VO,
+  que se está implementando en base a dicha arquitectura.
+
+- Transformamos una aplicación existente para que utilice el modelo
+  de datos y los protocolos del VO.
+
+- Demostramos la compatibilidad VO de la nueva herramienta y del archivo:
+
+ 	- Accedemos a datos VO del archivo desde herramientas VO pre-existentes
+
+    - Accedemos a datos VO de archivos pre-existentes desde nuestra nueva 
+      herramienta
+
+    - Accedemos a propiedades específicas de nuestro archivo VO desde la
+      nueva herramienta VO.
+
+- Los pasos anteriores los realizamos utilizando tanto los protocolos de
+  interoperación entre aplicaciones basados en XML-RPC, como mediante los 
+  protocolos estándares de acceso a Espectros y a datos de catálogos.
+
+Durante el trabajo de la tesis fue necesario abordar los siguientes problemas:
+
+- Caracterización de datos radio astronómicos frente a otros datos.
+
+- Determinación de la información de Provenance en radio astronomía en 
+  particular, con generalización al resto del Observatorio Virtual.
+
+- Extender la información de Provenance para incluir los pasos de procesamiento,
+  obtención de datos y transferencia.
+
+- Caracterizar diferentes servicios de astronomía infraroja, óptica y 
+  radio astronomía para darlos de alta en los registros de IVOA.
+
+
+\section*{Organización de la tesis} % (fold)
+\label{sec:thesis_organisation}
+
+The remaining of this thesis is organised as follows:
+
+\todo{Describe thesis organisation first at the part level, and later
+at the chapter level for each part.}
+
+% section thesis_organisation (end)
+
+
+\section*{Main thesis results} % (fold)
+\label{introthesisadvancedresults}
+
+This thesis tries to provide an answer to the problem of using radio
+astronomical datasets within the VO by addressing the following
+problems:
+
+\begin{itemize}
+
+	\item We define the properties of radio datasets in the
+       framework of existing IVOA data models, and provide full
+       semantics for radio data.
+
+	\item We try to solve the problem of bringing existing legacy
+       tools (already in use by the community) in the new framework of
+       the Virtual Observatory.
+
+	\item \todoinline{Complete list.}
+\end{itemize}
+
+% section introthesisadvancedresults (end)
+}
+
+% chapter resumen (end)

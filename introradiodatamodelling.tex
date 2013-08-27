@@ -1,0 +1,84 @@
+%2345678901234567890123456789012345678901234567890123456789012345678901
+
+\chapter{Introduction} % (fold)
+\label{cha:introduction}
+	
+	Due to the more abstract nature of radio astronomical
+	observations, there are less astronomers and observatories
+	providing radio astronomical data when compared to those
+	working on the visible part of the spectrum. However, as
+	multi-wavelength studies become more and more commonplace in
+	astrophysics, and are essential for studies such as the one
+	being carried out within the AMIGA group, the capability of
+	having access to radio astronomical data becomes of the utmost
+	importance.
+	
+	 There are few radio astronomical observatories with proper
+	archives (most of them provide just logbooks, or observation
+	registries), so providing VO-compatible radio
+	astronomical archives is a valuable contribution to the
+	community both because of the availability of the archive
+	itself, and
+	the bonus possibility of using VO-tools to access it.
+	
+	 For existing archives, the data model of the archive itself
+	does not usually match the data model of the VO, mainly due to
+	the difference in scope: archive data models reflect the data
+	origin, and are built to answer the queries of engineers,
+	commissioning scientists and scientists; VO data models, on the
+	other hand, are built to describe observations so that the
+	description is enough for astronomers, or computer queries, to
+	assess the usefulness of a particular piece of data.
+	
+	 For a new archive, however, the internal archive data model
+	can be built by mirroring VO data models, while adding non-VO
+	information so that all needs can be covered.
+	
+
+	 In this part, we will describe the RADAMS, a data model for
+	single-dish radio astronomical archives reflecting existing
+	IVOA data models, but which at the same time provides
+	definitions and proposals for modelling additional
+	observational aspects. We will use this data model for the
+	building of the IRAM 30m and DSS-63 archives, which will be
+	shown  in
+	Part~\ref{prt:thesis_applications}.
+	
+	 In addition, some parts
+	of the RADAMS will be used in the development of the MOVOIR, 
+	a modular VO interface and API to the VO, which will be
+	described in Part~\ref{prt:legacyTools}.
+	
+	%  We will see both approaches when describing the archives for
+	% the DSS-63 and IRAM 30m antennas. For the former, no archiving
+	% infrastructure existed in the first place, and thus the RADAMS
+	% was built with the intent of being used as a blueprint for
+	% this archive development. For the latter, earlier archive
+	% organisation attempts had been made, specially for pooled
+	% observations\footnote{Pooled observations are observations which
+	% are scheduled from a pool of available observations projects
+	% regarding project priority, weather conditions, availability of 
+	% sources, and  availability of allocated time for the project.
+	% Pooled observations enhance the project completion rate and
+	% scientific return for an observatory, as backup programas
+	% exist for non-optimal weather conditions.}. In this case, the
+	% RADAMS is built as a layer on top of the existing, instrument
+	% specific data model.
+	
+	We will start by introducing which are the existing IVOA data
+	models in chapter~\ref{cha:data_modelling_in_the_vo}, and then
+	we will evaluate parts of those models to create the RADAMS
+	(Radio Astronomical DAta Model for Single-dish observations) in
+	chapter~\ref{cha:radams}. Chapter~\ref{cha:radamscharobs}
+	explains how the RADAMS can be used to characterise
+	astronomical observations, and the following chapters explore
+	in detail which are the missing parts in IVOA data models which
+	are needed for the RADAMS: Curation, Packaging and Policy are
+	specified in
+	chapter~\ref{cha:radams_curation_packaging_and_policy}, while
+	data provenance in e-science is reviewed in
+	chapter~\ref{cha:data_provenance_in_the_vo}, and the lessons
+	learned applied to RADAMS' Provenance in
+	chapter~\ref{cha:radams_data_provenance}.
+	
+% chapter introduction (end)

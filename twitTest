@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+# Show thesis 'facebook friendly' numeric summary, and open PDF
+if [ "twitter" == "$1" ]
+	then
+		echo Twitting\!
+		mensajeTwitter="Automatic thesis report: `palabras` words in LaTeX, in `paginas` pages, with `figuras` figures, `tablas` tables, and `listados` listings."
+		echo $mensajeTwitter
+		#twit $mensajeTwitter
+	else
+		echo Not twitting...
+		facebook
+fi

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.ivoa.net/xml/VOTable/v1.1"
+  xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.1 http://www.ivoa.net/xml/VOTable/v1.1">
+ <DESCRIPTION>
+   VizieR Astronomical Server: vizier.u-strasbg.fr 	2009-05-04T04:06:13
+   Explanations and Statistics of UCDs:			See LINK below
+   In case of problem, please report to:	question@simbad.u-strasbg.fr
+ </DESCRIPTION>
+<!-- VOTable description at http://www.ivoa.net/Documents/latest/VOT.html -->
+
+<DEFINITIONS>
+  <COOSYS ID="J2000" system="eq_FK5" equinox="J2000"/>
+</DEFINITIONS>
+
+
+<!-- Parameters used for the Query:
+ -source=J/A A/472/121
+ -c
+ -out.meta=hU2D
+ -meta.max=1
+ -meta.maxtable=1
+ RA=33.865167
+ DEC= 6.002528
+ SR=0.1
+ -out=_r _RAJ _DEJ *
+ -->
+<INFO ID="Ref" name="-ref" value="VOTx16153"/>
+<INFO ID="File" name="-file" value="&quot;ConeSearch&quot;"/>
+<INFO ID="MaxTuples" name="-out.max" value="50000"/>
+
+<!--
+Execution Reports
+ -->
+<INFO ID="Target" name="-c" value="033.865167+06.002528,rm=6."/>
+
+<RESOURCE ID="ConeSearch" name="J/A+A/472/121">
+  <DESCRIPTION>AMIGA V. Isolation parameters (Verley+, 2007)</DESCRIPTION>
+  <TABLE ID="J_A_A_472_121_tables" name="J/A+A/472/121/tables">
+    <DESCRIPTION>*Isolation parameters calculated for studied the 3 subsamples studied (tables 1-2, 4-6 of the paper)</DESCRIPTION>
+    <!-- Now comes the definition of each field -->
+    <FIELD name="_r" ucd="POS_ANG_DIST_GENERAL" datatype="float" width="7" precision="5" unit="deg"><!-- ucd="pos.angDistance" -->
+      <DESCRIPTION>Distance from center (RAJ2000=033.8652, DEJ2000=+06.0025)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="_RAJ2000" ucd="POS_EQ_RA_MAIN" ref="J2000" datatype="double" width="8" precision="4" unit="deg"><!-- ucd="pos.eq.ra;meta.main" -->
+      <DESCRIPTION>Right ascension (FK5) Equinox=J2000. (computed by VizieR, not part of the original data)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="_DEJ2000" ucd="POS_EQ_DEC_MAIN" ref="J2000" datatype="double" width="8" precision="4" unit="deg"><!-- ucd="pos.eq.dec;meta.main" -->
+      <DESCRIPTION>Declination (FK5) Equinox=J2000. (computed by VizieR, not part of the original data)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="Name" ucd="ID_MAIN" datatype="char" arraysize="8*"><!-- ucd="meta.id;meta.main" -->
+      <DESCRIPTION>Galaxy name</DESCRIPTION>
+    </FIELD>
+    <FIELD name="RAJ2000" ucd="POS_EQ_RA" ref="J2000" datatype="double" width="8" precision="4" unit="deg"><!-- ucd="pos.eq.ra" -->
+      <DESCRIPTION>Right ascension in decimal degrees (J2000)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="DEJ2000" ucd="POS_EQ_DEC" ref="J2000" datatype="double" width="8" precision="4" unit="deg"><!-- ucd="pos.eq.dec" -->
+      <DESCRIPTION>Declination in decimal degrees (J2000)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="Amaj" ucd="EXTENSION_RAD" datatype="float" width="5" precision="2" unit="arcmin"><!-- ucd="phys.angSize" -->
+      <DESCRIPTION>? Major axis (1)</DESCRIPTION>
+      <VALUES null="" />
+    </FIELD>
+    <FIELD name="l_Vel" ucd="CODE_LIMIT" datatype="char"><!-- ucd="meta.code.error" -->
+      <DESCRIPTION>Limit flag on Vel</DESCRIPTION>
+    </FIELD>
+    <FIELD name="Vel" ucd="VELOC_HC" datatype="int" width="5" unit="km/s"><!-- ucd="spect.dopplerVeloc;pos.heliocentric" -->
+      <DESCRIPTION>? Recession velocity (1)</DESCRIPTION>
+      <VALUES null="" />
+    </FIELD>
+    <FIELD name="etak" ucd="PHYS_DENSITY_NUMBER" datatype="float" width="7" precision="3"><!-- ucd="meta.number;phys.density" -->
+      <DESCRIPTION>? Local number density of similar size neighbours (2)</DESCRIPTION>
+      <VALUES null="" />
+    </FIELD>
+    <FIELD name="k" ucd="NUMBER" datatype="short" width="3"><!-- ucd="meta.number" -->
+      <DESCRIPTION>[2,5]? Number of similar size neighbours taken into account to calculate eta_k_ (2)</DESCRIPTION>
+      <VALUES null="" />
+    </FIELD>
+    <FIELD name="Q" ucd="FIT_PARAM_VALUE" datatype="float" width="6" precision="3"><!-- ucd="stat.fit.param" -->
+      <DESCRIPTION>Tidal strength estimation in the whole available square field</DESCRIPTION>
+    </FIELD>
+    <FIELD name="Qkat" ucd="FIT_PARAM_VALUE" datatype="float" width="7" precision="3"><!-- ucd="stat.fit.param" -->
+      <DESCRIPTION>? Tidal strength estimation of similar size neighbours in the whole available square field (3)</DESCRIPTION>
+      <VALUES null="" />
+    </FIELD>
+    <FIELD name="Q0.5" ucd="FIT_PARAM_VALUE" datatype="float" width="7" precision="3"><!-- ucd="stat.fit.param" -->
+      <DESCRIPTION>? Tidal strength estimation within 0.5Mpc (3)</DESCRIPTION>
+      <VALUES null="" />
+    </FIELD>
+    <FIELD name="Q0.5,kat" ucd="FIT_PARAM_VALUE" datatype="float" width="7" precision="3"><!-- ucd="stat.fit.param" -->
+      <DESCRIPTION>? Tidal strength estimation of similar size neighbours within 0.5Mpc (3)</DESCRIPTION>
+      <VALUES null="" />
+    </FIELD>
+    <FIELD name="SimbadName" ucd="ID_ALTERNATIVE" datatype="char" arraysize="8*"><!-- ucd="meta.id" -->
+      <DESCRIPTION>Designation understandable by the {\bf\fg{FireBrick}Simbad} data-base</DESCRIPTION>
+    </FIELD>
+    <FIELD name="NED" ucd="DATA_LINK" datatype="char" arraysize="3"><!-- ucd="(unassigned)" -->
+      <DESCRIPTION>ask the {\bf\fg{FireBrick}NED} data-base about this object</DESCRIPTION>
+    </FIELD>
+<DATA>      <TABLEDATA>
+<TR><TD>0.00000</TD><TD>033.8652</TD><TD>+06.0025</TD><TD>CIG   96</TD><TD>033.8652</TD><TD>+06.0025</TD><TD></TD><TD> </TD><TD></TD><TD>0.877</TD><TD>2</TD><TD>-1.980</TD><TD>-3.613</TD><TD>-1.981</TD><TD>-3.613</TD><TD>K73   96</TD><TD>NED</TD></TR>
+</TABLEDATA></DATA>
+  </TABLE>
+</RESOURCE>
+
+
+
+<!--  INFO Diagnostics (++++ are Warnings, **** are Errors)
+++++set max_tuple=50000 (50000)
+ -->
+</VOTABLE>

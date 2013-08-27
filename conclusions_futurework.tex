@@ -1,0 +1,149 @@
+% chapter conclusions (fold)
+\chapter*[Conclusions and future work]{Conclusions and future work}
+\addcontentsline{toc}{chapter}{Conclusions and future work}
+\label{conclusions}
+	
+	In this thesis we have performed an extensive and inclusive
+	review of what the Virtual Observatory means from the eyes of
+	current radio astronomers: how does the Virtual Observatory
+	enhance their interaction with astronomical archives, and how data
+	in those archives become interoperable thanks to a unified
+	description; on the other hand, we have seen how the tools
+	they are accustomed to use need to be incorporated into the
+	Virtual Observatory, what different means exist for that,
+	and which one has the less impact on said applications
+	in order to provide VO compatibility.
+	
+	During that review of available literature, and of IVOA
+	proposed and drafted standards, we have seen that the IVOA
+	had not proposed any complete data model, and many radio
+	astronomical specifics where not taken into account. As a
+	result, no appropriate data model for radio astronomical
+	observations existed.
+	
+	Thus, a data model has been developed (RADAMS) to support,
+	initially, observations made with single-dish radio telescopes.
+	The RADAMS uses as a basis the IVOA draft proposal for an
+	Observation data model~\cite{2005dmo..rept.....M}, combined
+	with the Characterisation data model~\cite{2008dmadcrept.....L}.
+	On top of that model the Provenance, Policy, Curation, and
+	Packaging classes have been created and specified, as no actual
+	proposals existed.
+	
+	Those added classes are completely modular, both in their
+	expression in database form as in their XML serialisation,
+	as they use their own UTypes, and as such they can be safely
+	ignored by applications not able to understand such metadata.
+	
+	As the most radio astronomy specific part of the RADAMS is
+	found in the Provenance data model, and due to the already
+	mentioned modularity, the RADAMS conforms a complete Observation
+	data model proposal. In the case of the Provenance.Instrument
+	sub-model, we have not only covered single-dish instruments,
+	but also interferometers.
+	
+	The RADAMS has been validated by being used as the basis for
+	the development of two radio astronomical archives, those for
+	the DSS-63 and IRAM~30m antennas. That development, in turn,
+	serves to back-up the feasibility of using IVOA data models
+	as the basis for the development of new astronomical archives,
+	in general.
+	
+	These archives have needed a complete proposal of metadata
+	for their XML serialisations, consisting of FITS keywords
+	for the Data-filler, and Unified Content Descriptors (UCDs)
+	for all attributes. Many UCDs have been built by means of
+	juxtaposition of existing ones, so that the resulting
+	UCDs are more specific. A few UCDs have been proposed for
+	addition to the UCD1+ vocabulary.
+	
+	Complementarily, we have analysed the different options
+	available for bringing legacy astronomical (not necessarily
+	radio specific) tools into the VO, and we have found that
+	by using a messaging protocol based on multi-platform and
+	multi-language intercommunication technologies such as 
+	XML-RPC, we can provide VO compatibility and interoperability
+	with minimal effort and code changes, as long as the tools
+	to be updated conform to the Model-View-Controller (MVC)
+	paradigm. A recently developed IVOA protocol, the
+	Simple Application Messaging Protocol (SAMP), conforms to
+	that description, and incorporates VO semantics in the way
+	messages are created, providing a framework for the
+	implementation of the proposed mechanism.
+	
+	We have validated such analysis, by implementing SAMP, and
+	VO-specific messages, in several applications, and showing
+	their interoperability. In particular, we have implemented
+	SAMP, and MOVOIR messages, into \massa{}, the VODownloader, and
+	several other MOVOIR modules.
+	
+	Finally, the MOVOIR is the first proposal for a plug-in
+	development architecture in order to allow the enhancement of
+	the operation of existing, SAMP compatible, VO applications,
+	without needing access to application source code, and with
+	additional discovery capabilities for MOVOIR-aware applications.
+	
+	\section*{Future work} % (fold)
+	\addcontentsline{toc}{section}{Future work}
+	\label{sec:future_work}
+		
+		In the future, I will work with the Archive Management
+		Group of the Archive Department of the Data Management and
+		Operations Division of the European Southern
+		Observatory organisation. The scope of my work will be
+		VO-related archive metadata
+		management. In addition, I will remain a member of
+		the IVOA Data Modelling Working Group, and will also be
+		a member in charge of the development of a radio data
+		cube data model in the framework of the EuroVO-AIDA
+		Technology Forum.
+		
+		The organisations above will allow me to continue my
+		research on astronomical archives and VO technologies,
+		and I plan to perform the following tasks, also in
+		collaboration with the team at the IAA:
+		
+		\begin{itemize}
+			\item Submit the different RADAMS modules for approval
+			to the IVOA Data Modelling Working Group, in order
+			to finally issue an Observation Data Model IVOA
+			Recommendation. The RADAMS would serve as a reference
+			implementation of that Observation Data Model, a
+			requisite of the IVOA for their Recommendations.
+			
+			\item Extend the use of semantic web technologies in
+			the ESO as a substitution mechanism for the ESO
+			Hierarchic Keywords.
+			
+			\item Introduce the MOVOIR at the IVOA InterOp meetings,
+			within the Applications Working Group, and present it
+			at the ADASS (Astronomical Data Analysis Software and
+			Systems) conference, compiling user suggestions for
+			new MOVOIR modules.
+			
+			\item Extend and prepare for distribution existing
+			MOVOIR modules.
+			
+			\item Propose the MOVOIR as a reference implementation
+			for an IVOA sanctioned plug-in architecture, in order
+			to allow better integration of MOVOIR modules with
+			plug-in aware applications, and create RADAMS-enabled
+			MOVOIR modules.
+			
+			\item Develop a data quality assessment metric for
+			RADAMS compatible archives, and implement it as a
+			MOVOIR tool.
+			
+			\item Use MOVOIR in order to bring VO capabilities
+			to the GIPSY high-level radio data cube analysis
+			and kinematic modelling package GIPSY al VO, within
+			the AMIGA\textsuperscript{3} project framework.
+			
+			\item Generalise the RADAMS with support for
+			interferometry, in collaboration with the ALMA Archive
+			Team at ESO, within that same framework.
+		\end{itemize}
+		
+	% section future_work (end)
+	
+% chapter conclusions (end)
