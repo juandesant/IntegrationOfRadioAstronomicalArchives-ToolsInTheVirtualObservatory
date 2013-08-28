@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<!DOCTYPE VOTABLE SYSTEM "http://us-vo.org/xml/VOTable.dtd">
+<VOTABLE version="1.0">
+  <DEFINITIONS>
+    <COOSYS system="eq_FK5" equinox="2000" />
+  </DEFINITIONS>
+    
+  <RESOURCE ID="T9001">
+     <DESCRIPTION>
+       HEASARC Browse data service
+       Please send inquiries to mailto:request@athena.gsfc.nasa.gov
+    </DESCRIPTION>
+    <PARAM ID="default_search_radius" ucd="OBS_ANG-SIZE" value="0.0833333333333333" ></PARAM>
+    <TABLE>
+      <DESCRIPTION> Third Reference Catalog of Bright Galaxies </DESCRIPTION>
+      
+      <FIELD name="unique_id" datatype="int"  >
+        <DESCRIPTION> Integer key </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="name" datatype="char" arraysize="*"  ucd="ID_MAIN">
+        <DESCRIPTION> Galaxy Designation </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="alt_name_1" datatype="char" arraysize="*"  ucd="meta.id">
+        <DESCRIPTION> Alternative Designation #1 </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="ra" datatype="double" unit="degree" ucd="POS_EQ_RA_MAIN">
+        <DESCRIPTION> Right Ascension </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="dec" datatype="double" unit="degree" ucd="POS_EQ_DEC_MAIN">
+        <DESCRIPTION> Declination </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="radial_velocity" datatype="int" unit="km/s" ucd="phys.veloc;pos.heliocentric">
+        <DESCRIPTION> Heliocentric Radial Velocity Derived from Optical Observations, Vopt=cz </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="bt_mag" datatype="double" unit="mag" ucd="phot.mag;em.opt.B">
+        <DESCRIPTION> Total Asymptotic B Magnitude, BT </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="morph_type" datatype="char" arraysize="*"  ucd="src.morph.type">
+        <DESCRIPTION> Morphological Type </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="a_bmag_galactic" datatype="double" unit="mag" ucd="phys.absorption">
+        <DESCRIPTION> Galactic Extinction in B, Ag </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="a_bmag_internal" datatype="double" unit="mag" ucd="phys.absorption">
+        <DESCRIPTION> Internal B Extinction, Ai </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="a_h_21cm" datatype="double" unit="mag" ucd="phys.absorption">
+        <DESCRIPTION> HI Line Self-Absorption, A21 </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="alt_name_2" datatype="char" arraysize="*"  ucd="meta.id">
+        <DESCRIPTION> Alternative Designation #2 </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="bii" datatype="double" unit="degree" ucd="pos.galactic.lat">
+        <DESCRIPTION> Galactic Latitude </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="bt_mag_corr" datatype="double" unit="mag" ucd="phot.mag;em.opt.B">
+        <DESCRIPTION> Total B Magnitude Corrected for Galactic and Internal Extinction and Redshift </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="bt_mag_error" datatype="double" unit="mag" ucd="stat.error;phot.mag;em.opt.B">
+        <DESCRIPTION> Mean Error on Total (Asymptotic) B Magnitude </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="bt_mag_flag" datatype="char" arraysize="*"  ucd="meta.code;phot.mag;em.opt.B">
+        <DESCRIPTION> Flag for Total Asymptotic B Magnitude </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="bv_color_ae" datatype="double" unit="mag" ucd="phot.color;em.opt.B;em.opt.V">
+        <DESCRIPTION> Mean B-V Color Index within the Effective Aperture, (B-V)e </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="bv_color_ae_error" datatype="double" unit="mag" ucd="stat.error;phot.color;em.opt.B;em.opt.V">
+        <DESCRIPTION> Mean Error on (B-V)e </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="bv_color_tot" datatype="double" unit="mag" ucd="phot.color;em.opt.B;em.opt.V">
+        <DESCRIPTION> Total (Asymptotic) Color Index in Johnson B-V System, (B-V)T </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="bv_color_tot_corr" datatype="double" unit="mag" ucd="phot.color;em.opt.B;em.opt.V">
+        <DESCRIPTION> Total B-V Color Corrected for Galactic and Internal Extinction and for Redshift </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="bv_color_tot_error" datatype="double" unit="mag" ucd="stat.error;phot.color;em.opt.B;em.opt.V">
+        <DESCRIPTION> Mean Error on (B-V)T </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="class" datatype="char" arraysize="*"  ucd="src.class">
+        <DESCRIPTION> Browse Object Classification </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="far_ir_mag" datatype="double" unit="mag" ucd="phot.mag;em.IR">
+        <DESCRIPTION> Far-Infrared Magnitude </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="h_21cm_mag" datatype="double" unit="mag" ucd="spect.line.intensity">
+        <DESCRIPTION> 21-cm Emission Line Magnitude </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="h_21cm_mag_error" datatype="double" unit="mag" ucd="stat.error;spect.line.intensity">
+        <DESCRIPTION> Mean Error on 21-cm Emission Line Magnitude </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="h_21cm_radial_vel" datatype="int" unit="km/s" ucd="phys.veloc;pos.heliocentric">
+        <DESCRIPTION> Heliocentric Radial Velocity Derived from Neutral Hydrogen Observations, V21 </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="h_21cm_radial_vel_error" datatype="int" unit="km/s" ucd="stat.error;phys.veloc;pos.heliocentric">
+        <DESCRIPTION> Mean Error on V21 </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="h_21cm_w20" datatype="int" unit="km/s" ucd="spect.line.width;em.radio">
+        <DESCRIPTION> HI Line Full Width @ 20% (km/s) </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="h_21cm_w20_error" datatype="int" unit="km/s" ucd="stat.error;spect.line.width;em.radio">
+        <DESCRIPTION> Mean Error on HI Line Full Width @ 20% (km/s) </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="h_21cm_w50" datatype="int" unit="km/s" ucd="spect.line.width;em.radio">
+        <DESCRIPTION> HI Line Full Width @ 50% (km/s) </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="h_21cm_w50_error" datatype="int" unit="km/s" ucd="stat.error;spect.line.width;em.radio">
+        <DESCRIPTION> Mean Error of HI Line Full Width @ 50% (km/s) </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="h_index_corr" datatype="double" unit="mag" ucd="phot.color;em.opt.B;em.radio">
+        <DESCRIPTION> Neutral Hydrogen Index, HI </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="hubble_stage" datatype="double"  ucd="src.morph.type">
+        <DESCRIPTION> Mean Numerical Index of Stage along the Hubble Sequence in RC2 System </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="hubble_stage_error" datatype="double"  ucd="stat.error;src.morph.type">
+        <DESCRIPTION> Mean Error of Hubble Stage </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="lii" datatype="double" unit="degree" ucd="pos.galactic.lon">
+        <DESCRIPTION> Galactic Longitude </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="log_ae" datatype="double" unit="log(0.1arcmin)" ucd="phys.angSize">
+        <DESCRIPTION> Logarithm of the Apparent Diameter (in 0.1 arcmin) of the Effective Aperture </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="log_ae_error" datatype="double" unit="log(0.1arcmin)" ucd="stat.error;phys.angSize">
+        <DESCRIPTION> Mean Error on Log Ae </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="log_d25" datatype="double" unit="log(0.1arcmin)" ucd="phys.angSize">
+        <DESCRIPTION> Mean Logarithm of the Apparent Major Isophotal Diameter at muB = 25 B/mag^2 </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="log_d25_error" datatype="double" unit="log(0.1arcmin)" ucd="stat.error;phys.angSize">
+        <DESCRIPTION> Mean Error on Log D25 </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="log_d25_flag" datatype="char" arraysize="*"  ucd="meta.code.error;phys.angSize">
+        <DESCRIPTION> Flag [?] Indicates Log D25 Very Uncertain </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="log_do" datatype="double" unit="log(0.1arcmin)" ucd="phys.angSize">
+        <DESCRIPTION> Log of Isophotal Major Diameter Corrected to Face-on and Galactic Extinction </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="log_r25" datatype="double"  ucd="phys.size;arith.ratio">
+        <DESCRIPTION> Mean Logarithm of the Ratio of the D25 Isophotal Diameters </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="log_r25_error" datatype="double"  ucd="stat.error;phys.size;arith.ratio">
+        <DESCRIPTION> Mean Error on Log R25 </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="log_r25_flag" datatype="char" arraysize="*"  ucd="meta.code.error;phys.size;arith.ratio">
+        <DESCRIPTION> Flag [?] Indicates Log R25 Very Uncertain </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="lum_class" datatype="double"  ucd="src.class.luminosity">
+        <DESCRIPTION> Luminosity Class </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="lum_class_error" datatype="double"  ucd="stat.error;src.class.luminosity">
+        <DESCRIPTION> Mean Error on Luminosity Class </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="num_lum_class_estimates" datatype="char" arraysize="*"  ucd="meta.number;phot">
+        <DESCRIPTION> Number of Luminosity Class Estimates </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="pgc_name" datatype="char" arraysize="*"  ucd="meta.id">
+        <DESCRIPTION> PGC Designation </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="phot_mag" datatype="double" unit="mag" ucd="phot.mag;em.opt.B">
+        <DESCRIPTION> Photographic Magnitude, mB </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="phot_mag_error" datatype="double" unit="mag" ucd="stat.error;phot.mag;em.opt.B">
+        <DESCRIPTION> Mean Error on Photographic Magnitude </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="position_angle" datatype="int" unit="degree" ucd="pos.posAng">
+        <DESCRIPTION> Position Angle of the Major Axis (degree) </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="radial_velocity_3k" datatype="int" unit="km/s" ucd="phys.veloc">
+        <DESCRIPTION> Weighted Mean Velocity Corrected to 3K MBR Reference Frame </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="radial_velocity_error" datatype="int" unit="km/s" ucd="stat.error;phys.veloc;pos.heliocentric">
+        <DESCRIPTION> Mean Error on Vopt </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="radial_velocity_gsr" datatype="int" unit="km/s" ucd="phys.veloc">
+        <DESCRIPTION> Weighted Mean of HI &amp; Optical Velocities Corrected to Galactic Standard of Rest </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="ref_morph_type" datatype="char" arraysize="*"  ucd="meta.ref;src.morph.type">
+        <DESCRIPTION> Reference Code for Morphological Type </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="sg_lat" datatype="double" unit="degree" ucd="pos.supergalactic.lat">
+        <DESCRIPTION> Supergalactic Latitude in RC2 System </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="sg_lon" datatype="double" unit="degree" ucd="pos.supergalactic.lon">
+        <DESCRIPTION> Supergalactic Longitude in RC2 System </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="surf_brtness_ae" datatype="double" unit="mag/arcmin^2" ucd="phot.mag.sb;instr.fov">
+        <DESCRIPTION> Mean B-Band Surface Brightness within the Effective Aperture </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="surf_brtness_ae_error" datatype="double" unit="mag/arcmin^2" ucd="stat.error;phot.mag.sb;instr.fov">
+        <DESCRIPTION> Mean Error on Mean B-Band Surface Brightness within the Effective Aperture </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="surf_brtness_d25" datatype="double" unit="mag/arcmin^2" ucd="phot.mag.sb">
+        <DESCRIPTION> Mean Surface Brightness within the D25 Isophote </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="surf_brtness_d25_error" datatype="double" unit="mag/arcmin^2" ucd="stat.error;phot.mag.sb">
+        <DESCRIPTION> Mean Error on Mean Surface Brightness within the D25 Isophote </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="ub_color_ae" datatype="double" unit="mag" ucd="phot.color;em.opt.U;em.opt.B">
+        <DESCRIPTION> Mean U-B Color Index within the Effective Aperture, (U-B)e </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="ub_color_ae_error" datatype="double" unit="mag" ucd="stat.error;phot.color;em.opt.U;em.opt.B">
+        <DESCRIPTION> Mean Error on (U-B)e </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="ub_color_tot" datatype="double" unit="mag" ucd="phot.color;em.opt.U;em.opt.B">
+        <DESCRIPTION> Total (Asymptotic) Color Index in Johnson U-B System, (U-B)T </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="ub_color_tot_corr" datatype="double" unit="mag" ucd="phot.color;em.opt.U;em.opt.B">
+        <DESCRIPTION> Total U-B Color Corrected for Galactic and Internal Extinction and for Redshift </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="ub_color_tot_error" datatype="double" unit="mag" ucd="stat.error;phot.color;em.opt.U;em.opt.B">
+        <DESCRIPTION> Mean Error on (U-B)T </DESCRIPTION>
+      </FIELD>
+      
+      <FIELD name="Search_Offset" datatype="double" unit="'" >
+        <DESCRIPTION> Offset of target/observation from query center </DESCRIPTION>
+      </FIELD>
+	
+	
+      <DATA>
+        <TABLEDATA>
+<TR><TD>2155</TD><TD>NGC 2573</TD><TD>ESO 1-1</TD><TD>25.4292</TD><TD>-89.3344</TD><TD></TD><TD>14.10</TD><TD>.SXS6*.</TD><TD>0.56</TD><TD>0.62</TD><TD>0.21</TD><TD>IRAS 02425-8934</TD><TD>-27.7778</TD><TD></TD><TD>0.20</TD><TD></TD><TD></TD><TD></TD><TD>0.59</TD><TD></TD><TD>0.06</TD><TD>SPIRAL GALAXY</TD><TD>13.35</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD> 6.3</TD><TD>0.7</TD><TD>302.7682</TD><TD></TD><TD></TD><TD>1.30</TD><TD>0.04</TD><TD></TD><TD>1.35</TD><TD>0.42</TD><TD>0.04</TD><TD></TD><TD> 6.1</TD><TD>0.8</TD><TD>1</TD><TD>PGC 6249</TD><TD>14.12</TD><TD>0.21</TD><TD> 70</TD><TD></TD><TD></TD><TD></TD><TD>S</TD><TD>-15.84</TD><TD>207.13</TD><TD></TD><TD></TD><TD>14.38</TD><TD>0.28</TD><TD></TD><TD></TD><TD>-0.16</TD><TD></TD><TD>0.07</TD><TD>0.000</TD></TR>
+        </TABLEDATA>
+      </DATA>
+    </TABLE>
+  </RESOURCE>
+</VOTABLE>
