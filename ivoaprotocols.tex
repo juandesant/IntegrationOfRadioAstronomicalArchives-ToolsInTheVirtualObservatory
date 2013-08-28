@@ -50,7 +50,8 @@ compliant with these protocols.
 
 		\item[\textcolor{red}{\texttt{verbosity}}] specifies reply
         verbosity; \texttt{verbosity} can be one of \texttt{1},
-        \texttt{2} or~\texttt{3}. \texttt{1} provides the least verbose
+        \texttt{2} or~\texttt{3},
+		with \texttt{1} providing the least verbose
         reply, and \texttt{3} the most verbose.
 	\end{description}
 	
@@ -105,8 +106,10 @@ compliant with these protocols.
 	\label{sub:query_syntax_siap}
 	
 	Mandatory query parameters listed in black. Optional parameters
-	listed in \textcolor{blue}{blue}. Not all services implement all 
-	optional parameters, except for \texttt{FORMAT=formatType}. Use 
+	listed in \textcolor{blue}{blue}. Not all services 
+	have to
+	implement all 
+	optional parameters, except for the \texttt{FORMAT=formatType}. Use 
 	\texttt{metadata} as \texttt{formatType} to retrieve supported 
 	parameters.
 	
@@ -502,7 +505,7 @@ compliant with these protocols.
 		
 		\item[\texttt{compressionFlag}] is a \texttt{string} 
 		containing either \texttt{true} or \texttt{false}. If 
-		\texttt{compressionFlag} is \texttt{true}, returned 
+		\texttt{compression\-Flag} is \texttt{true}, returned 
 		data might be compressed. Default is \texttt{false}.
 		
 		\item[\texttt{jobRunID}] is a \texttt{string} with 

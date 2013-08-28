@@ -96,9 +96,11 @@
 		delegate class for the renderer sub-view.
 		
 		In order to be able to download files sent from any
-		application, the VO~Downloader needs to respond to all data load messages ---\method{ta\-ble.load.vo\-ta\-ble},
-		\method{ta\-ble.load.fits}, and \method{im\-age.load.fits}---
-		In addition, a generic \method{movoir.download.file} is
+		application, the VO~Downloader needs to respond to all data
+		load messages ---\method{ta\-ble.load.vo\-ta\-ble},
+		\method{ta\-ble.load.fits}, and 
+		\method{im\-age.load.fits}---.
+		In addition, a generic \method{movoir.down\-load.file} is
 		supported, plus the \method{mo\-vo\-ir.de\-scribe.m\-type}
 		MType.
 		
@@ -209,7 +211,7 @@
 			\method{im\-age.load.fits}, \method{ta\-ble.load.fits}, and
 			the MOVOIR-specific \method{movoir.download.file}
 			(passed as a list of MType strings in
-			\method{load\-M\-Types}). All of those messages need to
+			\method{load\-MTypes}). All of those messages need to
 			provide a \mapkey{url} parameter.
 			
 			 If \mapkey{url} is present, the already implemented
@@ -714,10 +716,12 @@
 			
 			By doing that, however, one of the file types which
 			can be understood by \massa's \method{SpectraLoaderFactory}
-			class must be provided. Hence, for \method{table.load.fits}
-			messages, if the URL sent corresponds to one of the
-			FITS file formats understood by \massa, that  would
-			be the most straightforward way to implement it.
+			class must be provided. Hence, the most straightforward way
+			to implement the
+			\method{table.load.fits} message
+			would be to send an URL corresponding 
+			to one of the
+			FITS file formats understood by \massa.
 			
 			For \method{table.load.votable} messages, either a
 			linked FITS file can be passed to the already
@@ -731,7 +735,7 @@
 			serialisation of the spectrum or, most likely,
 			to a FITS file, making this approach the easiest.
 			
-			However, and specially for the recently incorporated
+			However, and specially for the new
 			\method{spectrum.load.ssa-generic} message, this
 			would completely ignore the associated \mapkey{meta}
 			keyword, which corresponds to a map of Spectrum data
@@ -806,10 +810,10 @@
 					\method{spectrum.load.ssa-generic} will be
 					shown first, with applications supporting
 					\method{table.load.fits} next, and those
-					supporting \method{table.load.votable} last;
+					supporting \method{table.load.vo\-table} last;
 					the sending method would be chosen accordingly,
 					and data conversions will be performed as
-					needed from the \method{SimpleSpectraBunch}
+					needed from the \method{Simple\-Spectra\-Bunch}
 					internal format.
 				\end{itemize}
 			
